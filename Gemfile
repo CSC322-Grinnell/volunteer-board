@@ -35,6 +35,18 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use simple_calendar
+gem 'simple_calendar', '~> 2.0'
+
+# Active admin
+gem 'activeadmin', '~>1.0.0.pre2'
+
+# Devise
+gem 'devise'
+
+# City-state
+gem 'city-state'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
