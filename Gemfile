@@ -11,6 +11,7 @@ gem 'rails', '~> 5.0.1'
 # Use activeadmin to generate administration interface
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'devise'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
