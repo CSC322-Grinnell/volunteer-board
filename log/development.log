@@ -1,0 +1,236 @@
+Started GET "/" for 10.240.0.206 at 2017-03-10 20:29:12 +0000
+Cannot render console from 10.240.0.206! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (7.0ms)
+Completed 200 OK in 33ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user" for 10.240.1.15 at 2017-03-10 20:29:16 +0000
+Cannot render console from 10.240.1.15! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [8 times] (5.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (12.1ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (87.5ms)
+Started GET "/users" for 10.240.1.15 at 2017-03-10 20:29:28 +0000
+Cannot render console from 10.240.1.15! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (148.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (158.5ms)
+Completed 200 OK in 975ms (Views: 972.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 10.240.0.110 at 2017-03-10 20:31:41 +0000
+Cannot render console from 10.240.0.110! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (17.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (29.9ms)
+Completed 200 OK in 74ms (Views: 71.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 10.240.0.186 at 2017-03-10 20:31:56 +0000
+Cannot render console from 10.240.0.186! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (12.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 66ms (Views: 64.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 10.240.0.119 at 2017-03-10 20:32:07 +0000
+Cannot render console from 10.240.0.119! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 23ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 10.240.0.207 at 2017-03-10 20:32:12 +0000
+Cannot render console from 10.240.0.207! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (115.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (122.7ms)
+Completed 200 OK in 406ms (Views: 403.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 10.240.0.207 at 2017-03-10 20:32:32 +0000
+Cannot render console from 10.240.0.207! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 23ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 10.240.1.15 at 2017-03-10 20:32:35 +0000
+Cannot render console from 10.240.1.15! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (170.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (177.9ms)
+Completed 200 OK in 461ms (Views: 458.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 10.240.1.20 at 2017-03-10 20:33:04 +0000
+Cannot render console from 10.240.1.20! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (4.7ms)
+Completed 200 OK in 78ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 10.240.1.32 at 2017-03-10 20:33:07 +0000
+Cannot render console from 10.240.1.32! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (115.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (122.9ms)
+Completed 200 OK in 401ms (Views: 399.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 10.240.1.32 at 2017-03-10 20:35:13 +0000
+Cannot render console from 10.240.1.32! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 23ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 10.240.0.241 at 2017-03-10 20:35:17 +0000
+Cannot render console from 10.240.0.241! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (157.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (165.6ms)
+Completed 200 OK in 687ms (Views: 684.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 10.240.0.186 at 2017-03-10 20:37:43 +0000
+Cannot render console from 10.240.0.186! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (119.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (133.1ms)
+Completed 200 OK in 468ms (Views: 456.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users?start_date=2017-04-02" for 10.240.0.187 at 2017-03-10 20:38:07 +0000
+Cannot render console from 10.240.0.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Parameters: {"start_date"=>"2017-04-02"}
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (20.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 72ms (Views: 69.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users?start_date=2017-03-25" for 10.240.0.187 at 2017-03-10 20:38:08 +0000
+Cannot render console from 10.240.0.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Parameters: {"start_date"=>"2017-03-25"}
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (16.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 70ms (Views: 68.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users?start_date=2017-03-25" for 10.240.1.19 at 2017-03-10 20:42:12 +0000
+Cannot render console from 10.240.1.19! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Parameters: {"start_date"=>"2017-03-25"}
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (16.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 67ms (Views: 64.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users?start_date=2017-04-02" for 10.240.0.241 at 2017-03-10 20:42:17 +0000
+Cannot render console from 10.240.0.241! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Parameters: {"start_date"=>"2017-04-02"}
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (36.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (46.4ms)
+Completed 200 OK in 108ms (Views: 106.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users?start_date=2017-04-02" for 10.240.0.182 at 2017-03-10 20:42:30 +0000
+Cannot render console from 10.240.0.182! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Parameters: {"start_date"=>"2017-04-02"}
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (29.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 116ms (Views: 115.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users?start_date=2017-04-02" for 10.240.0.241 at 2017-03-10 20:42:50 +0000
+Cannot render console from 10.240.0.241! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Parameters: {"start_date"=>"2017-04-02"}
+  Rendering users/index.html.erb within layouts/application
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (19.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 61ms (Views: 60.2ms | ActiveRecord: 0.3ms)
+
+
