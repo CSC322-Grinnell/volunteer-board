@@ -26,6 +26,22 @@ ActiveRecord::Schema.define(version: 20170301203548) do
     t.string   "confirm"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+ActiveRecord::Schema.define(version: 20170308203644) do
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip_code"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "password"
+    t.string   "password_confirmation"
+    t.boolean  "private"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end
