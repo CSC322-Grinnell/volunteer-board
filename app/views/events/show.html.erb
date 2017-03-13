@@ -6,8 +6,18 @@
 </p>
 
 <p>
-  <strong>Date time:</strong>
-  <%= @event.date_time %>
+  <strong>Date:</strong>
+  <%= @event.date.strftime("%A, %B %d, %Y") %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @event.time.hour %>:<%= @event.time.min %>
+</p>
+
+<p>
+  <strong>Number of Volunteers Needed:</strong>
+  <%= @event.num_vols %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

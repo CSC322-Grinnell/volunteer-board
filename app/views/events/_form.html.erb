@@ -15,10 +15,20 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-
+  
   <div class="field">
-    <%= f.label :date_time %>
-    <%= f.time_select :date_time %>
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.time_select :time %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :number_of_volunteers %>
+    <%= f.text_field :num_vols %>
   </div>
 
   <div class="actions">
