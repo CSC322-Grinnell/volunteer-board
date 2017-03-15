@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/CSC322-Grinnell/volunteer-board.png?label=ready&title=Ready)](https://waffle.io/CSC322-Grinnell/volunteer-board)
 # README
 
 This README would normally document whatever steps are necessary to get the
