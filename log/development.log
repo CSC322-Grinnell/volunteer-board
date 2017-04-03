@@ -5152,3 +5152,154 @@ Processing by OrganizationsController#new as HTML
 Completed 200 OK in 36ms (Views: 19.5ms | ActiveRecord: 1.4ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddIndexToUsersEmail (20170403193026)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170403193026"]]
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/users/new" for 132.161.196.74 at 2017-04-03 19:39:13 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb
+  Rendered users/_form.html.erb (9.3ms)
+  Rendered users/new.html.erb (11.7ms)
+Completed 200 OK in 50ms (Views: 29.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users" for 132.161.196.74 at 2017-04-03 19:39:55 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VjHXfj3W6ut7/ePoU3aOjN45bcH0iyy3fKB9fs2xL/5vPgOVWUc5ajxrba4vcZ40CTioIbRKy5j/ITnUVFRBBw==", "user"=>{"first_name"=>"G", "last_name"=>"B", "address"=>"123", "city"=>"da", "zip_code"=>"76", "phone_number"=>"1234567890", "email"=>"test@fake.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "private"=>"1"}, "project"=>{"state"=>"<%= key %>"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "address", "city", "zip_code", "phone_number", "email", "password", "password_confirmation", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "G"], ["last_name", "B"], ["address", "123"], ["city", "da"], ["zip_code", 76], ["phone_number", "1234567890"], ["email", "test@fake.com"], ["password", "password"], ["password_confirmation", "password"], ["private", true], ["created_at", 2017-04-03 19:39:55 UTC], ["updated_at", 2017-04-03 19:39:55 UTC]]
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://volunteer-board-tylerdamonwill.c9users.io/users/2
+Completed 302 Found in 163ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/users/2" for 132.161.196.74 at 2017-04-03 19:39:56 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb
+  Rendered users/show.html.erb (1.7ms)
+Completed 200 OK in 23ms (Views: 16.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 132.161.196.74 at 2017-04-03 19:39:59 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (15.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb (25.5ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 132.161.196.74 at 2017-04-03 19:40:07 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb
+  Rendered users/show.html.erb (1.6ms)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 132.161.196.74 at 2017-04-03 19:40:10 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (28.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb (38.5ms)
+Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 132.161.196.74 at 2017-04-03 19:40:14 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb
+  Rendered users/show.html.erb (1.8ms)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/edit" for 132.161.196.74 at 2017-04-03 19:40:16 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb
+  Rendered users/_form.html.erb (17.3ms)
+  Rendered users/edit.html.erb (26.2ms)
+Completed 200 OK in 71ms (Views: 69.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 132.161.196.74 at 2017-04-03 19:40:19 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (18.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb (65.6ms)
+Completed 200 OK in 84ms (Views: 80.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1" for 132.161.196.74 at 2017-04-03 19:40:31 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb
+  Rendered users/show.html.erb (1.5ms)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 132.161.196.74 at 2017-04-03 19:40:52 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb
+  Rendered users/show.html.erb (1.4ms)
+Completed 200 OK in 31ms (Views: 13.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1/edit" for 132.161.196.74 at 2017-04-03 19:40:55 +0000
+Cannot render console from 132.161.196.74! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb
+  Rendered users/_form.html.erb (6.4ms)
+  Rendered users/edit.html.erb (8.5ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-04-03 19:42:59 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb
+  Rendered organizations/_form.html.erb (7.1ms)
+  Rendered organizations/new.html.erb (9.1ms)
+Completed 200 OK in 42ms (Views: 25.9ms | ActiveRecord: 0.9ms)
+
+

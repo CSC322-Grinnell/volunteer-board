@@ -1,14 +1,13 @@
 class Organization < ApplicationRecord
-   validates :name, presence: true
+   before_save { self.email = email.downcase }
+   validates :name, presence: true, length: { maximum: 50 }
    validates :address, presence: true
    validates :city, presence: true
    validates :state, presence: true
-   validates :zip, presence: true
+   validates :zip, presence: true, length: { maximum: 5}
    validates :phone, presence: true
-   validates :email, presence: true
+   validates :email, presence: true, uniqueness: { case_sensitive: false }
    validates :mission, presence: true
    validates :website, presence: true
-   validates :password, presence: true
-   validates :confirm, presence: true
    
 end

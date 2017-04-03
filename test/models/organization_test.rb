@@ -17,7 +17,7 @@ class OrganizationTest < ActiveSupport::TestCase
     assert_not @organization.valid?
   end
   
-   test "name should not be too long" do
+  test "name should not be too long" do
     @organization.name = "a" * 51
     assert_not @organization.valid?
   end
@@ -42,6 +42,11 @@ class OrganizationTest < ActiveSupport::TestCase
     assert_not @organization.valid?
   end
   
+  test "name should not be too long" do
+    @organization.name = "a" * 6
+    assert_not @organization.valid?
+  end
+  
   test "phone should be present" do
     @organization.phone = "     "
     assert_not @organization.valid?
@@ -50,6 +55,13 @@ class OrganizationTest < ActiveSupport::TestCase
   test "emial should be present" do
     @organization.email = "     "
     assert_not @organization.valid?
+  end
+  
+  test "email addresses should be saved as lower-case" do
+    mixed_case_email = "Foo@ExAMPle.CoM"
+    @organization.email = mixed_case_email
+    @organization.save
+    assert_equal mixed_case_email.downcase, @organization.reload.email
   end
   
   test "mission should be present" do
@@ -62,13 +74,10 @@ class OrganizationTest < ActiveSupport::TestCase
     assert_not @organization.valid?
   end
   
-  test "password should be present" do
-    @organization.password = "     "
-    assert_not @organization.valid?
-  end
-  
-  test "confirm should be present" do
-    @organization.confirm = "     "
-    assert_not @organization.valid?
+  test "email addresses should be unique" do
+    duplicate_organization = @organization.dup
+    duplicate_organization.email = @organization.email.upcase
+    @organization.save
+    assert_not duplicate_organization.valid?
   end
 end

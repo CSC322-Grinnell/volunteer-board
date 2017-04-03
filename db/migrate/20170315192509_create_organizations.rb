@@ -10,8 +10,6 @@ class CreateOrganizations < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :mission
       t.string :website
-      t.string :password
-      t.string :confirm
 
       t.timestamps
     end
