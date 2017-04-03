@@ -3,7 +3,9 @@ require 'test_helper'
 class OrganizationTest < ActiveSupport::TestCase
   
   def setup
-    @organization = Organization.new(name: "Example User", email: "user@example.com")
+    @organization = Organization.new(name: "Example Name", address: "1115 8th Avenue", 
+    city: "Grinnell", state: "Iowa", zip: "50112", phone: "1234567890", email: "user@example.com",
+    mission: "mission", website: "goodstuff.com", password: "*****", confirm: "*****")
   end
 
   test "should be valid" do
@@ -12,6 +14,11 @@ class OrganizationTest < ActiveSupport::TestCase
   
   test "name should be present" do
     @organization.name = "     "
+    assert_not @organization.valid?
+  end
+  
+   test "name should not be too long" do
+    @organization.name = "a" * 51
     assert_not @organization.valid?
   end
   
