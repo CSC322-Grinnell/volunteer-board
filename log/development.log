@@ -5114,3 +5114,606 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 50ms (Views: 28.0ms | ActiveRecord: 1.1ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateAdminUsers (20170403184111)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170403184111"]]
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActiveAdminComments (20170403184125)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateActiveAdminComments < ActiveRecord::Migration[4.2] (called from load at /usr/local/rvm/gems/ruby-2.3.0/bin/rake:23)
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_id" varchar NOT NULL, "resource_type" varchar NOT NULL, "author_type" varchar, "author_id" integer, "created_at" datetime, "updated_at" datetime)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170403184125"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+[0m
+Started GET "/" for 10.240.1.20 at 2017-04-03 18:48:18 +0000
+Cannot render console from 10.240.1.20! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (3.2ms)
+Completed 200 OK in 40ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 10.240.1.15 at 2017-04-03 18:48:22 +0000
+Cannot render console from 10.240.1.15! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 10.240.1.19 at 2017-04-03 18:48:22 +0000
+Cannot render console from 10.240.1.19! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre4/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre4/app/views/active_admin/devise/shared/_links.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre4/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (73.9ms)
+Completed 500 Internal Server Error in 4502ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery-ui/datepicker' with type 'application/javascript'
+Checked in these paths: 
+  /home/ubuntu/workspace/app/assets/config
+  /home/ubuntu/workspace/app/assets/images
+  /home/ubuntu/workspace/app/assets/javascripts
+  /home/ubuntu/workspace/app/assets/stylesheets
+  /home/ubuntu/workspace/vendor/assets/javascripts
+  /home/ubuntu/workspace/vendor/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre4/app/assets/images
+  /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre4/app/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre4/app/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.0/gems/jquery-ui-rails-6.0.1/app/assets/images
+  /usr/local/rvm/gems/ruby-2.3.0/gems/jquery-ui-rails-6.0.1/app/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.0/gems/jquery-ui-rails-6.0.1/app/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.0/gems/formtastic-3.1.5/app/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.0/gems/bourbon-4.3.3/app/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.0/gems/jquery-rails-4.2.2/vendor/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.0/gems/actioncable-5.0.1/lib/assets/compiled
+  /usr/local/rvm/gems/ruby-2.3.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.3.6/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.3.6/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.3.6/assets/fonts
+  /usr/local/rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.3.6/assets/images):
+     6:   <title><%= [@page_title, render_or_call_method_or_proc_on(self, ActiveAdmin.application.site_title)].compact.join(" | ") %></title>
+     7: 
+     8:   <% ActiveAdmin.application.stylesheets.each do |style, options| %>
+     9:     <%= stylesheet_link_tag style, options %>
+    10:   <% end %>
+    11:   <% ActiveAdmin.application.javascripts.each do |path| %>
+    12:     <%= javascript_include_tag path %>
+  
+sprockets (3.7.1) lib/sprockets/resolve.rb:65:in `resolve!'
+sprockets (3.7.1) lib/sprockets/context.rb:88:in `resolve'
+sprockets (3.7.1) lib/sprockets/legacy.rb:259:in `resolve_with_compat'
+sprockets (3.7.1) lib/sprockets/context.rb:142:in `require_asset'
+activeadmin (1.0.0.pre4) app/assets/javascripts/active_admin/jquery_ui.js.erb:7:in `_evaluate_template'
+sprockets (3.7.1) lib/sprockets/erb_processor.rb:26:in `call'
+sprockets (3.7.1) lib/sprockets/erb_processor.rb:13:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/base.rb:73:in `find_all_linked_assets'
+sprockets (3.7.1) lib/sprockets/manifest.rb:134:in `block in find'
+sprockets (3.7.1) lib/sprockets/manifest.rb:133:in `each'
+sprockets (3.7.1) lib/sprockets/manifest.rb:133:in `find'
+sprockets-rails (3.2.0) lib/sprockets/railtie.rb:50:in `each'
+sprockets-rails (3.2.0) lib/sprockets/railtie.rb:50:in `map'
+sprockets-rails (3.2.0) lib/sprockets/railtie.rb:50:in `precompiled_assets'
+sprockets-rails (3.2.0) lib/sprockets/railtie.rb:35:in `asset_precompiled?'
+sprockets-rails (3.2.0) lib/sprockets/railtie.rb:251:in `block (3 levels) in <class:Railtie>'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:359:in `precompiled?'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:363:in `raise_unless_precompiled_asset'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:348:in `find_debug_asset'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:229:in `block in lookup_debug_asset'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:242:in `block in resolve_asset'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `each'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `detect'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `resolve_asset'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:228:in `lookup_debug_asset'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:170:in `block in stylesheet_link_tag'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:169:in `map'
+sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:169:in `stylesheet_link_tag'
+activeadmin (1.0.0.pre4) app/views/layouts/active_admin_logged_out.html.erb:9:in `block in __usr_local_rvm_gems_ruby_______gems_activeadmin_______pre__app_views_layouts_active_admin_logged_out_html_erb__4516187508448492747_70139064553620'
+activeadmin (1.0.0.pre4) app/views/layouts/active_admin_logged_out.html.erb:8:in `each'
+activeadmin (1.0.0.pre4) app/views/layouts/active_admin_logged_out.html.erb:8:in `__usr_local_rvm_gems_ruby_______gems_activeadmin_______pre__app_views_layouts_active_admin_logged_out_html_erb__4516187508448492747_70139064553620'
+actionview (5.0.1) lib/action_view/template.rb:159:in `block in render'
+activesupport (5.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.1) lib/action_view/template.rb:354:in `instrument'
+actionview (5.0.1) lib/action_view/template.rb:157:in `render'
+actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.0.1) lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+actionpack (5.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+actionpack (5.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+activesupport (5.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+responders (2.3.0) lib/action_controller/responder.rb:238:in `default_render'
+responders (2.3.0) lib/action_controller/responder.rb:170:in `to_html'
+responders (2.3.0) lib/action_controller/responder.rb:163:in `respond'
+responders (2.3.0) lib/action_controller/responder.rb:156:in `call'
+responders (2.3.0) lib/action_controller/respond_with.rb:205:in `respond_with'
+devise (4.2.0) app/controllers/devise/sessions_controller.rb:12:in `new'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (37.9ms)
+Started GET "/" for 10.240.0.241 at 2017-04-03 18:55:51 +0000
+Cannot render console from 10.240.0.241! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (2.8ms)
+Completed 200 OK in 62ms (Views: 50.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 10.240.0.206 at 2017-04-03 18:55:55 +0000
+Cannot render console from 10.240.0.206! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 10.240.1.15 at 2017-04-03 18:55:55 +0000
+Cannot render console from 10.240.1.15! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/shared/_links.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (55.9ms)
+Completed 200 OK in 7106ms (Views: 7076.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/admin/login" for 10.240.1.60 at 2017-04-03 18:56:35 +0000
+Cannot render console from 10.240.1.60! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mxUuQEtAL+oeC86/VcbQZ+muChpN8ie6qW5mN0NzPaQ/vIX3ivpq2+a82n6MlWaoRky6rE5BlpNyB6pbaHtKnQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.4ms)
+
+
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mxUuQEtAL+oeC86/VcbQZ+muChpN8ie6qW5mN0NzPaQ/vIX3ivpq2+a82n6MlWaoRky6rE5BlpNyB6pbaHtKnQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Login"}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/shared/_links.erb (2.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (41.1ms)
+Completed 200 OK in 386ms (Views: 208.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 10.240.0.206 at 2017-04-03 18:56:39 +0000
+Cannot render console from 10.240.0.206! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G/MkelZAHCLJyyBdLMxcRAu9wwxbuBg5s7on2Bc23b2/Wo/Nl/pZEzF8NJz1n+qLpF9zulgLqRBo0+u0PD6qhA==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Login"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G/MkelZAHCLJyyBdLMxcRAu9wwxbuBg5s7on2Bc23b2/Wo/Nl/pZEzF8NJz1n+qLpF9zulgLqRBo0+u0PD6qhA==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Login"}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/shared/_links.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (19.5ms)
+Completed 200 OK in 193ms (Views: 192.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 10.240.0.207 at 2017-04-03 18:56:44 +0000
+Cannot render console from 10.240.0.207! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sULF3woZPs2Y155SXGvHHXcJ/vavrYcGAUFWiOqUERAV625oy6N7/GBgipOFOHHS2OtOQKweNi/aKJrkwZxmKQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (1.0ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 1.0ms)
+
+
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sULF3woZPs2Y155SXGvHHXcJ/vavrYcGAUFWiOqUERAV625oy6N7/GBgipOFOHHS2OtOQKweNi/aKJrkwZxmKQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Login"}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/shared/_links.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (25.1ms)
+Completed 200 OK in 278ms (Views: 129.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 10.240.0.206 at 2017-04-03 18:56:48 +0000
+Cannot render console from 10.240.0.206! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7+piZ0RWgopFJXOYDzfaVI8U28gpSqZwQm3rh+Kx4oVLQ8nQhezHu72SZ1nWZGybIPZrfir5F1mZBCfrybmVvA==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms)
+
+
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7+piZ0RWgopFJXOYDzfaVI8U28gpSqZwQm3rh+Kx4oVLQ8nQhezHu72SZ1nWZGybIPZrfir5F1mZBCfrybmVvA==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Login"}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/shared/_links.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (23.2ms)
+Completed 200 OK in 272ms (Views: 122.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.240.0.241 at 2017-04-03 18:57:57 +0000
+Cannot render console from 10.240.0.241! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (2.0ms)
+Completed 200 OK in 32ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 10.240.1.20 at 2017-04-03 18:58:00 +0000
+Cannot render console from 10.240.1.20! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 10.240.0.207 at 2017-04-03 18:58:00 +0000
+Cannot render console from 10.240.0.207! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/shared/_links.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (36.0ms)
+Completed 200 OK in 647ms (Views: 620.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/admin/login" for 10.240.0.179 at 2017-04-03 18:58:11 +0000
+Cannot render console from 10.240.0.179! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lzC3adu7lbezzQtMxCjO9ZC+baiUBP5V9f4ep5L/6PszmRzeGgHQhkt6H40de3g6P1zdHpe3T3wul9LLufefwg==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.3ms)
+
+
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lzC3adu7lbezzQtMxCjO9ZC+baiUBP5V9f4ep5L/6PszmRzeGgHQhkt6H40de3g6P1zdHpe3T3wul9LLufefwg==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/shared/_links.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (24.2ms)
+Completed 200 OK in 294ms (Views: 105.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAdminUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "admin@example.com"], ["encrypted_password", "$2a$11$Nr18FsvbP8OV4V0pzed8J.QbprrYlV8IHt.q6yJs2A5lWpdFbL1p."], ["created_at", 2017-04-03 18:58:56 UTC], ["updated_at", 2017-04-03 18:58:56 UTC]]
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 10.240.1.17 at 2017-04-03 18:59:04 +0000
+Cannot render console from 10.240.1.17! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (1.9ms)
+Completed 200 OK in 28ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 10.240.0.207 at 2017-04-03 18:59:10 +0000
+Cannot render console from 10.240.0.207! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 10.240.0.207 at 2017-04-03 18:59:10 +0000
+Cannot render console from 10.240.0.207! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/shared/_links.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (46.3ms)
+Completed 200 OK in 655ms (Views: 624.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/admin/login" for 10.240.0.206 at 2017-04-03 18:59:17 +0000
+Cannot render console from 10.240.0.206! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gfh0rbvDQRvbxYjDwmGiDp/7DOFZx/77qcEL0Xzyqw0lUd8aenkEKiNynAIbMhTBMBm8V1p0T9JyqMe9V/rcNA==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "admin_users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admin_users"."id" = ?[0m  [["current_sign_in_at", 2017-04-03 18:59:17 UTC], ["last_sign_in_at", 2017-04-03 18:59:17 UTC], ["current_sign_in_ip", "10.240.0.206"], ["last_sign_in_ip", "10.240.0.206"], ["sign_in_count", 1], ["updated_at", 2017-04-03 18:59:17 UTC], ["id", 1]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://volunteer-board-wongbenj.c9users.io:8080/admin
+Completed 302 Found in 195ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/admin" for 10.240.0.241 at 2017-04-03 18:59:17 +0000
+Cannot render console from 10.240.0.241! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/page/index.html.arb
+  [1m[36mOrganization Load (0.8ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."approved" = ?[0m  [["approved", false]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/page/index.html.arb (113.8ms)
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: organizations.approved: SELECT "organizations".* FROM "organizations" WHERE "organizations"."approved" = ?):
+    1: insert_tag active_admin_application.view_factory["page"]
+  
+app/admin/dashboard.rb:22:in `block (5 levels) in <top (required)>'
+app/admin/dashboard.rb:21:in `block (4 levels) in <top (required)>'
+app/admin/dashboard.rb:20:in `block (3 levels) in <top (required)>'
+app/admin/dashboard.rb:19:in `block (2 levels) in <top (required)>'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.9ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.7ms)
+Started GET "/admin" for 10.240.1.19 at 2017-04-03 19:07:11 +0000
+Cannot render console from 10.240.1.19! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/page/index.html.arb
+  [1m[36mOrganization Load (0.6ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."approved" = ?[0m  [["approved", false]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/page/index.html.arb (104.7ms)
+Completed 500 Internal Server Error in 109ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: organizations.approved: SELECT "organizations".* FROM "organizations" WHERE "organizations"."approved" = ?):
+    1: insert_tag active_admin_application.view_factory["page"]
+  
+app/admin/dashboard.rb:22:in `block (5 levels) in <top (required)>'
+app/admin/dashboard.rb:21:in `block (4 levels) in <top (required)>'
+app/admin/dashboard.rb:20:in `block (3 levels) in <top (required)>'
+app/admin/dashboard.rb:19:in `block (2 levels) in <top (required)>'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.0ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.7ms)
+Started GET "/admin" for 10.240.0.110 at 2017-04-03 19:07:14 +0000
+Cannot render console from 10.240.0.110! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/page/index.html.arb
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."approved" = ?[0m  [["approved", false]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/page/index.html.arb (221.9ms)
+Completed 500 Internal Server Error in 226ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: organizations.approved: SELECT "organizations".* FROM "organizations" WHERE "organizations"."approved" = ?):
+    1: insert_tag active_admin_application.view_factory["page"]
+  
+app/admin/dashboard.rb:22:in `block (5 levels) in <top (required)>'
+app/admin/dashboard.rb:21:in `block (4 levels) in <top (required)>'
+app/admin/dashboard.rb:20:in `block (3 levels) in <top (required)>'
+app/admin/dashboard.rb:19:in `block (2 levels) in <top (required)>'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.7ms)
+Started POST "/admin/login" for 10.240.0.69 at 2017-04-03 19:07:22 +0000
+Cannot render console from 10.240.0.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gfh0rbvDQRvbxYjDwmGiDp/7DOFZx/77qcEL0Xzyqw0lUd8aenkEKiNynAIbMhTBMBm8V1p0T9JyqMe9V/rcNA==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://volunteer-board-wongbenj.c9users.io:8080/admin
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/admin" for 10.240.1.17 at 2017-04-03 19:07:22 +0000
+Cannot render console from 10.240.1.17! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/page/index.html.arb
+  [1m[36mOrganization Load (0.7ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."approved" = ?[0m  [["approved", false]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre5/app/views/active_admin/page/index.html.arb (126.4ms)
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: organizations.approved: SELECT "organizations".* FROM "organizations" WHERE "organizations"."approved" = ?):
+    1: insert_tag active_admin_application.view_factory["page"]
+  
+app/admin/dashboard.rb:22:in `block (5 levels) in <top (required)>'
+app/admin/dashboard.rb:21:in `block (4 levels) in <top (required)>'
+app/admin/dashboard.rb:20:in `block (3 levels) in <top (required)>'
+app/admin/dashboard.rb:19:in `block (2 levels) in <top (required)>'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.1ms)
