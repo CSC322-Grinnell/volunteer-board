@@ -4545,3 +4545,572 @@ Processing by OrganizationsController#new as HTML
 Completed 200 OK in 1191ms (Views: 1188.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:11:52 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#volunteer_board as HTML
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 21ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations" for 132.161.245.51 at 2017-03-17 18:11:57 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#index as HTML
+  Rendering organizations/index.html.erb within layouts/application
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  Rendered organizations/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 492ms (Views: 488.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events" for 132.161.245.51 at 2017-03-17 18:25:00 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from _app_views_events_index_html_erb__3280902800208491709_70303216518220 at /home/ubuntu/workspace/app/views/events/index.html.erb:17)
+  Rendered events/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 212ms (Views: 66.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:30:15 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#volunteer_board as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/organization" for 132.161.245.51 at 2017-03-17 18:30:55 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#organization as HTML
+  Rendering static_pages/organization.html.erb within layouts/application
+  Rendered static_pages/organization.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 254ms (Views: 251.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations" for 132.161.245.51 at 2017-03-17 18:34:33 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#index as HTML
+  Rendering organizations/index.html.erb within layouts/application
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  Rendered organizations/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 51ms (Views: 48.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/organizations" for 132.161.245.51 at 2017-03-17 18:34:33 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#index as HTML
+  Rendering organizations/index.html.erb within layouts/application
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  Rendered organizations/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 46ms (Views: 44.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-03-17 18:34:37 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb within layouts/application
+  Rendered organizations/_form.html.erb (232.6ms)
+  Rendered organizations/new.html.erb within layouts/application (235.1ms)
+Completed 200 OK in 285ms (Views: 283.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations" for 132.161.245.51 at 2017-03-17 18:34:57 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#index as HTML
+  Rendering organizations/index.html.erb within layouts/application
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  Rendered organizations/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 155ms (Views: 153.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/static_pages/organization" for 132.161.245.51 at 2017-03-17 18:35:01 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#organization as HTML
+  Rendering static_pages/organization.html.erb within layouts/application
+  Rendered static_pages/organization.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-03-17 18:35:02 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb within layouts/application
+  Rendered organizations/_form.html.erb (7.7ms)
+  Rendered organizations/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 148ms (Views: 146.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/organization" for 132.161.245.51 at 2017-03-17 18:35:26 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#organization as HTML
+  Rendering static_pages/organization.html.erb within layouts/application
+  Rendered static_pages/organization.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/organization" for 132.161.245.51 at 2017-03-17 18:35:39 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#organization as HTML
+  Rendering static_pages/organization.html.erb within layouts/application
+  Rendered static_pages/organization.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-03-17 18:35:40 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb within layouts/application
+  Rendered organizations/_form.html.erb (7.7ms)
+  Rendered organizations/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 72ms (Views: 70.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-03-17 18:39:40 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb
+  Rendered organizations/_form.html.erb (5.4ms)
+  Rendered organizations/new.html.erb (7.2ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-03-17 18:39:40 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb
+  Rendered organizations/_form.html.erb (5.6ms)
+  Rendered organizations/new.html.erb (7.1ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:40:00 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#volunteer_board as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations" for 132.161.245.51 at 2017-03-17 18:43:01 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#index as HTML
+  Rendering organizations/index.html.erb
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  Rendered organizations/index.html.erb (2.8ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/organizations" for 132.161.245.51 at 2017-03-17 18:43:42 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#index as HTML
+  Rendering organizations/index.html.erb
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  Rendered organizations/index.html.erb (3.4ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:43:47 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ApplicationController#volunteer_board as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/organization" for 132.161.245.51 at 2017-03-17 18:43:53 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#organization as HTML
+  Rendering static_pages/organization.html.erb
+  Rendered static_pages/organization.html.erb (0.6ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:44:55 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:2:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.1ms)
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:45:10 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#organization as HTML
+  Rendering static_pages/organization.html.erb
+  Rendered static_pages/organization.html.erb (0.4ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:45:16 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#organization as HTML
+  Rendering static_pages/organization.html.erb
+  Rendered static_pages/organization.html.erb (0.5ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:47:38 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#organization as HTML
+  Rendering static_pages/organization.html.erb
+  Rendered static_pages/organization.html.erb (0.6ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 132.161.245.51 at 2017-03-17 18:47:45 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (7.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb (19.1ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/new" for 132.161.245.51 at 2017-03-17 18:47:52 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb
+  Rendered users/_form.html.erb (13.4ms)
+  Rendered users/new.html.erb (16.1ms)
+Completed 200 OK in 69ms (Views: 33.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:48:10 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#organization as HTML
+  Rendering static_pages/organization.html.erb
+  Rendered static_pages/organization.html.erb (0.6ms)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:48:32 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (0.6ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 132.161.245.51 at 2017-03-17 18:48:40 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb
+  Rendered users/_form.html.erb (6.9ms)
+  Rendered users/new.html.erb (8.5ms)
+Completed 200 OK in 34ms (Views: 20.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/organizations" for 132.161.245.51 at 2017-03-17 18:53:08 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#index as HTML
+  Rendering organizations/index.html.erb
+  [1m[36mOrganization Load (0.6ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  Rendered organizations/index.html.erb (13.5ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-03-17 18:53:10 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb
+  Rendered organizations/_form.html.erb (6.2ms)
+  Rendered organizations/new.html.erb (7.9ms)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 132.161.245.51 at 2017-03-17 18:53:27 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb
+  Rendered users/_form.html.erb (5.7ms)
+  Rendered users/new.html.erb (7.1ms)
+Completed 200 OK in 29ms (Views: 17.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:53:44 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (0.6ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:53:44 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (0.5ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:54:11 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (0.5ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:54:43 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (0.6ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-03-17 18:54:47 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb
+  Rendered organizations/_form.html.erb (4.9ms)
+  Rendered organizations/new.html.erb (6.4ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 132.161.245.51 at 2017-03-17 18:54:51 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb
+  Rendered users/_form.html.erb (4.8ms)
+  Rendered users/new.html.erb (6.3ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 132.161.245.51 at 2017-03-17 18:55:35 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb
+  Rendered users/_form.html.erb (6.6ms)
+  Rendered users/new.html.erb (8.6ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:55:41 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (0.5ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-03-17 18:55:41 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (0.5ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 132.161.245.51 at 2017-03-17 18:55:46 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb
+  Rendered users/_form.html.erb (4.6ms)
+  Rendered users/new.html.erb (5.9ms)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-03-17 18:55:51 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb
+  Rendered organizations/_form.html.erb (4.8ms)
+  Rendered organizations/new.html.erb (6.2ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations/new" for 5.228.136.52 at 2017-03-17 20:11:45 +0000
+Cannot render console from 5.228.136.52! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb
+  Rendered organizations/_form.html.erb (6.3ms)
+  Rendered organizations/new.html.erb (82.4ms)
+Completed 200 OK in 100ms (Views: 96.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations" for 5.228.136.52 at 2017-03-17 20:12:01 +0000
+Cannot render console from 5.228.136.52! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#index as HTML
+  Rendering organizations/index.html.erb
+  [1m[36mOrganization Load (6.6ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  Rendered organizations/index.html.erb (10.2ms)
+Completed 200 OK in 24ms (Views: 14.8ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/" for 162.199.248.78 at 2017-03-22 17:49:53 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (3.6ms)
+Completed 200 OK in 50ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations/new" for 162.199.248.78 at 2017-03-22 17:50:01 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb
+  Rendered organizations/_form.html.erb (251.6ms)
+  Rendered organizations/new.html.erb (253.9ms)
+Completed 200 OK in 284ms (Views: 270.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/new" for 162.199.248.78 at 2017-03-22 17:50:07 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb
+  Rendered users/_form.html.erb (149.1ms)
+  Rendered users/new.html.erb (151.8ms)
+Completed 200 OK in 185ms (Views: 166.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 162.199.248.78 at 2017-03-22 17:50:45 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2Vjk+COdYJRl9jl1HUzbcP9FyW953JYJihBGE5YRy2MwJXmf9F95FCJJq5lrhp066YTcKhnwmTcMsEf1rQON7A==", "user"=>{"first_name"=>"Ashley", "last_name"=>"Brumfield", "address"=>"6065 Lanier Drive", "city"=>"Baton Rouge", "zip_code"=>"70812", "phone_number"=>"2257161681", "email"=>"tylerwilliams1212@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "private"=>"0"}, "project"=>{"state"=>"<%= key %>"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "address", "city", "zip_code", "phone_number", "email", "password", "password_confirmation", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ashley"], ["last_name", "Brumfield"], ["address", "6065 Lanier Drive"], ["city", "Baton Rouge"], ["zip_code", 70812], ["phone_number", "2257161681"], ["email", "tylerwilliams1212@yahoo.com"], ["password", "stuff"], ["password_confirmation", "stuff"], ["private", false], ["created_at", 2017-03-22 17:50:45 UTC], ["updated_at", 2017-03-22 17:50:45 UTC]]
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://volunteer-board-tylerdamonwill.c9users.io/users/1
+Completed 302 Found in 33ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/users/1" for 162.199.248.78 at 2017-03-22 17:50:45 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb
+  Rendered users/show.html.erb (1.3ms)
+Completed 200 OK in 28ms (Views: 22.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/" for 162.199.248.78 at 2017-03-22 17:50:51 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (7.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb (17.5ms)
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 162.199.248.78 at 2017-03-22 17:51:13 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb
+  Rendered users/show.html.erb (1.8ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 162.199.248.78 at 2017-03-22 17:51:17 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (6.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb (12.3ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 162.199.248.78 at 2017-03-22 17:51:21 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb
+  Rendered users/show.html.erb (1.1ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1/edit" for 162.199.248.78 at 2017-03-22 17:51:24 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb
+  Rendered users/_form.html.erb (5.2ms)
+  Rendered users/edit.html.erb (6.8ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 162.199.248.78 at 2017-03-22 17:51:27 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/simple_calendar-2.2.4/app/views/simple_calendar/_month_calendar.html.erb (6.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb (10.9ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 162.199.248.78 at 2017-03-22 17:51:29 +0000
+Cannot render console from 162.199.248.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb
+  Rendered users/show.html.erb (1.6ms)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 132.161.245.51 at 2017-04-03 18:10:05 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (2.8ms)
+Completed 200 OK in 30ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/organizations/new" for 132.161.245.51 at 2017-04-03 18:10:08 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb
+  Rendered organizations/_form.html.erb (274.8ms)
+  Rendered organizations/new.html.erb (276.6ms)
+Completed 200 OK in 302ms (Views: 289.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/organizations" for 132.161.245.51 at 2017-04-03 18:10:11 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrganizationsController#index as HTML
+  Rendering organizations/index.html.erb
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  Rendered organizations/index.html.erb (2.6ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 132.161.245.51 at 2017-04-03 18:10:19 +0000
+Cannot render console from 132.161.245.51! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb
+  Rendered users/_form.html.erb (10.0ms)
+  Rendered users/new.html.erb (11.7ms)
+Completed 200 OK in 50ms (Views: 28.0ms | ActiveRecord: 1.1ms)
+
+
