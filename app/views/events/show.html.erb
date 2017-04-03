@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date.strftime("%A, %B %d, %Y") %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @event.time.hour %>:<%= @event.time.min %>
+</p>
+
+<p>
+  <strong>Number of Volunteers Needed:</strong>
+  <%= @event.num_vols %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
