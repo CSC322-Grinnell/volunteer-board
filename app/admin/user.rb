@@ -5,8 +5,8 @@ ActiveAdmin.register User do
 
  config.comments = false
   index do
-    column :firstname
-    column :lastname
+    column :first_name
+    column :last_name
     column :email
     column :previous_experience
     column :interests
