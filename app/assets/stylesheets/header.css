@@ -9,7 +9,7 @@ html, body {
   flex-flow: row wrap;
   align-items: center;
   background: green;
-  width: 100vw;
+  width: auto;
   height: 7vh;
   flex-direction: row;
   justify-content: space-between;
@@ -22,7 +22,8 @@ html, body {
 }
 
 #right {
-  flex-grow: 5;
+  margin-right: 32px;
+  flex-grow: 0;
 }
 
 h1 {
