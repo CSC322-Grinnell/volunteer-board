@@ -17,7 +17,7 @@ class OrganizationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create organization" do
     assert_difference('Organization.count') do
-      post organizations_url, params: { organization: { address: @organization.address, city: @organization.city, confirm: @organization.confirm, email: @organization.email, mission: @organization.mission, name: @organization.name, password: @organization.password, phone: @organization.phone, state: @organization.state, website: @organization.website, zip: @organization.zip } }
+      post organizations_url, params: { organization: { address: @organization.address, city: @organization.city, email: @organization.email, mission: @organization.mission, name: @organization.name, phone: @organization.phone, state: @organization.state, website: @organization.website, zip: @organization.zip } }
     end
 
     assert_redirected_to organization_url(Organization.last)
@@ -34,7 +34,7 @@ class OrganizationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update organization" do
-    patch organization_url(@organization), params: { organization: { address: @organization.address, city: @organization.city, confirm: @organization.confirm, email: @organization.email, mission: @organization.mission, name: @organization.name, password: @organization.password, phone: @organization.phone, state: @organization.state, website: @organization.website, zip: @organization.zip } }
+    patch organization_url(@organization), params: { organization: { address: @organization.address, city: @organization.city, email: @organization.email, mission: @organization.mission, name: @organization.name, phone: @organization.phone, state: @organization.state, website: @organization.website, zip: @organization.zip } }
     assert_redirected_to organization_url(@organization)
   end
 

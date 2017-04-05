@@ -9,5 +9,5 @@ class Organization < ApplicationRecord
    validates :email, presence: true, uniqueness: { case_sensitive: false }
    validates :mission, presence: true
    validates :website, presence: true
-   
+   has_secure_password
 end

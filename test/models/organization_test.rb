@@ -5,7 +5,7 @@ class OrganizationTest < ActiveSupport::TestCase
   def setup
     @organization = Organization.new(name: "Example Name", address: "1115 8th Avenue", 
     city: "Grinnell", state: "Iowa", zip: "50112", phone: "1234567890", email: "user@example.com",
-    mission: "mission", website: "goodstuff.com", password: "*****", confirm: "*****")
+    mission: "mission", website: "goodstuff.com")
   end
 
   test "should be valid" do
@@ -42,8 +42,8 @@ class OrganizationTest < ActiveSupport::TestCase
     assert_not @organization.valid?
   end
   
-  test "name should not be too long" do
-    @organization.name = "a" * 6
+  test "zip should not be too long" do
+    @organization.zip = "a" * 6
     assert_not @organization.valid?
   end
   
@@ -52,7 +52,7 @@ class OrganizationTest < ActiveSupport::TestCase
     assert_not @organization.valid?
   end
   
-  test "emial should be present" do
+  test "email should be present" do
     @organization.email = "     "
     assert_not @organization.valid?
   end
