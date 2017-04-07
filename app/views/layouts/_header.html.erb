@@ -3,21 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>Volunteer Board</title>
+  <link rel="stylesheet" type="text/css" href="header.css" />
 </head>
 
+<!-- The following div class and associated header.css file was generated using
+the tool at http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/ -->
 <body>
-  <nav class="navbar navbar-default">
+  <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Volunteer Board</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="/users">Users</a></li>
-        <li><a href="/organizations">Organizations</a></li>
-        <li><a href="/events">Events</a></li>
-      </ul>
+        <div class="navbar-header"><a class="navbar-brand" href="#">Volunteer Board</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/">Home</a>
+                </li>
+                <li><a href="/users">Users</a>
+                </li>
+                <li><a href="/organizations">Organizations</a>
+                </li>
+                <li><a href="/events">Events</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</div>
 </body>
 </html>
