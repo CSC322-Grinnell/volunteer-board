@@ -4,8 +4,28 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one:
+  email: email@school.edu
+  encrypted_password: MyString
+  reset_password_token: MyString
+  reset_password_sent_at: 2017-04-05 19:42:39.782877
+  remember_created_at: 2017-04-05 19:42:39.782877
+  sign_in_count: 2
+  current_sign_in_at: 2017-04-05 19:42:39.782877
+  last_sign_in_at: 2017-04-05 19:42:39.782877
+  current_sign_in_ip: words
+  last_sign_in_ip: words
 # column: value
 #
-two: {}
+two:
+  email: email1@school.edu
+  encrypted_password: MyString
+  reset_password_token: MyString1
+  reset_password_sent_at: 2017-04-05 19:42:39.782877
+  remember_created_at: 2017-04-05 19:42:39.782877
+  sign_in_count: 2
+  current_sign_in_at: 2017-04-05 19:42:39.782877
+  last_sign_in_at: 2017-04-05 19:42:39.782877
+  current_sign_in_ip: words
+  last_sign_in_ip: words
 # column: value
