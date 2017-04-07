@@ -1,0 +1,30 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
+#nav-bar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  background: green;
+  width: 100vw;
+  height: 7vh;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #FFF;
+}
+
+#title {
+  margin-left: 32px;
+  flex-grow: 15;
+}
+
+#right {
+  flex-grow: 5;
+}
+
+h1 {
+  font-size: 3em;
+}
