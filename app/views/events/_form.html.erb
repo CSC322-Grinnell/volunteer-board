@@ -12,23 +12,43 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
-  
+
   <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
   </div>
-  
+
   <div class="field">
-    <%= f.label :time %>
-    <%= f.time_select :time %>
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time %>
   </div>
-  
+
   <div class="field">
-    <%= f.label :number_of_volunteers %>
-    <%= f.text_field :num_vols %>
+    <%= f.label :end_time %>
+    <%= f.datetime_select :end_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :num_vols %>
+    <%= f.number_field :num_vols %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact_phone %>
+    <%= f.text_field :contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact_email %>
+    <%= f.text_field :contact_email %>
   </div>
 
   <div class="actions">

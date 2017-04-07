@@ -1,9 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  date_time: 2017-03-01 20:29:16
+  name: MyString
+  description: MyString
+  start_time: 2017-04-07 18:36:24
+  end_time: 2017-04-07 18:36:24
+  num_vols: 1
+  location: MyString
+  contact_phone: MyString
+  contact_email: MyString
 
 two:
-  title: MyString
-  date_time: 2017-03-01 20:29:16
+  name: MyString
+  description: MyString
+  start_time: 2017-04-07 18:36:24
+  end_time: 2017-04-07 18:36:24
+  num_vols: 1
+  location: MyString
+  contact_phone: MyString
+  contact_email: MyString
