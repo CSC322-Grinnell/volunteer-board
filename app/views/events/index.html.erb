@@ -3,12 +3,12 @@
 <h1>Events</h1>
 
 <%= month_calendar events: @events do |date, events| %>
-  <%= date %>
+  <%= date.strftime("%e") %>
 
   <% events.each do |event| %>
     <div>
-      <a href="/events/<%=event.id%>"><%= event.name %> 
-      <%=event.start_time.strftime("%l:%M")%>-<%=event.end_time.strftime("%l:%M")%></a>
+      <a href="/events/<%=event.id%>"><%= event.name %> <br />
+      <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
     </div>
   <% end %>
 <% end %>
