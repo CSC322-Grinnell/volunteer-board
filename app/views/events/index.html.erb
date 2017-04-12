@@ -8,7 +8,7 @@
   <% events.each do |event| %>
     <div>
       <a href="/events/<%=event.id%>"><%= event.name %> 
-      <%=event.start_time.strftime("%H:%M")%>-<%=event.end_time.strftime("%H:%M")%></a>
+      <%=event.start_time.strftime("%l:%M")%>-<%=event.end_time.strftime("%l:%M")%></a>
     </div>
   <% end %>
 <% end %>
