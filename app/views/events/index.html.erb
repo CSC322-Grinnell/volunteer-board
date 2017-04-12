@@ -2,6 +2,16 @@
 
 <h1>Events</h1>
 
+<%= month_calendar events: @events do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.name %>
+    </div>
+  <% end %>
+<% end %>
+
 <table>
   <thead>
     <tr>
