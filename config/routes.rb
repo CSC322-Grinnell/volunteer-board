@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
    
+
   get 'events/new'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
