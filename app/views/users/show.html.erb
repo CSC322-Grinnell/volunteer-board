@@ -2,7 +2,7 @@
 <div class="container">
       <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-           <A href="https://volunteer-board-tylerdamonwill.c9users.io/" >Go Home</A>
+           <A href="static_pages/home" >Go Home</A>
        <br>
       </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
@@ -67,8 +67,8 @@
   <%= @user.private %>
 </p>
 </div>
- <a href="/users/3/edit" class="btn btn-primary" > Edit</a> 
-                  <a href="/events" class="btn btn-primary">View Events</a>
+ <td><%= link_to 'Edit', edit_user_path(@user) %></td>
+                  <a href="/events">View Events</a>
                 </div>
               </div>
             </div>
