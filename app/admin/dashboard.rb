@@ -15,16 +15,16 @@ ActiveAdmin.register_page "Dashboard" do
       organization.approved = true
     end
     
-    #@organization = Organization.where(approved: false)
-    #columns do
-    #  column do
-    #    panel 'Unapproved Organizations' do
-    #     @organization.each do |organization|
-    #        # How organization shows up
-    #        li link_to "View #{organization.name} (#{organization.email})", adminorg_path(organization.id)
-    #      end
-    #    end
-    #  end
-    #end #content
+    @organization = Organization.where(approved: false)
+    columns do
+      column do
+        panel 'Unapproved Organizations' do
+         @organization.each do |organization|
+            # How organization shows up
+            li link_to "View #{organization.name} (#{organization.email})", adminorg_path(organization.id)
+          end
+        end
+      end
+    end #content
   end
 end
