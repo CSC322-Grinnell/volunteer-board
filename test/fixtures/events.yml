@@ -7,8 +7,8 @@ one:
   end_time: 2017-04-07 18:36:24
   num_vols: 1
   location: MyString
-  contact_phone: MyString
-  contact_email: MyString
+  contact_phone: aaaaaaaaaa
+  contact_email: MyString@example.com
 
 two:
   name: MyString

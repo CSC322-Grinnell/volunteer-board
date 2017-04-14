@@ -1,7 +1,19 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>First name:</strong>
+<div class="container">
+      <div class="row">
+      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+           <A href="static_pages/home" >Go Home</A>
+       <br>
+      </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">  <%= @user.first_name %> <%= @user.last_name %> </h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+<p>           
+<strong>First name:</strong>
   <%= @user.first_name %>
 </p>
 
@@ -54,6 +66,17 @@
   <strong>Private:</strong>
   <%= @user.private %>
 </p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>
+ <td><%= link_to 'Edit', edit_user_path(@user) %></td>
+                  <a href="/events">View Events</a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
