@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+   
+
   get 'events/new'
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   as :user do
