@@ -1,25 +1,31 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-      <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-           <a href="/" class="btn btn-primary">Go Home</a>
+           <a href="/" class="btn btn-success" role="button">Go Home</a>
+           <a href="/events" class="btn btn-success" role="button">View Events</a>
        <br>
       </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">  <%= @user.first_name %> <%= @user.last_name %> </h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-<p>           
-<strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+<div class="container">
+  <h2>Profile</h2>
+  <div class="panel-group">
+    <div class="panel panel-success">
+      <div class="panel-heading"> <%= @user.name %> </div>
+      <div class="panel-body">
+        <p>    
+  <strong>Name:</strong>
+  <%= @user.name %>
 </p>
 
 <p>
@@ -38,13 +44,13 @@
 </p>
 
 <p>
-  <strong>Zip code:</strong>
-  <%= @user.zip_code %>
+  <strong>Zip:</strong>
+  <%= @user.zip %>
 </p>
 
 <p>
-  <strong>Phone number:</strong>
-  <%= @user.phone_number %>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
 </p>
 
 <p>
@@ -53,20 +59,26 @@
 </p>
 
 <p>
-  
-<p>
-  <strong>Private:</strong>
-  <%= @user.private %>
+  <strong>Mission:</strong>
+  <%= @user.mission %>
 </p>
-</div>
- <td><%= link_to 'Edit', edit_user_path(@user) %></td>
-                  <a href="/events">View Events</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+<p>
+  <strong>Website:</strong>
+  <%= @user.website %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user.password %>
+</p>
+
+<p>
+  <strong>Confirm:</strong>
+  <%= @user.confirm %>
+</p>
+<p>
+<%= link_to 'Edit Profile', edit_organization_path(@user) %>
+</p>
       </div>
     </div>
-  </div>
-</html>
