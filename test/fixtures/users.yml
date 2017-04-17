@@ -6,9 +6,9 @@ one:
   address: MyString
   city: MyString
   state: MyString
-  zip_code: 1
-  phone_number: MyString
-  email: MyString
+  zip_code: 12345
+  phone_number: aaaaaaaaaa
+  email: email@example.com
   password: MyString
   password_confirmation: MyString
   private: false
@@ -19,9 +19,9 @@ two:
   address: MyString
   city: MyString
   state: MyString
-  zip_code: 1
-  phone_number: MyString
-  email: MyString
+  zip_code: 12345
+  phone_number: aaaaaaaaaa
+  email: email@example.com
   password: MyString
   password_confirmation: MyString
   private: false
