@@ -8,58 +8,66 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">  <%= @user.first_name %> <%= @user.last_name %> </h3>
+              <h3 class="panel-title">  <%= @organization.name %> </h3>
             </div>
             <div class="panel-body">
               <div class="row">
-<p>           
-<strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
+<p>    
+  <strong>Name:</strong>
+  <%= @organization.name %>
 </p>
 
 <p>
   <strong>Address:</strong>
-  <%= @user.address %>
+  <%= @organization.address %>
 </p>
 
 <p>
   <strong>City:</strong>
-  <%= @user.city %>
+  <%= @organization.city %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @user.state %>
+  <%= @organization.state %>
 </p>
 
 <p>
-  <strong>Zip code:</strong>
-  <%= @user.zip_code %>
+  <strong>Zip:</strong>
+  <%= @organization.zip %>
 </p>
 
 <p>
-  <strong>Phone number:</strong>
-  <%= @user.phone_number %>
+  <strong>Phone:</strong>
+  <%= @organization.phone %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @user.email %>
+  <%= @organization.email %>
 </p>
 
 <p>
-  
+  <strong>Mission:</strong>
+  <%= @organization.mission %>
+</p>
+
 <p>
-  <strong>Private:</strong>
-  <%= @user.private %>
+  <strong>Website:</strong>
+  <%= @organization.website %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @organization.password %>
+</p>
+
+<p>
+  <strong>Confirm:</strong>
+  <%= @organization.confirm %>
 </p>
 </div>
- <td><%= link_to 'Edit', edit_user_path(@user) %></td>
+ <a <%link_to 'Edit', edit_organization_path(@organization) %> </a>
                   <a href="/events">View Events</a>
                 </div>
               </div>
@@ -69,4 +77,4 @@
       </div>
     </div>
   </div>
-</html>
+</div>
