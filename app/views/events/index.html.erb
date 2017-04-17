@@ -1,7 +1,7 @@
+<div class="input">
 <p id="notice"><%= notice %></p>
-
 <h1>Events</h1>
-
+<input type="text" name="search" placeholder="Search..">
 <%= month_calendar events: @events do |date, events| %>
   <%= date.strftime("%e") %>
 
@@ -50,3 +50,4 @@
 <br>
 
 <%= link_to 'New Event', new_event_path %>
+</div>

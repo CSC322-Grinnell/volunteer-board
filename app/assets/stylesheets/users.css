@@ -1,6 +1,3 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 .user-row {
     margin-bottom: 14px;
 }
@@ -20,7 +17,7 @@
 }
 
 .table-user-information > tbody > tr {
-    border-top: 1px solid rgb(0, 168, 33);
+    border-top: 1px solid rgb(100, 0, 0);
 }
 
 .table-user-information > tbody > tr:first-child {
