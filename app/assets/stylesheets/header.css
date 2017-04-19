@@ -36,3 +36,13 @@
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
     background-color: #00a822;
 }
+
+.navbar .navbar-nav > li > a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.navbar .navbar-brand {
+  color: #FFF;
+  text-decoration: none;
+}
