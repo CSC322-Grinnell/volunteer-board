@@ -19,6 +19,10 @@
     cursor: pointer;
 }
 
+.panel-heading {
+    border-top: 1px solid rgb(255, 0, 0);
+}
+
 .table-user-information > tbody > tr {
     border-top: 1px solid rgb(0, 168, 33);
 }
@@ -31,6 +35,7 @@
 .table-user-information > tbody > tr > td {
     border-top: 0;
 }
+
 .toppad
 {margin-top:20px;
 }

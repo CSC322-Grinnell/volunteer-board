@@ -4,12 +4,38 @@
     <title>Home | Volunteer Board</title>
   </head>
   <body>
-    <h1>Volunteer Board</h1>
-    <p>
-      <a href="/organizations/new">Organization Sign Up</a>
-    </p>
-    <p>
-      <a href="/users/new">User Sign Up</a>
-    </p>
+    <div align="center">
+      <h1>Volunteer Board</h1>
+    </div>
+    <% if user_signed_in? %>
+      <div class="home-page-center">
+        <p>
+          <a class="btn btn-success home-page-button" href="/events" role="button">View Events</a>
+        </p>
+        <p>
+          <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
+        </p>
+      </div>
+    <% elsif organization_signed_in? %>
+      <div class="home-page-center">
+        <p>
+          <a class="btn btn-success home-page-button" href="/events" role="button">View Events</a>
+        </p>
+        <p>
+          <a class="btn btn-success home-page-button" href="/organizations/<%=current_organization.id%>" role="button">View Profile</a>
+        </p>
+      </div> 
+    <% else %>
+      <div class="home-page-center">
+        <p>
+          <a class="btn btn-success home-page-button" href="/users/sign_in" role="button">User Sign In</a>
+          <a class="btn btn-success home-page-button" href="/organizations/sign_in" role="button">Organization Sign In</a>
+        </p>
+        <p>
+          <a class="btn btn-success home-page-button" href="/users/sign_up" role="button">User Sign Up</a> 
+          <a class="btn btn-success home-page-button" href="/organizations/sign_up" role="button">Organization Sign Up</a>
+        </p>
+      </div>
+    <% end %>
   </body>
 </html>
