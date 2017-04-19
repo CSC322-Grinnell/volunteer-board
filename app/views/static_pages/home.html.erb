@@ -16,7 +16,16 @@
           <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
         </p>
       </div>
-    <% elsif not user_signed_in?%>
+    <% elsif organization_signed_in? %>
+      <div class="home-page-center">
+        <p>
+          <a class="btn btn-success home-page-button" href="/events" role="button">View Events</a>
+        </p>
+        <p>
+          <a class="btn btn-success home-page-button" href="/organizations/<%=current_organization.id%>" role="button">View Profile</a>
+        </p>
+      </div> 
+    <% else %>
       <div class="home-page-center">
         <p>
           <a class="btn btn-success home-page-button" href="/users/sign_in" role="button">User Sign In</a>
