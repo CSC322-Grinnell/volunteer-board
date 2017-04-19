@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get 'sign_up', to: 'users/registrations#new'
     get 'sign_out', to: 'users/sessions#destroy'
   end
+  
+  get 'users/:id', to: 'users/profile#show'
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
