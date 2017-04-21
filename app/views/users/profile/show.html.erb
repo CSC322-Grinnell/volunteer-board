@@ -3,7 +3,7 @@
            <a href="/" class="btn btn-success" role="button">Go Home</a>
            <a href="/events" class="btn btn-success" role="button">View Events</a>
        <br>
-     </div>
+      </div>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,54 +21,46 @@
   <h2>Profile</h2>
   <div class="panel-group">
     <div class="panel panel-success">
-      <div class="panel-heading"> <%= @organization.name %> </div>
+      <div class="panel-heading"> <%= @user.first_name %> </div>
       <div class="panel-body">
         <p>    
   <strong>Name:</strong>
-  <%= @organization.name %>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
 </p>
 
 <p>
   <strong>Address:</strong>
-  <%= @organization.address %>
+  <%= @user.address %>
 </p>
 
 <p>
   <strong>City:</strong>
-  <%= @organization.city %>
+  <%= @user.city %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @organization.state %>
+  <%= @user.state %>
 </p>
 
 <p>
   <strong>Zip:</strong>
-  <%= @organization.zip %>
+  <%= @user.zip_code %>
 </p>
 
 <p>
   <strong>Phone:</strong>
-  <%= @organization.phone %>
+  <%= @user.phone_number %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @organization.email %>
+  <%= @user.email %>
 </p>
 
 <p>
-  <strong>Mission:</strong>
-  <%= @organization.mission %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @organization.website %>
-</p>
-<p>
-<%= link_to 'Edit Profile', edit_organization_path(@organization) %>
+<%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
 </p>
       </div>
     </div>

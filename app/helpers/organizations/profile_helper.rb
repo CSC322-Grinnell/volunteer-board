@@ -1,0 +1,2 @@
+module Organizations::ProfileHelper
+end
