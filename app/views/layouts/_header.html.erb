@@ -16,21 +16,33 @@ the tool at http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/ -->
       </div>
       <div class="collapse navbar-collapse navbar-menubuilder">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="/">Home</a>
+          <li>
+            <a href="/">Home</a>
           </li>
-          <li><a href="/users">Users</a>
-          </li>
-          <li><a href="/organizations">Organizations</a>
-          </li>
-          <li><a href="/events">Events</a>
+          <% if user_signed_in? %>
+            <li>
+              <a href="/users/<%=current_user.id%>">Profile</a>
+            </li>
+          <% elsif organization_signed_in? %>
+            <li>
+              <a href="/organizations/<%=current_organization.id %>">Profile</a>
+            </li>
+          <% end %>
+          <li>
+            <a href="/events">Events</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="http://greaterpcf.org/">Greater Poweshiek Community Foundation</a>
+          </li>
           <% if user_signed_in? %>
-            <li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
+            <li>
+              <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
             </li>
           <% elsif organization_signed_in? %>
-            <li><%= link_to 'Log Out', destroy_organization_session_path, :method => :delete %>
+            <li>
+              <%= link_to 'Log Out', destroy_organization_session_path, :method => :delete %>
             </li>
           <% end %>
         </ul>
