@@ -20,12 +20,7 @@
 
   <div class="field">
     <%= f.label :state %><br />
-    <select id="states-of-country" name="project[state]">
-<option value="" selected="">Select Your State</option>
-<% CS.states(:us).each do |key, value| %>
-<option value="&lt;%= key %&gt;"><%= value %></option>
-<% end %>
-</select>
+    <%= f.text_field :state %>
   </div>
 
   <div class="field">
