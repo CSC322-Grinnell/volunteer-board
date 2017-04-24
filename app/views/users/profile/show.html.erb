@@ -23,44 +23,60 @@
     <div class="panel panel-success">
       <div class="panel-heading"> <%= @user.first_name %> </div>
       <div class="panel-body">
-        <p>    
-  <strong>Name:</strong>
-  <%= @user.first_name %>
-  <%= @user.last_name %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @user.city %>
-</p>
+<% if (user_signed_in? && @user.id == current_user.id) || organization_signed_in? %>
+  <p>
+    <strong>Name:</strong>
+    <%= @user.first_name %>
+    <%= @user.last_name %>
+  </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @user.state %>
-</p>
+  <% if !@user.private || (user_signed_in? && @user.id == current_user.id)%>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @user.zip_code %>
-</p>
+    <p>
+      <strong>Address:</strong>
+      <%= @user.address %>
+    </p>
+  
+    <p>
+      <strong>City:</strong>
+      <%= @user.city %>
+    </p>
+  
+    <p>
+      <strong>State:</strong>
+      <%= @user.state %>
+    </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone_number %>
-</p>
+    <p>
+      <strong>Zip:</strong>
+      <%= @user.zip_code %>
+    </p>
+  
+    <p>
+      <strong>Phone:</strong>
+      <%= @user.phone_number %>
+    </p>
+  <% end %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-<%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+
+  <% if (user_signed_in? && @user.id == current_user.id) %>
+    <p>
+      <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
+    </p>
+  <% end %>
+<% else %>
+  <p>
+    I'm sorry, this is the wrong profile, 
+    lease click the button below to go to your profile
+  </p>
+  <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
+<% end %>
       </div>
     </div>
