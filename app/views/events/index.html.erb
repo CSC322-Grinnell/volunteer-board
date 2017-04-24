@@ -1,7 +1,11 @@
 <div class="input">
 <p id="notice"><%= notice %></p>
+<div class=margin-sides>
 <h1>Events</h1>
 <input type="text" name="search" placeholder="Search..">
+
+<p><br></p>
+
 <%= month_calendar events: @events do |date, events| %>
   <%= date.strftime("%e") %>
 
@@ -12,6 +16,10 @@
     </div>
   <% end %>
 <% end %>
+
+<br>
+
+<h3> Upcoming </h3>
 
 <table>
   <thead>
@@ -29,7 +37,8 @@
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
+    <% (@events.sort_by {|event| event.start_time}).each do |event| %>
+    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 14.days %>
       <tr>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
@@ -39,15 +48,20 @@
         <td><%= event.location %></td>
         <td><%= event.contact_phone %></td>
         <td><%= event.contact_email %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View', event %></td>
+        <% if organization_signed_in? %>
+          <td><%= link_to 'Edit', edit_event_path(event) %></td>
+          <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Event', new_event_path %>
+<% if organization_signed_in? %>
+  <%= link_to 'New Event', new_event_path %>
+<% end %> 
+</div>
 </div>
