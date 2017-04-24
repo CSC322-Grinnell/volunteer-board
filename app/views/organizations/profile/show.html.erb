@@ -67,8 +67,11 @@
   <strong>Website:</strong>
   <%= @organization.website %>
 </p>
-<p>
-<%= link_to 'Edit Profile', edit_organization_registration_path(@organization) %>
-</p>
+
+<% if organization_signed_in? && current_organization.id == @organization.id %>
+  <p>
+    <%= link_to 'Edit Profile', edit_organization_registration_path(@organization) %>
+  </p>
+<% end %>
       </div>
     </div>
