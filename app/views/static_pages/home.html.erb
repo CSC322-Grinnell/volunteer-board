@@ -8,6 +8,7 @@
     <div align="center">
       <h1>Volunteer Board</h1>
     </div>
+    <!-- if a user is signed in displays buttons that link to the events and user profile -->
     <% if user_signed_in? %>
       <div class="home-page-center">
         <p>
@@ -17,6 +18,7 @@
           <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
         </p>
       </div>
+      <!-- if a user is signed in displays buttons that link to the events and organization profile -->
     <% elsif organization_signed_in? %>
       <div class="home-page-center">
         <p>
@@ -25,7 +27,8 @@
         <p>
           <a class="btn btn-success home-page-button" href="/organizations/<%=current_organization.id%>" role="button">View Profile</a>
         </p>
-      </div> 
+      </div>
+    <!-- if nobody is logged in displays buttons to the organization sign in and sign up and the user sign in and sign up -->
     <% else %>
       <div class="home-page-center">
         <p>

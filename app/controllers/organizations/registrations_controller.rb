@@ -7,11 +7,11 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
   
-  
+  #this code lets devise track the different values during sign up
   def sign_up_params
     params.require(:organization).permit(:name, :address, :city, :state, :zip, :phone, :mission, :website, :email, :password, :password_confirmation)
   end
-
+#this code lets devise track the different values during an account information update
   def account_update_params
     params.require(:organization).permit(:name, :address, :city, :state, :zip, :phone, :mission, :website, :email, :password, :password_confirmation, :current_password)
   end
