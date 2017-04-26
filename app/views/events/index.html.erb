@@ -42,8 +42,18 @@
       <tr>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
+        <td><%= event.start_time.strftime("%A") %>,
+            <%= event.start_time.strftime("%B") %>
+            <%= event.start_time.day %>,
+            <%= event.start_time.year %>,
+            <%= event.start_time.strftime("%I") %>:<%= event.start_time.min %>
+            <%= event.start_time.strftime("%p") %>
+        <td><%= event.end_time.strftime("%A") %>,
+            <%= event.end_time.strftime("%B") %>
+            <%= event.end_time.day %>,
+            <%= event.end_time.year %>,
+            <%= event.end_time.strftime("%I") %>:<%= event.start_time.min %>
+            <%= event.end_time.strftime("%p") %>
         <td><%= event.num_vols %></td>
         <td><%= event.location %></td>
         <td><%= event.contact_phone %></td>
