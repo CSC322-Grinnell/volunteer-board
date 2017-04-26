@@ -16,7 +16,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
- 
+ <!-- displays all the information for the organization whos profile is being shown -->
 <div class="container">
   <h2>Profile</h2>
   <div class="panel-group">
@@ -67,8 +67,11 @@
   <strong>Website:</strong>
   <%= @organization.website %>
 </p>
-<p>
-<%= link_to 'Edit Profile', edit_organization_registration_path(@organization) %>
-</p>
+<!-- this if statement makes it so that the edit profile information only displays if the profile belongs to the current organization loged in. -->
+<% if organization_signed_in? && current_organization.id == @organization.id %>
+  <p>
+    <%= link_to 'Edit Profile', edit_organization_registration_path(@organization) %>
+  </p>
+<% end %>
       </div>
     </div>
