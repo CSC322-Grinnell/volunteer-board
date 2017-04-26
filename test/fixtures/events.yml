@@ -3,8 +3,10 @@
 one:
   name: MyString
   description: MyString
-  start_time: 2017-04-07 18:36:24
-  end_time: 2017-04-07 18:36:24
+  
+  # Tests will fail come April 7, 2050. Same with :two.
+  start_time: 2050-04-07 18:36:24
+  end_time: 2050-04-07 18:37:24
   num_vols: 1
   location: MyString
   contact_phone: aaaaaaaaaa
@@ -13,9 +15,9 @@ one:
 two:
   name: MyString
   description: MyString
-  start_time: 2017-04-07 18:36:24
-  end_time: 2017-04-07 18:36:24
+  start_time: 2050-04-07 18:36:24
+  end_time: 2050-04-07 18:37:24
   num_vols: 1
   location: MyString
   contact_phone: MyString
-  contact_email: MyString
+  contact_email: test2@mail.com
