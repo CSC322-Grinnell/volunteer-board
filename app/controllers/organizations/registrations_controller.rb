@@ -6,6 +6,15 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
+  
+  
+  def sign_up_params
+    params.require(:organization).permit(:name, :address, :city, :state, :zip, :phone, :mission, :website, :email, :password, :password_confirmation)
+  end
+
+  def account_update_params
+    params.require(:organization).permit(:name, :address, :city, :state, :zip, :phone, :mission, :website, :email, :password, :password_confirmation, :current_password)
+  end
 
   # POST /resource
   # def create
