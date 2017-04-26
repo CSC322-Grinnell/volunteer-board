@@ -7,9 +7,7 @@ class User < ApplicationRecord
     validates :state, presence: true
     validates :zip_code, presence: true
     validates :phone_number, presence: true, length: { maximum: 10, minimum: 10 }
-    validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-    validates :password, presence: true
-    validates :password_confirmation, presence: true
+    validates :email, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

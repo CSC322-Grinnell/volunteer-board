@@ -18,4 +18,4 @@ two:
   num_vols: 1
   location: MyString
   contact_phone: MyString
-  contact_email: MyString
+  contact_email: test2@mail.com

@@ -8,9 +8,7 @@ one:
   state: MyString
   zip_code: 12345
   phone_number: aaaaaaaaaa
-  email: email@example.com
-  password: MyString
-  password_confirmation: MyString
+  email: mytest@email.com
   private: false
 
 two:
@@ -21,7 +19,5 @@ two:
   state: MyString
   zip_code: 12345
   phone_number: aaaaaaaaaa
-  email: email@example.com
-  password: MyString
-  password_confirmation: MyString
+  email: a@b.com
   private: false
