@@ -28,7 +28,8 @@ ActiveAdmin.register User do
       f.input :firstname
       f.input :lastname
     end
-    f.actions
+
+   f.actions
   end
   
   member_action :reset_password do
@@ -36,7 +37,7 @@ ActiveAdmin.register User do
   end
   
   show :title =>  proc {|user|user.firstname + " " + user.lastname } do
-    #page_title user.firstname + " " + user.lastname
+    page_title user.firstname + " " + user.lastname
     attributes_table :email, :firstname, :lastname, :previous_experience, :interests, :availability, :address, :city, :state, :zipcode, :phonenumber, :additional_comments
   end
   

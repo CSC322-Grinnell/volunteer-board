@@ -1,7 +1,30 @@
 <p id="notice"><%= notice %></p>
+      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+           <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
+           <a href="/events" class="btn btn-success profile-button" role="button">View Other Events</a>
+       <br>
+     </div>
 
-<p>
-  <strong>Title:</strong>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+<div class="container">
+  <h2> Event</h2>
+  <div class="panel-group">
+    <div class="panel panel-success">
+      <div class="panel-heading"><%= @event.name %> needs <%= @event.num_vols %> volunteers </div>
+      <div class="panel-body">
+        <p>    
+  <strong>Name:</strong>
   <%= @event.name %>
 </p>
 
@@ -11,17 +34,17 @@
 </p>
 
 <p>
-  <strong>Start time:</strong>
+  <strong>Start Time:</strong>
   <%= @event.start_time %>
 </p>
 
 <p>
-  <strong>End time:</strong>
+  <strong>End Time:</strong>
   <%= @event.end_time %>
 </p>
 
 <p>
-  <strong>Number of volunteers needed:</strong>
+  <strong>Number of Volunteers Needed:</strong>
   <%= @event.num_vols %>
 </p>
 
@@ -31,14 +54,16 @@
 </p>
 
 <p>
-  <strong>Contact phone:</strong>
+  <strong>Contact Phone:</strong>
   <%= @event.contact_phone %>
 </p>
 
 <p>
-  <strong>Contact email:</strong>
+  <strong>Contact Email:</strong>
   <%= @event.contact_email %>
 </p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<p>
+<%= link_to 'Edit Event', edit_event_path(@event) %>
+</p>
+      </div>
+    </div>
