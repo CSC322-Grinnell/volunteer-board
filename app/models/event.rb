@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
     validates :name, presence: true, length: { maximum: 50 }
     validates :description, presence: true
-    validates :start_time, presence: true
-    validates :end_time, presence: true
+    validates :start_time, presence: true, date: { after_or_equal_to: Date.current }
+    validates :end_time, presence: true, date: { after_or_equal_to:  :start_time}
     validates :num_vols, presence: true
     validates :location, presence: true
     validates :contact_phone, presence: true, length: { maximum: 10, minimum: 10 }

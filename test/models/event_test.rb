@@ -26,8 +26,21 @@ class EventTest < ActiveSupport::TestCase
     assert_not @event.valid?
   end
   
+  test "start_time should be after current time" do
+    @event.start_time = Date.current - 10.minutes # subtract 10 minutes in case equal
+    assert_not @event.valid?
+  end
+  
   test "end_time should be present" do
     @event.end_time = ""
+    assert_not @event.valid?
+  end
+  
+  test "end_time should be after start_time" do
+    @event.end_time = @event.start_time - 1.days
+    assert_not @event.valid?
+    
+    @event.end_time = @event.start_time - 5.minutes
     assert_not @event.valid?
   end
   
