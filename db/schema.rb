@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417194120) do
+ActiveRecord::Schema.define(version: 20170426182334) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20170417194120) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "mission"
     t.string   "website"
     t.index ["email"], name: "index_organizations_on_email", unique: true
