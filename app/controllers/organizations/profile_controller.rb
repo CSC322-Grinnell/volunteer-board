@@ -10,4 +10,10 @@ class Organizations::ProfileController < ApplicationController
     render "show"
   end
 
+  def list 
+    @organizations = Organization.all
+    
+    render "list"
+  end
+
 end
