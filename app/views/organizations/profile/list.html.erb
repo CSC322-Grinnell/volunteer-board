@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% (@organizations.order(:name)).each do |organization| %>
+      <tr>
+        <td><%= organization.name %></td>
+        <td><%= organization.address %></td>
+        <td>
+            <%= organization.city %>,
+            <%= organization.state %>
+        </td>
+        <td><%= organization.phone %></td>
+        <td><%= organization.email %></td>
+        <td><a href=<%="organizations/#{organization.id}"%>>View Profile </a></td>
+      </tr>
+    <% end %>
+  </tbody>
+  
+
+</table>
