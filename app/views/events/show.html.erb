@@ -62,6 +62,11 @@
   <strong>Contact Email:</strong>
   <%= @event.contact_email %>
 </p>
+<% if user_signed_in? && current_user.id %>
+  
+  
+<% end %>
+
 <p>
 <%= link_to 'Edit Event', edit_event_path(@event) %>
 </p>
