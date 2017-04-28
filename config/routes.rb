@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'organizations/:id', to: 'organizations/profile#show'
   
   get 'users', to: 'users/profile#list'
+  get 'organizations', to: 'organizations/profile#list'
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
