@@ -1,8 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+
 <div class="input">
 <p id="notice"><%= notice %></p>
 <div class=margin-sides>
 <h1>Events</h1>
-<input type="text" name="search" placeholder="Search..">
+
 
 <p><br></p>
 
@@ -16,13 +39,12 @@
     </div>
   <% end %>
 <% end %>
-
+</tr>
 <br>
 
 <h3> Upcoming </h3>
 
 <table>
-  <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
@@ -34,7 +56,6 @@
       <th>Contact email</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
 
   <tbody>
     <% (@events.sort_by {|event| event.start_time}).each do |event| %>
@@ -59,10 +80,6 @@
         <td><%= event.contact_phone %></td>
         <td><%= event.contact_email %></td>
         <td><%= link_to 'View', event %></td>
-        <% if organization_signed_in? %>
-          <td><%= link_to 'Edit', edit_event_path(event) %></td>
-          <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
       </tr>
     <% end %>
     <% end %>
