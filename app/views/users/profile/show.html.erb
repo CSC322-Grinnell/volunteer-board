@@ -82,21 +82,6 @@
     <p>
       <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
     </p>
-    
- <%= month_calendar events: @events do |date, events| %>
-  <%= date.strftime("%e") %>
-
-  <% events.each do |event| %>
-      <div>
-        <a href="/events/<%=event.id%>"><%= event.name %> <br />
-        <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
-      </div>
-    <% end %>
-  <% end %>
-
-
-    
-  <% end %>
 <% else %>
   <p>
     I'm sorry, this is the wrong profile, 
