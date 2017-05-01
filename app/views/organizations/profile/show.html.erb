@@ -1,35 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
-</head>
-
-<p id="notice"><%= notice %></p>
+<html lang="en">
+  <p id="notice"><%= notice %></p>
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
            <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
            <a href="/events" class="btn btn-success profile-button" role="button">View Events</a>
        <br>
      </div>
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -37,6 +13,7 @@ th {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
 </head>
 <body>
  <!-- displays all the information for the organization whos profile is being shown -->
@@ -144,6 +121,17 @@ current organization loged in. -->
 </div>
       
       <h3> Events <%= @organization.name %> Has Created</h3>
+      
+<%= month_calendar events: @organization.events do |date, events| %>
+<%= date.strftime("%e") %>
+  
+  <% events.each do |event| %>
+    <div>
+      <a href="/events/<%=event.id%>"><%= event.name %> <br />
+      <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+    </div>
+  <% end %>
+<% end %>
 
 <table>
     <tr>

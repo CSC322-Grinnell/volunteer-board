@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
 </head>
 <body>
     
@@ -24,10 +25,8 @@
   <tbody>
     <% (@users.order(:last_name)).each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
+        <td><a href=<%="users/#{user.id}"%>><%= user.first_name %></a></td>
         <td><%= user.last_name %></td>
-        <!-- we need to insert a view profile button in here -->
-        <td><a href=<%="users/#{user.id}"%>>View Profile </a></td>
       </tr>
     <% end %>
   </tbody>
