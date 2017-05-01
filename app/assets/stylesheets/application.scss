@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= stub scaffolds
+ *= stub active_admin
  *= require simple_calendar
  *= require_tree .
  *= require_self
@@ -18,3 +19,20 @@
  
 @import "simple_calendar";
 @import "bootstrap";
+
+/* Site-wide styling for tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  text-align: left;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
