@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :events
+    has_and_belongs_to_many :events
     validates :first_name, presence: true, length: { maximum: 50 }
     validates :last_name, presence: true, length: { maximum: 50 }
     validates :address, presence: true

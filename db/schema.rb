@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(version: 20170426183214) do
     t.integer  "organization_id"
   end
 
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.integer "user_id",  null: false
+    t.integer "event_id", null: false
+  end
+
+
   create_table "organizations", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

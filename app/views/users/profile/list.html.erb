@@ -21,10 +21,8 @@
   <tbody>
     <% (@users.order(:last_name)).each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
+        <td><a href=<%="users/#{user.id}"%>><%= user.first_name %></a></td>
         <td><%= user.last_name %></td>
-        <!-- we need to insert a view profile button in here -->
-        <td><a href=<%="users/#{user.id}"%>>View Profile </a></td>
       </tr>
     <% end %>
   </tbody>

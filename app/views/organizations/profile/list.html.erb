@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <style>
-    
-  </style>
-</head>
-
 <p id="notice"><%= notice %></p>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
 <body>
 <div class=margin-sides>
@@ -24,7 +22,7 @@
   <tbody>
     <% (@organizations.order(:name)).each do |organization| %>
       <tr>
-        <td><%= organization.name %></td>
+        <td><a href=<%="organizations/#{organization.id}"%>><%= organization.name %></a></td>
         <td><%= organization.address %></td>
         <td>
             <%= organization.city %>,
@@ -32,9 +30,9 @@
         </td>
         <td><%= organization.phone %></td>
         <td><%= organization.email %></td>
-        <td><a href=<%="organizations/#{organization.id}"%>>View Profile </a></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
+</html>

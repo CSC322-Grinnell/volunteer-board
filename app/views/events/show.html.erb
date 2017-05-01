@@ -72,6 +72,14 @@
   <strong>Contact Email:</strong>
   <%= @event.contact_email %>
 </p>
+<% if user_signed_in? %>
+  <% if @event.users.any? {|u| u.id == current_user.id} %>
+    <%= link_to "Deregister for Event", "/events/deregister/#{@event.id}" %>
+  <% else %>
+    <%= link_to "Register for Event", "/events/sign_up/#{@event.id}" %>
+  <% end %>
+<% end %>
+
 <p>
 <%= link_to 'Edit Event', edit_event_path(@event) %>
 </p>
