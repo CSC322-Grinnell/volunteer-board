@@ -14,4 +14,19 @@ class Organization < ApplicationRecord
   validates :mission, length: { maximum: 250 }
   validates :website, format: { with: /https?:\/\/[\S]+/ }
   
+  # Setup accessible (or protected) attributes for your model
+  attr_accessor :email, :name, :approved, :address, :city, :state, :zip, :phone, :mission, :website, :password, :password_confirmation, :remember_me
+
+  def active_for_authentication?
+    super && approved?
+  end
+
+  def inactive_message
+    if !approved?
+      :not_approved
+    else
+      super # Use whatever other message
+    end
+  end
+  
 end
