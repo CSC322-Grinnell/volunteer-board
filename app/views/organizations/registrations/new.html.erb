@@ -1,4 +1,8 @@
-<h2>Sign up</h2>
+<div class=center-form>
+
+<h2>Organization Sign up</h2>
+
+</br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -66,4 +70,7 @@
   </div>
 <% end %>
 
+</br>
+
 <%= render "organizations/shared/links" %>
+</div>
