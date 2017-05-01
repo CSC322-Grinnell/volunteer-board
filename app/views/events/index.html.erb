@@ -1,26 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
-</head>
-
+  
 <div class="input">
 <p id="notice"><%= notice %></p>
 <div class=margin-sides>
@@ -61,7 +41,7 @@ th {
     <% (@events.sort_by {|event| event.start_time}).each do |event| %>
     <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 14.days %>
       <tr>
-        <td><%= event.name %></td>
+        <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
         <td><%= event.description %></td>
         <td><%= event.start_time.strftime("%A") %>,
             <%= event.start_time.strftime("%B") %>
@@ -79,13 +59,11 @@ th {
         <td><%= event.location %></td>
         <td><%= event.contact_phone %></td>
         <td><%= event.contact_email %></td>
-        <td><%= link_to 'View', event %></td>
-      </tr>
     <% end %>
     <% end %>
   </tbody>
 </table>
-
+    </tr>
 <br>
 <% if organization_signed_in? %>
   <%= link_to 'New Event', new_event_path %>
