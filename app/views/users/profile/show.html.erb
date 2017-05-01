@@ -68,7 +68,6 @@
 
   <% if (user_signed_in? && @user.id == current_user.id) %>
   
-  
   <%= month_calendar events: @events do |date, events| %>
   <%= date.strftime("%e") %>
   
@@ -82,6 +81,7 @@
     <p>
       <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
     </p>
+  <% end %>
 <% else %>
   <p>
     I'm sorry, this is the wrong profile, 
@@ -89,5 +89,4 @@
   </p>
   <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
 <% end %>
-      </div>
     </div>
