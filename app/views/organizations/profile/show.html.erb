@@ -22,61 +22,116 @@
   <div class="panel-group">
     <div class="panel panel-success">
       <div class="panel-heading"> <%= @organization.name %> </div>
-      <div class="panel-body">
-        <p>    
-  <strong>Name:</strong>
-  <%= @organization.name %>
-</p>
+        <div class="panel-body">
+          <p>    
+            <strong>Name:</strong>
+            <%= @organization.name %>
+          </p>
+          <p>
+            <strong>Address:</strong>
+              <%= @organization.address %>
+          </p>
+          <p>
+            <strong>City:</strong>
+            <%= @organization.city %>
+          </p>
+          <p>
+            <strong>State:</strong>
+            <%= @organization.state %>
+          </p>
+          <p>
+            <strong>Zip:</strong>
+            <%= @organization.zip %>
+          </p>
+          <p>
+            <strong>Phone:</strong>
+            <%= @organization.phone %>
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <%= @organization.email %>
+          </p>
+          <p>
+            <strong>Mission:</strong>
+            <%= @organization.mission %>
+          </p>
+          <p>
+            <strong>Website:</strong>
+            <%= @organization.website %>
+          </p>
+<!-- this if statement makes it so that the edit profile information only displays if the profile belongs to the 
+current organization loged in. -->
+          <% if organization_signed_in? && current_organization.id == @organization.id %>
+          <p>
+            <%= link_to 'Edit Profile', edit_organization_registration_path(@organization) %>
+          </p>
+          <% end %>
+        </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @organization.address %>
-</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Start time</th>
+              <th>End time</th>
+              <th>Number of volunteers needed</th>
+              <th>Location</th>
+              <th>Contact phone</th>
+              <th>Contact email</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-<p>
-  <strong>City:</strong>
-  <%= @organization.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @organization.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @organization.zip %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @organization.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @organization.email %>
-</p>
-
-<p>
-  <strong>Mission:</strong>
-  <%= @organization.mission %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @organization.website %>
-</p>
-<!-- this if statement makes it so that the edit profile information only displays if the profile belongs to the current organization loged in. -->
-<% if organization_signed_in? && current_organization.id == @organization.id %>
-  <p>
-    <%= link_to 'Edit Profile', edit_organization_registration_path(@organization) %>
-  </p>
-<% end %>
+          <tbody>
+            <% (@organization.events.sort_by {|event| event.start_time}).each do |event| %>
+            <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 14.days %>
+              <tr>
+                <td><%= event.name %></td>
+                <td><%= event.description %></td>
+                <td><%= event.start_time.strftime("%A") %>,
+                    <%= event.start_time.strftime("%B") %>
+                    <%= event.start_time.day %>,
+                    <%= event.start_time.year %>,
+                    <%= event.start_time.strftime("%I") %>:<%= event.start_time.strftime("%M") %>
+                    <%= event.start_time.strftime("%p") %>
+                <td><%= event.end_time.strftime("%A") %>,
+                    <%= event.end_time.strftime("%B") %>
+                    <%= event.end_time.day %>,
+                    <%= event.end_time.year %>,
+                    <%= event.end_time.strftime("%I") %>:<%= event.end_time.strftime("%M") %>
+                    <%= event.end_time.strftime("%p") %>
+                <td><%= event.num_vols %></td>
+                <td><%= event.location %></td>
+                <td><%= event.contact_phone %></td>
+                <td><%= event.contact_email %></td>
+                <td><%= link_to 'View', event %></td>
+                <% if organization_signed_in? %>
+                  <td><%= link_to 'Edit', edit_event_path(event) %></td>
+                  <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+              </tr>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
+</div>
       
       <h3> Events <%= @organization.name %> Has Created</h3>
+      
+<%= month_calendar events: @organization.events do |date, events| %>
+<%= date.strftime("%e") %>
+  
+  <% events.each do |event| %>
+    <div>
+      <a href="/events/<%=event.id%>"><%= event.name %> <br />
+      <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+    </div>
+  <% end %>
+<% end %>
 
 <table>
     <tr>

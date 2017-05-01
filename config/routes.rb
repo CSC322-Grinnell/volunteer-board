@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   
   get 'users', to: 'users/profile#list'
   get 'organizations', to: 'organizations/profile#list'
+  get 'events/sign_up/:id', to: 'events#sign_up'
+  get 'events/deregister/:id', to: 'events#deregister'
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

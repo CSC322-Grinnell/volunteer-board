@@ -68,7 +68,6 @@
 
   <% if (user_signed_in? && @user.id == current_user.id) %>
   
-  
   <%= month_calendar events: @events do |date, events| %>
   <%= date.strftime("%e") %>
   
@@ -90,5 +89,4 @@
   </p>
   <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
 <% end %>
-      </div>
     </div>
