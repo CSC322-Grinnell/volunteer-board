@@ -16,6 +16,15 @@ class EventsController < InheritedResources::Base
     redirect_to action: "show", id: @event.id
   end
 
+  def create
+    @event = current_organization.events.new(event_params)
+    if @event.save
+      redirect_to events_path
+    else
+      render 'new'
+    end
+  end
+
   private
 
     def event_params
