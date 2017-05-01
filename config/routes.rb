@@ -29,6 +29,15 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
+  #organization related routes
+  devise_scope :organization do
+    get '/profile/organization(/:id)' => 'organizations#show', as: 'org'
+    get '/admin/organizations(/:id)' => 'organizations#show', as: 'adminorg' #added 2016-11-14 - marios
+    get '/organizations'            => 'organizations#index'
+    get 'search_orgs', :to          => 'organizations#index'
+  end
+  
   get 'static_pages/home'
 
   root 'static_pages#home'
@@ -36,5 +45,8 @@ Rails.application.routes.draw do
   #root 'application#volunteer_board'
   resources :events
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   
 end
