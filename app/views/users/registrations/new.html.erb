@@ -61,17 +61,22 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
   
+  </br>
   <div class="field">
     <%= f.label :private %>
     <%= f.check_box :private %>
   </div>
-
+  <p>
+    (If you choose to have a private account, only your name and email will be 
+    available to organizations)
+  </p>
+  
+  </br>
+  
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-</br>
 
 <%= render "users/shared/links" %>
 </div>

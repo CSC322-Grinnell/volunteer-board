@@ -7,7 +7,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
-    <div class="field">
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
@@ -64,13 +64,12 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  
+  </br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-</br>
 
 <%= render "organizations/shared/links" %>
 </div>
