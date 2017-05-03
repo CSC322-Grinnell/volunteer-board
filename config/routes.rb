@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     get 'sign_up', to: 'organizations/registrations#new'
     get 'sign_out', to: 'organizations/sessions#destroy'
   end
-#sets up the links for all the user routes for devise
+  
+  #sets up the links for all the user routes for devise
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   as :user do
     get 'sign_in', to: 'users/sessions#new'
@@ -46,7 +47,7 @@ Rails.application.routes.draw do
   resources :events
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
+  get 'admin/organizations/:id/approve' => 'application#approve_org', as: 'approve_org'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   
 end

@@ -8,8 +8,27 @@ class User < ApplicationRecord
     validates :zip_code, presence: true
     validates :phone_number, presence: true, length: { maximum: 10, minimum: 10 }
     validates :email, presence: true
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    # Include default devise modules. Others available are:
+    # :confirmable, :lockable, :timeoutable and :omniauthable
+    devise :database_authenticatable, :registerable,
+            :recoverable, :rememberable, :trackable, :validatable
+    def first_name=(s)
+        super s.titleize
+    end
+    
+    def last_name=(s)
+        super s.titleize
+    end
+    
+    def address=(s)
+        super s.to_s.titleize
+    end
+    
+    def city=(s)
+        super s.titleize
+    end
+    
+    def state=(s)
+        super s.titleize
+    end
 end

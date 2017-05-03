@@ -65,7 +65,7 @@
 
 <p>
   <strong>Contact Phone:</strong>
-  <%= @event.contact_phone %>
+  (<%= @event.contact_phone[0,3] %>) <%= @event.contact_phone[3,3] %>-<%= @event.contact_phone[6,4] %>
 </p>
 
 <p>
