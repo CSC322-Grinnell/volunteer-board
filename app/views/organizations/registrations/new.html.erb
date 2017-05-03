@@ -1,13 +1,18 @@
-<h2>Sign up</h2>
+<div class="center-form">
+  <h2>Organization Sign up</h2>
+</div>
+
+</br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
-    <div class="field">
+  <div class="center-form width-med">
+  <div class="field">
     <%= f.label :name %><br />
     <input type="text" id="organization_name" name="organization[name]" placeholder="Volunteer for All">
   </div>
-
+  
   <div class="field">
     <%= f.label :address %><br />
     <input type="text" id="organization_address" name="organization[address]" placeholder="1234 Helping Way">
@@ -84,10 +89,10 @@
     <%= f.label :phone %><br />
      <input type="text" id="organization_phone" name="organization[phone]" placeholder="1234567890">
   </div>
-
+ 
   <div class="field">
     <%= f.label :mission %><br />
-    <input type="text" id="organization_mission" name="organization[mission]" placeholder="help at all cost">
+    <%= f.text_area(:mission, rows: 4, cols: 55) %>
   </div>
 
   <div class="field">
@@ -95,10 +100,12 @@
       <input type="text" id="organization_website" name="organization[website]" placeholder="https://www.website.com">
   </div>
 
-
+  </div>
+  
+  <div class="center-form width-lg">
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
@@ -113,10 +120,12 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  
+  </br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
 <%= render "organizations/shared/links" %>
+</div>

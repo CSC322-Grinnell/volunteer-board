@@ -9,4 +9,8 @@ class Event < ApplicationRecord
     validates :location, presence: true
     validates :contact_phone, presence: true, length: { maximum: 10, minimum: 10 }
     validates :contact_email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+    
+    def location=(s)
+        super s.titleize
+    end
 end
