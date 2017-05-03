@@ -16,4 +16,16 @@ class Organization < ApplicationRecord
   validates :mission, length: { maximum: 250 }
   validates :website, format: { with: /https?:\/\/[\S]+/ }
   
+  def address=(s)
+    super s.titleize
+  end
+  
+  def city=(s)
+    super s.titleize
+  end
+  
+  def state=(s)
+    super s.titleize
+  end
+  
 end
