@@ -36,3 +36,45 @@ th {
   background-color: #4CAF50;
   color: white;
 }
+
+/* Margins and centering */
+.margin-sides {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.margin-left {
+    margin-left: 50px;
+}
+
+.center-form {
+   text-align: center; 
+   margin: auto;
+}
+
+/* Width options used for text input */
+.width-lg {
+  width: 550px;
+}
+
+.width-med {
+  width: 350px;
+}
+
+.width-sm {
+  width: 200px;
+}
+
+/* Explicitly set text fields to 100% of their container */
+input[type="text"] {
+    width: 100%;
+}
+
+/* Set site-wide sizing for email and password fields */
+input[type="email"] {
+    width: 250px; 
+}
+
+input[type="password"] {
+    width: 150px;
+}
