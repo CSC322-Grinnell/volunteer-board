@@ -9,7 +9,7 @@ class Users::ProfileController < ApplicationController
     render "show"
   end
   
-  #gets a list of all users and then renders them in a list through users/list.html.erb
+  #gets a list of all users and then renders them in a list through users/profile/list.html.erb
   def list 
     @users = User.all
     
