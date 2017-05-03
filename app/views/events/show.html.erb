@@ -21,9 +21,11 @@
   <h2> Event</h2>
   <div class="panel-group">
     <div class="panel panel-success">
-      <div class="panel-heading"><%= @event.name %> needs <%= @event.num_vols %> volunteers </div>
+      <div class="panel-heading"><%= @event.name %> needs <%= @event.num_vols - (@event.volunteer_count ||= 0) %> volunteers </div>
       <div class="panel-body">
         <p>    
+        
+        
   <strong>Name:</strong>
   <%= @event.name %>
 </p>
@@ -59,19 +61,27 @@
 </p>
 
 <p>
+  <strong>Number of Volunteers Currently Signed Up:</strong>
+  <% @event.volunteer_count ||= 0 %>
+  <%= @event.volunteer_count %>
+</p>
+
+<p>
   <strong>Location:</strong>
   <%= @event.location %>
 </p>
 
 <p>
   <strong>Contact Phone:</strong>
-  <%= @event.contact_phone %>
+  (<%= @event.contact_phone[0,3] %>) <%= @event.contact_phone[3,3] %>-<%= @event.contact_phone[6,4] %>
 </p>
 
 <p>
   <strong>Contact Email:</strong>
   <%= @event.contact_email %>
 </p>
+
+
 <% if user_signed_in? %>
   <% if @event.users.any? {|u| u.id == current_user.id} %>
     <%= link_to "Deregister for Event", "/events/deregister/#{@event.id}" %>

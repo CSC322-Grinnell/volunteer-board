@@ -41,6 +41,12 @@
     <%= f.label "Number of volunteers needed" %><br />
     <%= f.number_field :num_vols %>
   </div>
+  
+  
+  <div class="field">
+    <%= f.label "Number of volunteers signed up" %>
+    <%= f.number_field :volunteer_count, :value => 0%>
+  </div>
 
   <div class="field">
     <%= f.label :location %><br />
