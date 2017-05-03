@@ -6,37 +6,91 @@
   
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    <input type="text" id="user_first_name" name="organization[first_name]" placeholder="Amy">
   </div>
   
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <input type="text" id="user_last_name" name="organization[last_name]" placeholder="Helps">
   </div>
   
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <input type="text" id="user_address" name="user[address]" placeholder="1234 Helping Way">
   </div>
   
   <div class="field">
     <%= f.label :city %><br />
-    <%= f.text_field :city %>
+    <input type="text" id="user_city" name="user[city]" placeholder="Birmingham">
   </div>
   
   <div class="field">
     <%= f.label :state %><br />
-    <%= f.text_field :state %>
+  <div class="field">
+    <%= f.label :state %><br />
+<select id="user_state" name="user[state]">
+<option value="Alabama">Alabama</option>
+<option value="ak">Alaska</option>
+<option value="az">Arizona</option>
+<option value="ar">Arkansas</option>
+<option value="ca">California</option>
+<option value="co">Colorodo</option>
+<option value="ct">Connecticut</option>
+<option value="de">Deleware</option>
+<option value="District of Columbia">District of Columbia</option>
+<option value="fl">Florida</option>
+<option value="ga">Georgia</option>
+<option value="hi">Hawaii</option>
+<option value="id">Idaho</option>
+<option value="il">Illinois</option>
+<option value="in">Indiana</option>
+<option value="ia">Iowa</option>
+<option value="ks">Kansas</option>
+<option value="ky">Kentucky</option>
+<option value="la">Louisiana</option>
+<option value="me">Maine</option>
+<option value="md">Maryland</option>
+<option value="ma">Massachusetts</option>
+<option value="mi">Michigan</option>
+<option value="mn">Minnesota</option>
+<option value="ms">Mississippi</option>
+<option value="mo">Missouri</option>
+<option value="Montana">Montana</option>
+<option value="Nebraska">Nebraska</option>
+<option value="Nevada">Nevada</option>
+<option value="New Hampshire">New Hampshire</option>
+<option value="New Jersey">New Jersey</option>
+<option value="New Mexico">New Mexico</option>
+<option value="New York">New York</option>
+<option value="North Carolina">North Carolina</option>
+<option value="North Dakota">North Dakota</option>
+<option value="Ohio">Ohio</option>
+<option value="Oklahoma">Oklahoma</option>
+<option value="Oregon">Oregon</option>
+<option value="Pennsylvania">Pennsylvania</option>
+<option value="Rhode Island">Rhode Island</option>
+<option value="South Carolina">South Carolina</option>
+<option value="South Dakota">South Dakota</option>
+<option value="Tennessee">Tennessee</option>
+<option value="Texas">Texas</option>
+<option value="Utah">Utah</option>
+<option value="Vermont">Vermont</option>
+<option value="Virginia">Virginia</option>
+<option value="Washington">Washington</option>
+<option value="West Virginia">West Virginia</option>
+<option value="Wisconsin">Wisconsin</option>
+<option value="Wyoming">Wyoming</option>
+</select>
   </div>
   
   <div class="field">
     <%= f.label :zip_code %><br />
-    <%= f.text_field :zip_code %>
+    <input type="text" id="user_zip" name="user[zip]" placeholder="12345">
   </div>
   
   <div class="field">
     <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number %>
+    <input type="text" id="user_phone" name="user[phone]" placeholder="1234567890">
   </div>
 
   <div class="field">
