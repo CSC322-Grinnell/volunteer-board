@@ -1,13 +1,18 @@
-<h2>Sign up</h2>
+<div class="center-form">
+  <h2>Organization Sign up</h2>
+</div>
+
+</br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
-    <div class="field">
+  <div class="center-form width-med">
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-
+  
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address %>
@@ -32,20 +37,22 @@
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
   </div>
-
+ 
   <div class="field">
     <%= f.label :mission %><br />
-    <%= f.text_field :mission %>
+    <%= f.text_area(:mission, rows: 4, cols: 55) %>
   </div>
 
   <div class="field">
     <%= f.label :website %> <em>(Must start with "http://")</em><br />
     <%= f.text_field :website %>
   </div>
-
+  </div>
+  
+  <div class="center-form width-lg">
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
@@ -60,10 +67,12 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  
+  </br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
 <%= render "organizations/shared/links" %>
+</div>
