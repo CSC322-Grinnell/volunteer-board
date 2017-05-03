@@ -12,6 +12,7 @@ class Organization < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true
   validates :zip, presence: true
+  validates :approved, presence: false
   validates :phone, presence: true, length: { maximum: 10, minimum: 10 }
   validates :mission, length: { maximum: 250 }
   validates :website, format: { with: /https?:\/\/[\S]+/ }
@@ -29,7 +30,6 @@ class Organization < ApplicationRecord
   end
   # Setup accessible (or protected) attributes for your model
   attr_accessor :email, :name, :approved, :address, :city, :state, :zip, :phone, :mission, :website, :password, :password_confirmation, :remember_me
-
 
   def active_for_authentication?
     super && approved?

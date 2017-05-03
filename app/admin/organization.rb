@@ -36,8 +36,4 @@ ActiveAdmin.register Organization do
       link_to "Approve", approve_org_path(params[:id])
     end
   end
-  
-  action_item :view_as_user, only: :show do
-    link_to "View As User", org_path(params[:id])
-  end
 end
