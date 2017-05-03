@@ -35,7 +35,7 @@
             <%= organization.city %>,
             <%= organization.state %>
         </td>
-        <td><%= organization.phone %></td>
+        <td>(<%= organization.phone[0,3] %>) <%= organization.phone[3,3] %>-<%= organization.phone[6,4] %></td>
         <td><%= organization.email %></td>
       </tr>
     <% end %>
