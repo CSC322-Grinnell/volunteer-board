@@ -11,9 +11,17 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
   def sign_up_params
     params.require(:organization).permit(:name, :address, :city, :state, :zip, :phone, :mission, :website, :email, :password, :password_confirmation)
   end
-#this code lets devise track the different values during an account information update
+  #this code lets devise track the different values during an account information update
   def account_update_params
     params.require(:organization).permit(:name, :address, :city, :state, :zip, :phone, :mission, :website, :email, :password, :password_confirmation, :current_password)
+  end
+  
+  def show
+    if params[:id].present?
+      @org = Organization.find(params[:id])
+    else 
+      @org = current_organization
+    end
   end
 
   # POST /resource

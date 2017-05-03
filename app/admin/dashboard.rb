@@ -11,15 +11,16 @@ ActiveAdmin.register_page "Dashboard" do
       #end
     
     # Admin Users
-    def approve_org(org)
+    def aprove_org(org)
       org.approved = true
     end
     
+    # !!! Need testing for admin organization approval feature !!!
     @organization = Organization.where(approved: false)
     columns do
       column do
         panel 'Unapproved Organizations' do
-         @organization.each do |org|
+          @organization.each do |org|
             # How organization shows up
             li link_to "View #{org.name} (#{org.email})", adminorg_path(org.id)
           end
