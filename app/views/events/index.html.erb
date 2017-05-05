@@ -8,7 +8,7 @@
 
 
 <p><br></p>
-
+<!-- lists all the events on a calendar -->
 <%= month_calendar events: @events do |date, events| %>
   <%= date.strftime("%e") %>
 
@@ -22,6 +22,8 @@
 </tr>
 <br>
 
+
+<!-- lists the upcoming events in chronological order -->
 <h3> Upcoming </h3>
 
 <table>
@@ -65,8 +67,12 @@
 </table>
     </tr>
 <br>
+
+<!-- if an organization is signed in it allows for them to create a new event-->
 <% if organization_signed_in? %>
   <%= link_to 'New Event', new_event_path %>
 <% end %> 
+
+
 </div>
 </div>

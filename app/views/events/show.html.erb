@@ -25,7 +25,7 @@
       <div class="panel-body">
         <p>    
         
-        
+        <!-- Displays the information for the event -->
   <strong>Name:</strong>
   <%= @event.name %>
 </p>
@@ -81,7 +81,7 @@
   <%= @event.contact_email %>
 </p>
 
-
+<!-- Determines if the user currently signed in has signed up for the event aready. If they have it gives them the option to deregister and if they havnt it gives them the option to register. -->
 <% if user_signed_in? %>
   <% if @event.users.any? {|u| u.id == current_user.id} %>
     <%= link_to "Deregister for Event", "/events/deregister/#{@event.id}" %>
@@ -90,8 +90,9 @@
   <% end %>
 <% end %>
 
+
 <p>
-<%= link_to 'Edit Event', edit_event_path(@event) %>
+  <%= link_to 'Edit Event', edit_event_path(@event) %>
 </p>
       </div>
     </div>
