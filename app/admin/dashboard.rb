@@ -16,7 +16,7 @@ ActiveAdmin.register_page "Dashboard" do
     end
     
     # !!! Need testing for admin organization approval feature !!!
-    @organization = Organization.where(approved: false)
+    @organization = Organization.all
     columns do
       column do
         panel 'Unapproved Organizations' do

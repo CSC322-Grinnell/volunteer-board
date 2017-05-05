@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def approve_org
     org = Organization.find(params[:id])
-    org.approved = true
+    org.update(approved: true)
     if org.save
       flash[:notice] = "#{org.name} approved"
     else

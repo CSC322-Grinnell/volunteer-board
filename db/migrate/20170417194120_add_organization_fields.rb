@@ -8,6 +8,5 @@ class AddOrganizationFields < ActiveRecord::Migration[5.0]
     add_column :organizations, :phone, :integer
     add_column :organizations, :mission, :string
     add_column :organizations, :website, :string
-    
   end
 end
