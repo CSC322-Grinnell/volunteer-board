@@ -20,7 +20,7 @@
       <div class="panel-heading"> <%= @user.first_name %> </div>
       <div class="panel-body">
 
-
+<!-- ensures that either the user who's profile it is or an organization are the ones trying to view the profile -->
 <% if (user_signed_in? && @user.id == current_user.id) || organization_signed_in? %>
   <p>
     <strong>Name:</strong>
@@ -28,6 +28,7 @@
     <%= @user.last_name %>
   </p>
 
+  <!-- hides the information that is private from organizations if the user has marked private -->
   <% if !@user.private || (user_signed_in? && @user.id == current_user.id)%>
 
     <p>
@@ -62,19 +63,21 @@
   
   <p><br></p>
   
-  <h2> <%= @user.first_name%>'s Event Calendar</h2>
+  
     <% end %>
   <% end %>
+  
+  <!-- if this is the current user's profile displays a calendar with only event they've signed up for and a link to allow them to edit their profile -->
   <% if (user_signed_in? && @user.id == current_user.id) %>
+    <h2> <%= @user.first_name%>'s Event Calendar</h2>
+    <%= month_calendar events: @events do |date, events| %>
+    <%= date.strftime("%e") %>
   
-  <%= month_calendar events: @events do |date, events| %>
-  <%= date.strftime("%e") %>
-  
-  <% events.each do |event| %>
-    <div>
-      <a href="/events/<%=event.id%>"><%= event.name %> <br />
-      <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
-    </div>
+    <% events.each do |event| %>
+      <div>
+        <a href="/events/<%=event.id%>"><%= event.name %> <br />
+        <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+      </div>
   <% end %>
 <% end %>
     <p>
@@ -86,6 +89,10 @@
     I'm sorry, this is the wrong profile, 
     lease click the button below to go to your profile
   </p>
-  <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
+  
+  <% if user_signed_in? %>
+    <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
+  <% end %>
+    
 <% end %>
     </div>

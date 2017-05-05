@@ -23,8 +23,11 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users/profile#show'
   get 'organizations/:id', to: 'organizations/profile#show'
   
+  #sets up the routes for listing all profiles
   get 'users', to: 'users/profile#list'
   get 'organizations', to: 'organizations/profile#list'
+  
+  #sets up the routes for registering and deregistering for an event as a user
   get 'events/sign_up/:id', to: 'events#sign_up'
   get 'events/deregister/:id', to: 'events#deregister'
 

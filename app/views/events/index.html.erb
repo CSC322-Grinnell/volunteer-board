@@ -8,7 +8,7 @@
 
 
 <p><br></p>
-
+<!-- lists all the events on a calendar -->
 <%= month_calendar events: @events do |date, events| %>
   <%= date.strftime("%e") %>
 
@@ -22,6 +22,8 @@
 </tr>
 <br>
 
+
+<!-- lists the upcoming events in chronological order -->
 <h3> Upcoming </h3>
 
 <table>
@@ -47,6 +49,7 @@
         <td><%= event.end_time.strftime("%A, %B, %e, %Y, %I:%M %p") %>
         <td><%= event.num_vols %></td>
         <td><%= event.location %></td>
+        <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
         <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
         <td><%= event.contact_email %></td>
     <% end %>
@@ -55,8 +58,12 @@
 </table>
     </tr>
 <br>
+
+<!-- if an organization is signed in it allows for them to create a new event-->
 <% if organization_signed_in? %>
   <%= link_to 'New Event', new_event_path %>
 <% end %> 
+
+
 </div>
 </div>

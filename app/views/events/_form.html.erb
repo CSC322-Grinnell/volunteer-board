@@ -1,3 +1,5 @@
+
+<!-- This is the form for both creating and editing an event -->
 <%= form_for(event) do |f| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -45,7 +47,7 @@
   
   <div class="field">
     <%= f.label "Number of volunteers signed up" %>
-    <%= f.number_field :volunteer_count, :value => 0%>
+    <%= f.number_field :volunteer_count, :placeholder => 0%>
   </div>
 
   <div class="field">
