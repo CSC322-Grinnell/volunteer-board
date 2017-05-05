@@ -45,6 +45,7 @@
           </p>
           <p>
             <strong>Phone:</strong>
+            <!-- breaks the phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
             <td>(<%= @organization.phone[0,3] %>) <%= @organization.phone[3,3] %>-<%= @organization.phone[6,4] %></td>
           </p>
           <p>

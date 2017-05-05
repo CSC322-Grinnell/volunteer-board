@@ -37,6 +37,7 @@
             <%= organization.city %>,
             <%= organization.state %>
         </td>
+        <!-- breaks the phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
         <td>(<%= organization.phone[0,3] %>) <%= organization.phone[3,3] %>-<%= organization.phone[6,4] %></td>
         <td><%= organization.email %></td>
       </tr>

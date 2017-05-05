@@ -73,6 +73,7 @@
 
 <p>
   <strong>Contact Phone:</strong>
+  <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
   (<%= @event.contact_phone[0,3] %>) <%= @event.contact_phone[3,3] %>-<%= @event.contact_phone[6,4] %>
 </p>
 

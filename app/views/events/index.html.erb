@@ -59,6 +59,7 @@
             <%= event.end_time.strftime("%p") %>
         <td><%= event.num_vols %></td>
         <td><%= event.location %></td>
+        <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
         <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
         <td><%= event.contact_email %></td>
     <% end %>
