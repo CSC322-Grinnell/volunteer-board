@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-  
 <div class="input">
 <p id="notice"><%= notice %></p>
 <div class=margin-sides>
 <h1>Events</h1>
-
 
 <p><br></p>
 <!-- lists all the events on a calendar -->
@@ -21,7 +17,6 @@
 <% end %>
 </tr>
 <br>
-
 
 <!-- lists the upcoming events in chronological order -->
 <h3> Upcoming </h3>
@@ -63,7 +58,5 @@
 <% if organization_signed_in? %>
   <%= link_to 'New Event', new_event_path %>
 <% end %> 
-
-
 </div>
 </div>
