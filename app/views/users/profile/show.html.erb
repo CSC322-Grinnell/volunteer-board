@@ -56,39 +56,41 @@
       (<%= @user.phone_number[0,3] %>) <%= @user.phone_number[3,3] %>-<%= @user.phone_number[6,4] %>
     </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
   
-  <p><br></p>
+    <p><br></p>
   
   
-    <% end %>
   <% end %>
   
   <!-- if this is the current user's profile displays a calendar with only event they've signed up for and a link to allow them to edit their profile -->
   <% if (user_signed_in? && @user.id == current_user.id) %>
     <h2> <%= @user.first_name%>'s Event Calendar</h2>
+    
+    
     <%= month_calendar events: @events do |date, events| %>
-    <%= date.strftime("%e") %>
+      <%= date.strftime("%e") %>
   
-    <% events.each do |event| %>
-      <div>
-        <a href="/events/<%=event.id%>"><%= event.name %> <br />
-        <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
-      </div>
-  <% end %>
-<% end %>
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
     <p>
       <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
     </p>
+  <% end %>
 
 <% else %>
-  <p>
-    I'm sorry, this is the wrong profile, 
-    lease click the button below to go to your profile
-  </p>
+    <p>
+      I'm sorry, this is the wrong profile, 
+      lease click the button below to go to your profile
+    </p>
   
   <% if user_signed_in? %>
     <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
