@@ -1,29 +1,20 @@
 <p id="notice"><%= notice %></p>
-      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-           <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
-           <a href="/events" class="btn btn-success profile-button" role="button">View Other Events</a>
-       <br>
-     </div>
+<div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+  <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
+  <a href="/events" class="btn btn-success profile-button" role="button">View Other Events</a>
+  <br>
+</div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
- 
 <div class="container">
   <h2> Event</h2>
   <div class="panel-group">
     <div class="panel panel-success">
-      <div class="panel-heading"><%= @event.name %> needs <%= @event.num_vols %> volunteers </div>
+      <div class="panel-heading"><%= @event.name %> needs <%= @event.num_vols - (@event.volunteer_count ||= 0) %> volunteers </div>
       <div class="panel-body">
-        <p>    
+           
+        
+<!-- Displays the information for the event -->
+<p> 
   <strong>Name:</strong>
   <%= @event.name %>
 </p>
@@ -35,27 +26,23 @@
 
 <p>
   <strong>Start Time:</strong>
-  <%= @event.start_time.strftime("%A") %>,
-            <%= @event.start_time.strftime("%B") %>
-            <%= @event.start_time.day %>,
-            <%= @event.start_time.year %>,
-            <%= @event.start_time.strftime("%I") %>:<%= @event.start_time.strftime("%M") %>
-            <%= @event.start_time.strftime("%p") %>
+  <%= @event.start_time.strftime("%A, %B %e, %Y, %I:%M%p")%>
 </p>
 
 <p>
   <strong>End Time:</strong>
-  <%= @event.end_time.strftime("%A") %>,
-            <%= @event.end_time.strftime("%B") %>
-            <%= @event.end_time.day %>,
-            <%= @event.end_time.year %>,
-            <%= @event.end_time.strftime("%I") %>:<%= @event.end_time.strftime("%M") %>
-            <%= @event.end_time.strftime("%p") %>
+  <%= @event.end_time.strftime("%A, %B %e, %Y, %I:%M%p")%>
 </p>
 
 <p>
   <strong>Number of Volunteers Needed:</strong>
   <%= @event.num_vols %>
+</p>
+
+<p>
+  <strong>Number of Volunteers Currently Signed Up:</strong>
+  <% @event.volunteer_count ||= 0 %>
+  <%= @event.volunteer_count %>
 </p>
 
 <p>
@@ -65,6 +52,7 @@
 
 <p>
   <strong>Contact Phone:</strong>
+  <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
   (<%= @event.contact_phone[0,3] %>) <%= @event.contact_phone[3,3] %>-<%= @event.contact_phone[6,4] %>
 </p>
 
@@ -72,6 +60,8 @@
   <strong>Contact Email:</strong>
   <%= @event.contact_email %>
 </p>
+
+<!-- Determines if the user currently signed in has signed up for the event aready. If they have it gives them the option to deregister and if they havnt it gives them the option to register. -->
 <% if user_signed_in? %>
   <% if @event.users.any? {|u| u.id == current_user.id} %>
     <%= link_to "Deregister for Event", "/events/deregister/#{@event.id}" %>
@@ -80,8 +70,10 @@
   <% end %>
 <% end %>
 
-<p>
-<%= link_to 'Edit Event', edit_event_path(@event) %>
-</p>
+<% if organization_signed_in? && current_organization.id == @event.organization_id %>
+  <p>
+    <%= link_to 'Edit Event', edit_event_path(@event) %>
+  </p>
+<%end%>
       </div>
     </div>

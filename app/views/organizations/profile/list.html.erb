@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html>
-
 <p id="notice"><%= notice %></p>
 
-
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
 <body>
-    
+  
+  <!-- Lists all the organizations in alphabetical order in a table including their name, address, city, phone number, and email -->
+<div class=margin-sides>
 <table>
     <tr>
       <th>Name</th>
@@ -35,11 +23,12 @@
             <%= organization.city %>,
             <%= organization.state %>
         </td>
+        <!-- breaks the phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
         <td>(<%= organization.phone[0,3] %>) <%= organization.phone[3,3] %>-<%= organization.phone[6,4] %></td>
         <td><%= organization.email %></td>
       </tr>
     <% end %>
   </tbody>
-  
 </table>
+</div>
 </html>
