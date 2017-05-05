@@ -10,22 +10,22 @@
   <div class="center-form width-sm">
   <div class="field">
     <%= f.label :first_name %><br />
-    <input type="text" id="user_first_name" name="organization[first_name]" placeholder="Amy">
+    <%= f.text_field :first_name %>
   </div>
   
   <div class="field">
     <%= f.label :last_name %><br />
-    <input type="text" id="user_last_name" name="organization[last_name]" placeholder="Helps">
+    <%= f.text_field :last_name %>
   </div>
   
   <div class="field">
     <%= f.label :address %><br />
-    <input type="text" id="user_address" name="user[address]" placeholder="1234 Helping Way">
+    <%= f.text_field :address %>
   </div>
   
   <div class="field">
     <%= f.label :city %><br />
-    <input type="text" id="user_city" name="user[city]" placeholder="Birmingham">
+    <%= f.text_field :city %>
   </div>
   
   <div class="field">
@@ -87,12 +87,12 @@
 
   <div class="field">
     <%= f.label :zip_code %><br />
-    <input type="text" id="user_zip" name="user[zip]" placeholder="12345">
+    <%= f.text_field :zip_code %>
   </div>
   
   <div class="field">
     <%= f.label :phone_number %><br />
-    <input type="text" id="user_phone" name="user[phone]" placeholder="1234567890">
+    <%= f.text_field :phone_number %>
   </div>
   </div>
   
