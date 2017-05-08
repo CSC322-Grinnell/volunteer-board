@@ -29,8 +29,10 @@ To login as an admin, go to:
 ```
 
 ## Deployment
+
+The app is currently deployed at:
 ```
-The app is currently deployed at https://murmuring-reef-33062.herokuapp.com/
+https://murmuring-reef-33062.herokuapp.com/
 ```
 
 ## Contributors
