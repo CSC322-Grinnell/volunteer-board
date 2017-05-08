@@ -1,9 +1,12 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="center-form">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   
-    <div class="field">
+  <div class="center-form width-sm">
+  <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
   </div>
@@ -37,7 +40,10 @@
     <%= f.label :phone_number %><br />
     <%= f.text_field :phone_number %>
   </div>
-
+  
+  </div>
+  
+  <div class="center-form width-lg">
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -71,6 +77,8 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  </br>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
@@ -81,3 +89,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>
