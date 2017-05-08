@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'static_pages/home'
+  
+  
+  get '/admin/organizations/admin/organizations/:id/approve' => 'static_pages#approve_org', as: 'approve_org'
 
   root 'static_pages#home'
 
