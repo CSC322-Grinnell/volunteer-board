@@ -1,25 +1,39 @@
 [![Stories in Ready](https://badge.waffle.io/CSC322-Grinnell/volunteer-board.png?label=ready&title=Ready)](https://waffle.io/CSC322-Grinnell/volunteer-board)
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains the Volunteer Board application, created in partnership with the Greater Poweshiek Community Foundation. The goal of this project is to create a space for organizations to connect with community members for volunteering opportunites.
 
-Things you may want to cover:
+## Installation
+To clone the project to your local machine, run:
+```bash
+git clone https://github.com/CSC322-Grinnell/volunteer-board.git
+```
 
-* Ruby version
+Then to install gems and migrate the database, run:
+```bash
+bundle install
+rails db:migrate
+```
 
-* System dependencies
+## Tests
+To run the tests for the repository, run:
+```bash
+rails db:migrate RAILS_ENV=test
+rails test
+```
 
-* Configuration
+## Admins
+To login as an admin, go to:
+```
+/admin
+```
 
-* Database creation
+## Deployment
+```
+The app is currently deployed at https://murmuring-reef-33062.herokuapp.com/
+```
 
-* Database initialization
+## Contributors
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Spring 2017:
+Benjamin Wong, Greyson Bourgeois, Zoe Grubbs, Tyler Williams, Devin Dooley
