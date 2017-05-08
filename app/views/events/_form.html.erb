@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
+    <%= f.datetime_select :start_time, :discard_seconds => true %>
   </div>
 
   <div class="field">
     <%= f.label :end_time %>
-    <%= f.datetime_select :end_time %>
+    <%= f.datetime_select :end_time, :discard_seconds => true %>
   </div>
 
   <div class="field">
@@ -42,7 +42,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :contact_phone %>
+    <%= f.label :contact_phone %> (no dashes or parentheses)
     <%= f.text_field :contact_phone %>
   </div>
 

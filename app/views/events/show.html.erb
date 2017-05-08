@@ -39,7 +39,7 @@
             <%= @event.start_time.strftime("%B") %>
             <%= @event.start_time.day %>,
             <%= @event.start_time.year %>,
-            <%= @event.start_time.strftime("%I") %>:<%= @event.start_time.strftime("%M") %>
+            <%= @event.start_time.strftime("%-I") %>:<%= @event.start_time.strftime("%M") %>
             <%= @event.start_time.strftime("%p") %>
 </p>
 
@@ -49,7 +49,7 @@
             <%= @event.end_time.strftime("%B") %>
             <%= @event.end_time.day %>,
             <%= @event.end_time.year %>,
-            <%= @event.end_time.strftime("%I") %>:<%= @event.end_time.strftime("%M") %>
+            <%= @event.end_time.strftime("%-I") %>:<%= @event.end_time.strftime("%M") %>
             <%= @event.end_time.strftime("%p") %>
 </p>
 

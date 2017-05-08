@@ -24,7 +24,7 @@ class EventsController < InheritedResources::Base
       render 'new'
     end
   end
-
+  
   private
 
     def event_params
