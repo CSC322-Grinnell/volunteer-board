@@ -15,6 +15,7 @@ ActiveAdmin.register_page "Dashboard" do
       org.approved = true
     end
     
+    #!!! Needs Testing !!!
     @organization = Organization.where(approved: false)
     columns do
       column do
