@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
   def home
   end
   
+  # !!! Needs Testing !!!
   def approve_org
     @organization = Organization.find(params[:id])
     if admin_user_signed_in?
