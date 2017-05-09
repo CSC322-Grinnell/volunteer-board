@@ -36,6 +36,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'static_pages/home'
   
+  #organization related routes
+  devise_scope :organization do
+    get '/admin/organizations(/:id)' => 'organizations#show', as: 'adminorg' #added 2016-11-14 - marios
+  end
   
   get '/admin/organizations/admin/organizations/:id/approve' => 'static_pages#approve_org', as: 'approve_org'
 

@@ -35,16 +35,11 @@ ActiveAdmin.register Organization do
   # http://activeadmin.info/docs/8-custom-actions.html
 
   
-#  action_item :view_as_user, only: :show do
-#    link_to "View As User", org_path(params[:id])
- # end
+  #  action_item :view_as_user, only: :show do
+  #    link_to "View As User", org_path(params[:id])
+  # end
 
-  
   action_item :approve_org, only: :show, if: proc{ !(Organization.find(params[:id]).approved) } do
     link_to 'Approve Organization', controller: "/static_pages", action: "approve_org", id: params[:id]
   end
-
-
-
-
 end
