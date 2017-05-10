@@ -39,17 +39,17 @@ th {
 
 /* Margins and centering */
 .margin-sides {
-    margin-right: 50px;
-    margin-left: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 .margin-left {
-    margin-left: 50px;
+  margin-left: 50px;
 }
 
 .center-form {
-   text-align: center; 
-   margin: auto;
+  text-align: center; 
+  margin: auto;
 }
 
 /* Width options used for text input */
@@ -67,14 +67,14 @@ th {
 
 /* Explicitly set text fields to 100% of their container */
 input[type="text"] {
-    width: 100%;
+  width: 100%;
 }
 
 /* Set site-wide sizing for email and password fields */
 input[type="email"] {
-    width: 250px; 
+  width: 250px; 
 }
 
 input[type="password"] {
-    width: 150px;
+  width: 150px;
 }
