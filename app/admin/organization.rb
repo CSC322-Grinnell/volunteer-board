@@ -1,5 +1,7 @@
 ActiveAdmin.register Organization do
   config.comments = false
+  
+  
   index do
     column :name
     column :email
@@ -31,13 +33,8 @@ ActiveAdmin.register Organization do
   # https://www.google.com/search?q=edit+active+admin+show+actions
   # https://github.com/activeadmin/activeadmin/issues/341
   # http://activeadmin.info/docs/8-custom-actions.html
-  action_item :approve, only: :show do #only in the show page!
-    if !Organization.find(params[:id]).approved? then
-      link_to "Approve", approve_org_path(params[:id])
-    end
-  end
-  
-  action_item :view_as_user, only: :show do
-    link_to "View As User", org_path(params[:id])
+
+  action_item :approve_org, only: :show, if: proc{ !(Organization.find(params[:id]).approved) } do
+    link_to 'Approve Organization', controller: "/static_pages", action: "approve_org", id: params[:id]
   end
 end

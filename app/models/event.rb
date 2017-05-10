@@ -23,5 +23,4 @@ class Event < ApplicationRecord
     def location=(s)
         super s.titleize
     end
-    
 end

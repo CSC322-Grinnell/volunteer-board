@@ -23,8 +23,11 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users/profile#show'
   get 'organizations/:id', to: 'organizations/profile#show'
   
+  #sets up the routes for listing all profiles
   get 'users', to: 'users/profile#list'
   get 'organizations', to: 'organizations/profile#list'
+  
+  #sets up the routes for registering and deregistering for an event as a user
   get 'events/sign_up/:id', to: 'events#sign_up'
   get 'events/deregister/:id', to: 'events#deregister'
 
@@ -32,6 +35,13 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'static_pages/home'
+  
+  #organization related routes
+  devise_scope :organization do
+    get '/admin/organizations(/:id)' => 'organizations#show', as: 'adminorg' #added 2016-11-14 - marios
+  end
+  
+  get '/admin/organizations/admin/organizations/:id/approve' => 'static_pages#approve_org', as: 'approve_org'
 
   root 'static_pages#home'
 

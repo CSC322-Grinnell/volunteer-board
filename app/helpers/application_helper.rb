@@ -1,4 +1,5 @@
 module ApplicationHelper
+
     def my_start_hour_select(var)
         select_tag('start_hour',options_for_select([1,2,3,4,5,6,7,8,9,10,11,12]))
     end

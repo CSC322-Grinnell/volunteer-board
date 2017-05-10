@@ -1,3 +1,5 @@
+
+<!-- This is the form for both creating and editing an event -->
 <%= form_for(event) do |f| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -12,15 +14,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Title" %>
+    <%= f.label "Title" %><br />
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, rows: 4, cols: 55, class: "width-med" %>
   </div>
-
+  
+  <br />
+  
   <div class="field">
     <%= f.label :start_time %>
     <%= f.date_select :start_date, {order: [:month, :day, :year]} %>
@@ -28,7 +32,9 @@
     <%= my_start_minute_select :start_minute %>
     <%= my_start_ampm_select :start_ampm %>
   </div>
-
+  
+  <br />
+  
   <div class="field">
     <%= f.label :end_time %>
     <%= f.date_select :end_date, {order: [:month, :day, :year]} %>
@@ -36,26 +42,36 @@
     <%= my_end_minute_select :end_minute %>
     <%= my_end_ampm_select :end_ampm %>
   </div>
+  
+  <br />
 
   <div class="field">
-    <%= f.label "Number of volunteers needed" %>
+    <%= f.label "Number of volunteers needed" %><br />
     <%= f.number_field :num_vols %>
+  </div>
+  
+  
+  <div class="field">
+    <%= f.label "Number of volunteers signed up" %>
+    <%= f.number_field :volunteer_count, :placeholder => 0%>
   </div>
 
   <div class="field">
-    <%= f.label :location %>
+    <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
 
   <div class="field">
-    <%= f.label :contact_phone %>
+    <%= f.label :contact_phone %> (no dashes or parentheses)
     <%= f.text_field :contact_phone %>
   </div>
 
   <div class="field">
-    <%= f.label :contact_email %>
+    <%= f.label :contact_email %><br />
     <%= f.text_field :contact_email %>
   </div>
+  
+  <br />
 
   <div class="actions">
     <%= f.submit %>

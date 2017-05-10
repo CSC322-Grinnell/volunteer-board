@@ -9,7 +9,8 @@ class Organizations::ProfileController < ApplicationController
 
     render "show"
   end
-
+  
+  #creates a list of all the organization and displays it through organizations/profile/list.html.erb
   def list 
     @organizations = Organization.all
     
