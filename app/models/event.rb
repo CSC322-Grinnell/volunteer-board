@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-    #before_validation :format_time
+    attr_accessor :start_date, :end_date, :start_hour, :start_minute, :start_ampm, :end_hour, :end_minute, :end_ampm
     
     belongs_to :organization
     has_and_belongs_to_many :users
@@ -12,14 +12,15 @@ class Event < ApplicationRecord
     validates :contact_phone, presence: true, length: { maximum: 10, minimum: 10 }
     validates :contact_email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
     
-    #def location=(s)
-    #    super s.titleize
-    #end
+    def name=(s)
+        super s.titleize
+    end
     
-    #def format_time
-    #    h = hour + (12 * self.ampm)
-    #    time = h.to_s + minute + ampm
-    #    DateTime.strptime(time, '%Y-%m-%dT%H:%M:%S%z')
-    #end
-
+    def description=(s)
+        super s.capitalize
+    end
+    
+    def location=(s)
+        super s.titleize
+    end
 end

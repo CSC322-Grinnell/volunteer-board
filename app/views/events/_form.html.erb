@@ -27,14 +27,20 @@
   
   <div class="field">
     <%= f.label :start_time %>
-    <%= f.datetime_select :start_time, :discard_seconds => true %>
+    <%= f.date_select :start_date, {order: [:month, :day, :year]} %>
+    <%= my_start_hour_select :start_hour %>
+    <%= my_start_minute_select :start_minute %>
+    <%= my_start_ampm_select :start_ampm %>
   </div>
   
   <br />
   
   <div class="field">
     <%= f.label :end_time %>
-    <%= f.datetime_select :end_time, :discard_seconds => true %>
+    <%= f.date_select :end_date, {order: [:month, :day, :year]} %>
+    <%= my_end_hour_select :end_hour %>
+    <%= my_end_minute_select :end_minute %>
+    <%= my_end_ampm_select :end_ampm %>
   </div>
   
   <br />
