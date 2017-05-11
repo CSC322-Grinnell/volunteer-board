@@ -40,8 +40,8 @@
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
         <td><%= event.description %></td>
-        <td><%= event.start_time.strftime("%A, %B, %e, %Y, %I:%M %p") %>
-        <td><%= event.end_time.strftime("%A, %B, %e, %Y, %I:%M %p") %>
+        <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+        <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
         <td><%= event.num_vols %></td>
         <td><%= event.location %></td>
         <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->

@@ -26,29 +26,17 @@
 
 <p>
   <strong>Start Time:</strong>
-            <%= @event.start_time.strftime("%A") %>,
-            <%= @event.start_time.strftime("%B") %>
-            <%= @event.start_time.day %>,
-            <%= @event.start_time.year %>,
-            <%= @event.start_time.strftime("%l") %>:<%= @event.start_time.strftime("%M") %>
-            <%= @event.start_time.strftime("%p") %>
-            <%= @event.start_time.strftime("%A, %B %e, %Y, %I:%M%p")%>
+            <%= @event.start_time.strftime("%A, %B %e, %Y, %l:%M%p")%>
 </p>
 
 <p>
   <strong>End Time:</strong>
-            <%= @event.end_time.strftime("%A") %>,
-            <%= @event.end_time.strftime("%B") %>
-            <%= @event.end_time.day %>,
-            <%= @event.end_time.year %>,
-            <%= @event.end_time.strftime("%l") %>:<%= @event.end_time.strftime("%M") %>
-            <%= @event.end_time.strftime("%p") %>
-            <%= @event.end_time.strftime("%A, %B %e, %Y, %I:%M%p")%>
+            <%= @event.end_time.strftime("%A, %B %e, %Y, %l:%M%p")%>
 </p>
 
 <p>
   <strong>Number of Volunteers Needed:</strong>
-  <%= @event.num_vols %>
+  <%= @event.num_vols - (@event.volunteer_count ||= 0) %>
 </p>
 
 <p>
