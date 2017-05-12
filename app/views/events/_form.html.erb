@@ -12,7 +12,8 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <div class="center-form width-med">
   <div class="field">
     <%= f.label "Title" %><br />
     <%= f.text_field :name %>
@@ -22,9 +23,11 @@
     <%= f.label :description %><br />
     <%= f.text_area :description, rows: 4, cols: 55, class: "width-med" %>
   </div>
+  </div>
   
   <br />
   
+  <div class="center-form width-lg">
   <div class="field">
     <%= f.label :start_time %>
     <%= f.date_select :start_date, {order: [:month, :day, :year]} %>
@@ -42,9 +45,11 @@
     <%= my_end_minute_select :end_minute %>
     <%= my_end_ampm_select :end_ampm %>
   </div>
+  </div>
   
   <br />
 
+  <div class="center-form width-med">
   <div class="field">
     <%= f.label "Number of volunteers needed" %><br />
     <%= f.number_field :num_vols %>
@@ -75,5 +80,6 @@
 
   <div class="actions">
     <%= f.submit %>
+  </div>
   </div>
 <% end %>
