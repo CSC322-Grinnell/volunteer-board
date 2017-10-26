@@ -49,7 +49,7 @@ class EventsController < InheritedResources::Base
     
     
     @event.save!
-    redirect_to events_path
+    redirect_to event_url(@event)
   end
 
 
