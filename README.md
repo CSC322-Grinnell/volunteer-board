@@ -12,6 +12,7 @@ git clone https://github.com/CSC322-Grinnell/volunteer-board.git
 Then to install gems and migrate the database, run:
 ```bash
 bundle install
+rails db:reset
 rails db:migrate
 ```
 
