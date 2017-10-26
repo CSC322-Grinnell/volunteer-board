@@ -1,16 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyString
+  name: This is a name
+  description: This is a description
   
-  # Tests will fail come April 7, 2050. Same with :two.
-  start_time: 2050-04-07 18:36:24
-  end_time: 2050-04-07 18:37:24
+  start_time: 2019-03-21 18:36:24
+  end_time: 2019-03-21 18:37:24
   num_vols: 1
-  location: MyString
-  contact_phone: aaaaaaaaaa
-  contact_email: MyString@example.com
+  location: Grinnell, IA
+  contact_phone: 1234567890
+  contact_email: whatsupwith@my.string
 
 two:
   name: MyString

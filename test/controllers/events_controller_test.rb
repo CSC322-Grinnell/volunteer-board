@@ -1,7 +1,17 @@
 require 'test_helper'
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers                    
+  include Warden::Test::Helpers                        
+  Warden.test_mode!                                    
+
+  def teardown                                         
+    Warden.test_reset!                                 
+  end
+  
   setup do
+    org = organizations(:one)
+    sign_in org
     @event = events(:one)
   end
 
@@ -14,11 +24,10 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     get new_event_url
     assert_response :success
   end
-
   test "should create event" do
     assert_difference('Event.count') do
       post events_url, params: { event: { contact_email: @event.contact_email, contact_phone: @event.contact_phone, description: @event.description, 
-      end_time: @event.end_time, location: @event.location, name: @event.name, num_vols: @event.num_vols, start_time: @event.start_time } }
+            end_time: @event.end_time, location: @event.location, name: @event.name, num_vols: @event.num_vols, start_time: @event.start_time } }
     end
 
     assert_redirected_to event_url(Event.last)
