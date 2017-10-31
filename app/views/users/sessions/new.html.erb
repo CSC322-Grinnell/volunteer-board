@@ -2,6 +2,11 @@
 
 <h2>User Sign in</h2>
 
+<% flash.each do |key, value| %>
+  <div class="flash <%= key %>"><%= value %></div>
+<% end %>
+
+
 </br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

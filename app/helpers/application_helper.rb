@@ -5,8 +5,7 @@ module ApplicationHelper
     end
     
     def my_start_minute_select(var)
-        l = ["00","01","02","03","04","05","06","07","08","09"] + [*10..59].map{ |n| n.to_s}
-        select_tag('start_minute',options_for_select(l))
+        select_tag('start_minute',options_for_select(["00","05","10","15","20","25","30","35","40","45","50","55"]))
     end
     
     def my_start_ampm_select(var)
@@ -18,8 +17,7 @@ module ApplicationHelper
     end
     
     def my_end_minute_select(var)
-        l = ["00","01","02","03","04","05","06","07","08","09"] + [*10..59].map{ |n| n.to_s}
-        select_tag('end_minute',options_for_select(l))
+        select_tag('start_minute',options_for_select(["00","05","10","15","20","25","30","35","40","45","50","55"]))
     end
     
     def my_end_ampm_select(var)

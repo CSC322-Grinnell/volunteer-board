@@ -1,3 +1,5 @@
+
+
 <p id="notice"><%= notice %></p>
 <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
   <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
@@ -6,6 +8,7 @@
 </div>
 
 <div class="container">
+  
   <h2> Event</h2>
   <div class="panel-group">
     <div class="panel panel-success">
@@ -64,7 +67,7 @@
 <!-- Determines if the user currently signed in has signed up for the event aready. If they have it gives them the option to deregister and if they havnt it gives them the option to register. -->
 <% if user_signed_in? %>
   <% if @event.users.any? {|u| u.id == current_user.id} %>
-    <%= link_to "Deregister for Event", "/events/deregister/#{@event.id}" %>
+    <%= link_to "Deregister from Event", "/events/deregister/#{@event.id}" %>
   <% else %>
     <%= link_to "Register for Event", "/events/sign_up/#{@event.id}" %>
   <% end %>
