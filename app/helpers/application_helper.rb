@@ -17,7 +17,7 @@ module ApplicationHelper
     end
     
     def my_end_minute_select(var)
-        select_tag('start_minute',options_for_select(["00","05","10","15","20","25","30","35","40","45","50","55"]))
+        select_tag('end_minute',options_for_select(["00","05","10","15","20","25","30","35","40","45","50","55"]))
     end
     
     def my_end_ampm_select(var)

@@ -15,7 +15,7 @@ class EventsController < InheritedResources::Base
       @event.save
     end
     #redirects back to the show page from before
-    redirect_to action: "show", id: @event.id
+    redirect_to events_path
   end
   
   
@@ -32,7 +32,7 @@ class EventsController < InheritedResources::Base
       @event.volunteer_count = @event.volunteer_count - 1
       @event.save
     end
-    redirect_to action: "show", id: @event.id
+    redirect_to events_path
   end
 
   def create
