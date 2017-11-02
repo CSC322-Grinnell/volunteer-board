@@ -6,6 +6,7 @@
   <body>
     <p id="notice"><%= notice %></p>
     <div align="center">
+      </br>
       <h1>Volunteer Board</h1>
       <p>Volunteer Board text (from Nicole) /app/views/static_pages/home.html.erb </p>
     </div>
@@ -41,12 +42,56 @@
     <!-- if nobody is logged in displays buttons to the organization sign in and sign up and the user sign in and sign up -->
     <% else %>
       <div class="home-page-center">
-        <a class="btn btn-success home-page-button" href="/users/sign_in" role="button">Sign In</a> <!-- TODO href -->
-      <!--
+        
+      <!-- Start of Pop-Up (derived from https://www.w3schools.com/bootstrap/bootstrap_modal.asp) -->
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </head>
+      <body>
+      
+      <div class="home-page-center" >
+        <!-- Trigger the pop-up with a button -->
+        <button type="btn btn-success home-page-button" class="btn btn-success home-page-button" data-toggle="modal" data-target="#myModal">Sign In</button>
+      
+        <!-- Pop-Up -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Pop-Up content-->
+            <div class="modal-content">
+              <div class="center">
+                </br></br>
+                <h3 class="modal-title">Who are you?</h3>
+                </br>
+                <h4 class="modal-title">I am...</h4>
+              </div>
+              <div class="modal-body">
+                <a class="btn btn-success home-page-button" href="/users/sign_in" role="button">A Volunteer</a>
+                <a class="btn btn-success home-page-button" href="/organizations/sign_in" role="button">An Organization</a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
       </div>
-      <div class="home-page-center">
-      -->
-      <p><br></p> <!-- hacky new line -->
+      
+      </body>
+      </html>
+      
+      <!-- End of Pop-Up -->
+
+      <br>
         <p>
           New Volunteer?
           <a href="/users/sign_up">Sign Up Here</a>
