@@ -24,8 +24,9 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     get new_event_url
     assert_response :success
   end
+  
   test "should create event" do
-    assert_difference('Event.count') do
+    assert_difference('Event.count', 1) do
       post events_url, params: { event: { contact_email: @event.contact_email, contact_phone: @event.contact_phone, description: @event.description, 
             end_time: @event.end_time, location: @event.location, name: @event.name, num_vols: @event.num_vols, start_time: @event.start_time } }
     end
