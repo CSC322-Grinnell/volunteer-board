@@ -5,7 +5,9 @@
   </head>
   <body>
     <div align="center">
+      </br>
       <h1>Volunteer Board</h1>
+      <p>Volunteer Board text (from Nicole) /app/views/static_pages/home.html.erb </p>
     </div>
     <!-- if a user is signed in displays buttons that link to the events and user profile -->
     <% if user_signed_in? %>
@@ -20,7 +22,7 @@
           <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
         </p>
       </div>
-      <!-- if a user is signed in displays buttons that link to the events and organization profile -->
+    <!-- if an organization is signed in displays buttons that link to the events and organization profile -->
     <% elsif organization_signed_in? %>
       <div class="home-page-center">
         <p>
@@ -39,6 +41,65 @@
     <!-- if nobody is logged in displays buttons to the organization sign in and sign up and the user sign in and sign up -->
     <% else %>
       <div class="home-page-center">
+        
+      <!-- Start of Pop-Up (derived from https://www.w3schools.com/bootstrap/bootstrap_modal.asp) -->
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </head>
+      <body>
+      
+      <div class="home-page-center" >
+        <!-- Trigger the pop-up with a button -->
+        <button type="btn btn-success home-page-button" class="btn btn-success home-page-button" data-toggle="modal" data-target="#myModal">Sign In</button>
+      
+        <!-- Pop-Up -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Pop-Up content-->
+            <div class="modal-content">
+              <div class="center">
+                </br></br>
+                <h3 class="modal-title">Who are you?</h3>
+                </br>
+                <h4 class="modal-title">I am...</h4>
+              </div>
+              <div class="modal-body">
+                <a class="btn btn-success home-page-button" href="/users/sign_in" role="button">A Volunteer</a>
+                <a class="btn btn-success home-page-button" href="/organizations/sign_in" role="button">An Organization</a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+      </body>
+      </html>
+      
+      <!-- End of Pop-Up -->
+
+      <br>
+        <p>
+          New Volunteer?
+          <a href="/users/sign_up">Sign Up Here</a>
+        </p>
+        <p>
+          New Organization?
+          <a href="/organizations/sign_up">Sign Up Here</a>
+        </p>
+        <!-- Previous Home page (nobody is signed in) buttons setup 10/29/17
         <p>
           <a class="btn btn-success home-page-button" href="/users/sign_in" role="button">User Sign In</a>
           <a class="btn btn-success home-page-button" href="/organizations/sign_in" role="button">Organization Sign In</a>
@@ -47,6 +108,7 @@
           <a class="btn btn-success home-page-button" href="/users/sign_up" role="button">User Sign Up</a> 
           <a class="btn btn-success home-page-button" href="/organizations/sign_up" role="button">Organization Sign Up</a>
         </p>
+        -->
       </div>
     <% end %>
   </body>

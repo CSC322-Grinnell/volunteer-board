@@ -1,32 +1,37 @@
-<div class="center-form">
-  <h2>User Sign up</h2>
+</br>
+<div class="center-form"> 
+  <h2>Volunteer Sign up</h2>
 </div>
-
 </br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
-  <div class="center-form width-sm">
+  <div class="center-form width-sm">  <!-- Center-->
+  <div style="text-align: left;">     <!-- Left-Align-->
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
   </div>
+  </br>
   
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
+  </br>
   
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
+  </br>
   
   <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city %>
   </div>
+  </br>
   
   <div class="field">
     <%= f.label :state %><br />
@@ -84,23 +89,28 @@
 <option value="Wyoming">Wyoming</option>
 </select>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :zip_code %><br />
     <%= f.text_field :zip_code %>
   </div>
+  </br>
   
   <div class="field">
     <%= f.label :phone_number %><br />
     <%= f.text_field :phone_number %>
   </div>
+  </br>
   </div>
   
-  <div class="center-form width-lg">
+  <div class="center-form width-lg">  <!-- Center-->
+  <div style="text-align: left;">     <!-- Left-Align-->
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :password %>
@@ -109,28 +119,29 @@
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-  
   </br>
-  <div class="field">
-    <%= f.label :private %>
-    <%= f.check_box :private %>
-  </div>
-  <p>
-    (If you choose to have a private account, only your name and email will be 
-    available to organizations)
-  </p>
   
+  (If you choose to have a private account, only your name
+  </br>
+  and email will be available to organizations)
+  <div class="field">
+    <%= f.check_box :private %>
+    <%= f.label :private %>
+  </div>
   </br>
   
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>
-
+</br>
+Already have an account?
 <%= render "users/shared/links" %>
+</br></br></br></br></br></br>
 </div>

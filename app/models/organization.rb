@@ -39,7 +39,7 @@ class Organization < ApplicationRecord
       :not_approved 
     else 
       super # Use whatever other message 
-    end 
+    end
   end
   
   

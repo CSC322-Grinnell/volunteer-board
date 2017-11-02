@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20171024150923) do
     t.string   "contact_email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "organization_id"
     t.integer  "volunteer_count"
   end
 
