@@ -79,7 +79,7 @@ input[type="password"] {
   width: 150px;
 }
 
-.flash {
+.flash, #devise_error_messages{
     text-align: center;
     padding:    .3em .4em;
     margin:     0 auto .5em;
