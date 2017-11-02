@@ -5,6 +5,7 @@ class EventsController < InheritedResources::Base
   def sign_up
     @event = Event.find(params[:id])
     if user_signed_in?
+      flash[:notice] = "You are now signed up for this event!"
       #adds the event to the users list of events
       current_user.events << @event
       #if the volunteer_count for the event has not been initialized, initializes it with the value 0
@@ -14,7 +15,7 @@ class EventsController < InheritedResources::Base
       @event.save
     end
     #redirects back to the show page from before
-    redirect_to action: "show", id: @event.id
+    redirect_to events_path
   end
 
 
@@ -22,15 +23,16 @@ class EventsController < InheritedResources::Base
   def deregister
     @event = Event.find(params[:id])
     if user_signed_in?
+      flash[:notice] = "You are now deregistered."
       #removes the event from the users list of events
       current_user.events.delete(@event)
       #if the volunteer_count for the event has not been initialized, initializes it with the value 0. This line is hypothetically not neccessary, but is in there for saftey0
-      @event.volunteer_count ||= 0
+      @event.volunteer_count ||= 1
       #deincrements the volunteer_count
       @event.volunteer_count = @event.volunteer_count - 1
       @event.save
     end
-    redirect_to action: "show", id: @event.id
+    redirect_to events_path
   end
 
   def create
