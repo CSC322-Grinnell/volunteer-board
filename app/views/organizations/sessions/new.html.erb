@@ -1,5 +1,6 @@
 <div class=center-form>
-  
+</br>
+
 <h2>Organization Sign in</h2>
 
 </br>
@@ -9,11 +10,13 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
+  </br>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
@@ -21,6 +24,7 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
+  </br>
 
   <div class="actions">
     <%= f.submit "Log in" %>
@@ -28,6 +32,6 @@
 <% end %>
 
 </br>
-
+Don't have an account?
 <%= render "organizations/shared/links" %>
 </div>
