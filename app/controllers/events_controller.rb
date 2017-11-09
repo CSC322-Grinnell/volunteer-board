@@ -36,6 +36,7 @@ class EventsController < InheritedResources::Base
   end
 
   def create
+    event_params
     if !organization_signed_in?
       return
     end
