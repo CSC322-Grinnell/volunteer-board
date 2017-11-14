@@ -8,10 +8,6 @@ class EventsController < InheritedResources::Base
       flash[:notice] = "You are now signed up for this event!"
       #adds the event to the users list of events
       current_user.events << @event
-      #if the volunteer_count for the event has not been initialized, initializes it with the value 0
-      @event.volunteer_count ||= 0
-      #increments the volunteer_count
-      @event.volunteer_count = @event.volunteer_count + 1
       @event.save
     end
     #redirects back to the show page from before
@@ -26,10 +22,6 @@ class EventsController < InheritedResources::Base
       flash[:notice] = "You are now deregistered."
       #removes the event from the users list of events
       current_user.events.delete(@event)
-      #if the volunteer_count for the event has not been initialized, initializes it with the value 0. This line is hypothetically not neccessary, but is in there for saftey0
-      @event.volunteer_count ||= 1
-      #deincrements the volunteer_count
-      @event.volunteer_count = @event.volunteer_count - 1
       @event.save
     end
     redirect_to events_path
@@ -47,11 +39,13 @@ class EventsController < InheritedResources::Base
     event_info = { :start_time => st, :end_time => et, :name => event_params[:name],
       :description => event_params[:description], :num_vols => event_params[:num_vols], :location => event_params[:location],
       :contact_phone => event_params[:contact_phone], :contact_email => event_params[:contact_email]}
+      
+    @event = current_organization.events.create!(event_info)
 
-    @event = current_organization.events.new(event_info)
+#    @event = current_organization.events.new(event_info)
     
     
-    @event.save!
+#    @event.save!
     redirect_to event_url(@event)
   end
 
