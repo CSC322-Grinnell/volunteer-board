@@ -32,7 +32,7 @@ class EventsController < InheritedResources::Base
       return
     end
 
-    start_hour = params[:start_hour].to_i + params[:start_ampm].to_i*12
+    # Process the start time and end time
     
     if event_params["start_date(2i)"].length == 1
       start_month = "0" + event_params["start_date(2i)"]
@@ -41,28 +41,35 @@ class EventsController < InheritedResources::Base
     end
     
     start_time = event_params["start_date(1i)"].to_s + start_month.to_s + event_params["start_date(3i)"].to_s + "T" + 
-      start_hour.to_s + ":" + params[:start_minute].to_s + "-0500"
+      event_params["start_time(4i)"].to_s + ":" + event_params["start_time(5i)"].to_s + "-0500"
     st = DateTime.strptime(start_time, '%Y%m%dT%H:%M%Z')
-    
-    end_hour = params[:end_hour].to_i + params[:end_ampm].to_i*12
     
     if event_params["end_date(2i)"].length == 1
       end_month = "0" + event_params["end_date(2i)"]
     else
       end_month = event_params["end_date(2i)"]
     end
-    
+  
     end_time = event_params["end_date(1i)"].to_s + end_month.to_s + event_params["end_date(3i)"].to_s + "T" +
-      end_hour.to_s + ":" + params[:end_minute].to_s + "-0500"
+      event_params["end_time(4i)"].to_s + ":" + event_params["end_time(5i)"].to_s.to_s + "-0500"
     et = DateTime.strptime(end_time, '%Y%m%dT%H:%M%Z')
-    
+  
+    # Gather all the parameters and save them into a new event
     event_info = { :start_time => st, :end_time => et, :name => event_params[:name],
       :description => event_params[:description], :num_vols => event_params[:num_vols], :location => event_params[:location],
       :contact_phone => event_params[:contact_phone], :contact_email => event_params[:contact_email]}
       
-    @event = current_organization.events.create!(event_info)
-    
-    redirect_to event_url(@event)
+    @event = current_organization.events.new(event_info)  
+
+    if @event.save
+      redirect_to events_path
+    else
+      # Changing "Num vols" to "Number of Volunteers" is a bit of a hack,
+      #   but I couldn't find a better solution yet
+      flash[:error] = @event.errors.full_messages.join("<br/>")
+          .gsub("Num vols", "Number of Volunteers")
+      redirect_back(fallback_location: root_path)
+    end
   end
 
 
@@ -70,8 +77,7 @@ class EventsController < InheritedResources::Base
 
     def event_params
       params.require(:event).permit(:name, :description, :num_vols, :location,
-        :contact_phone, :contact_email, :end_hour, :end_minute, :end_ampm,
-        :start_hour, :start_minute, :start_ampm, :start_date, :end_date, 
-        :volunteer_count)
+        :contact_phone, :contact_email, :end_time, :start_time, :start_date, 
+        :end_date, :volunteer_count)
     end
 end
