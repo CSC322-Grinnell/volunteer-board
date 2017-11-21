@@ -2,6 +2,12 @@ class StaticPagesController < ApplicationController
   def home
   end
   
+  def signin_options
+  end
+  
+  def signup_options
+  end
+  
   # !!! Needs Testing !!!
   def approve_org
     @organization = Organization.find(params[:id])
