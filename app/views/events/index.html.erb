@@ -3,6 +3,11 @@
 <h1>Events</h1>
 
 <p><br></p>
+<!-- if an organization is signed in it allows for them to create a new event-->
+<% if organization_signed_in? %>
+  <a class="btn btn-success home-page-button" href="/events/new" role="button">New Event</a>
+<% end %>
+
 <!-- lists all the events on a calendar -->
 <%= month_calendar events: @events do |date, events| %>
   <%= date.strftime("%e") %>
@@ -53,9 +58,6 @@
     </tr>
 <br>
 
-<!-- if an organization is signed in it allows for them to create a new event-->
-<% if organization_signed_in? %>
-  <%= link_to 'New Event', new_event_path %>
-<% end %> 
+ 
 </div>
 </div>
