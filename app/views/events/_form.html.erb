@@ -30,7 +30,7 @@
   <div class="center-form width-lg">
   <div class="field">
     <%= f.label :start_time %>
-    <%= f.date_select :start_date, {order: [:month, :day, :year], value: event.start_time || Time.now}%>
+    <%= f.date_select :start_time, {order: [:month, :day, :year], value: event.start_time || Time.now}%>
     <%= f.time_select :start_time, {ignore_date: true, minute_step: 5, ampm: true} %>
   </div>
   
@@ -38,7 +38,7 @@
   
   <div class="field">
     <%= f.label :end_time %>
-    <%= f.date_select :end_date, {order: [:month, :day, :year], value: event.end_time || Time.now}%>
+    <%= f.date_select :end_time, {order: [:month, :day, :year], value: event.end_time || Time.now}%>
     <%= f.time_select :end_time, {ignore_date: true, minute_step: 5, ampm: true} %>
   </div>
   </div>
