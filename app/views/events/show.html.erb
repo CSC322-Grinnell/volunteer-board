@@ -11,7 +11,7 @@
   <h2> Event</h2>
   <div class="panel-group">
     <div class="panel panel-success">
-      <div class="panel-heading"><%= @event.name %> needs <%= @event.num_vols - (@event.volunteer_count ||= 0) %> volunteers </div>
+      <div class="panel-heading"><%= @event.name %> needs <%= @event.num_vols - (@event.users.size) %> volunteers </div>
       <div class="panel-body">
            
         
@@ -38,13 +38,12 @@
 
 <p>
   <strong>Number of Volunteers Needed:</strong>
-  <%= @event.num_vols - (@event.volunteer_count ||= 0) %>
+  <%= @event.num_vols - @event.users.size %>
 </p>
 
 <p>
   <strong>Number of Volunteers Currently Signed Up:</strong>
-  <% @event.volunteer_count ||= 0 %>
-  <%= @event.volunteer_count %>
+  <%= @event.users.size %>
 </p>
 
 <p>

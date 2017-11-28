@@ -30,20 +30,16 @@
   <div class="center-form width-lg">
   <div class="field">
     <%= f.label :start_time %>
-    <%= f.date_select :start_date, {order: [:month, :day, :year]} %>
-    <%= my_start_hour_select :start_hour %>
-    <%= my_start_minute_select :start_minute %>
-    <%= my_start_ampm_select :start_ampm %>
+    <%= f.date_select :start_date, {order: [:month, :day, :year], value: f.object.start_time || Time.now}%>
+    <%= f.time_select :start_time, {ignore_date: true, minute_step: 5, ampm: true} %>
   </div>
   
   <br />
   
   <div class="field">
     <%= f.label :end_time %>
-    <%= f.date_select :end_date, {order: [:month, :day, :year]} %>
-    <%= my_end_hour_select :end_hour %>
-    <%= my_end_minute_select :end_minute %>
-    <%= my_end_ampm_select :end_ampm %>
+    <%= f.date_select :end_date, {order: [:month, :day, :year], value: f.object.end_time || Time.now}%>
+    <%= f.time_select :end_time, {ignore_date: true, minute_step: 5, ampm: true} %>
   </div>
   </div>
   
@@ -53,12 +49,6 @@
   <div class="field">
     <%= f.label "Number of volunteers needed" %><br />
     <%= f.number_field :num_vols, :placeholder => 1, min: 1 %>
-  </div>
-  
-  
-  <div class="field">
-    <%= f.label "Number of volunteers signed up" %>
-    <%= f.number_field :volunteer_count, :placeholder => 0, min: 0 %>
   </div>
 
   <div class="field">
