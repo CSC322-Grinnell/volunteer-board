@@ -3,6 +3,9 @@
 <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
   <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
   <a href="/events" class="btn btn-success profile-button" role="button">View Other Events</a>
+  <% if organization_signed_in? && current_organization.id == @event.organization_id %>
+    <a href="/events/<%=@event.id%>/edit" class="btn btn-success profile-button" role="button">Edit Event</a>
+  <%end%>
   <br>
 </div>
 
@@ -70,11 +73,5 @@
     <%= link_to "Register for Event", "/events/sign_up/#{@event.id}" %>
   <% end %>
 <% end %>
-
-<% if organization_signed_in? && current_organization.id == @event.organization_id %>
-  <p>
-    <%= link_to 'Edit Event', edit_event_path(@event) %>
-  </p>
-<%end%>
       </div>
     </div>

@@ -1,6 +1,9 @@
   <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
     <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
     <a href="/events" class="btn btn-success profile-button" role="button">View Events</a>
+    <% if organization_signed_in? && current_organization.id == @organization.id %>
+      <a href="/organizations/edit.<%=@organization.id%>" class="btn btn-success profile-button" role="button">Edit Profile</a>
+    <% end %>
     <br>
   </div>
      
@@ -51,11 +54,7 @@
           </p>
 <!-- this if statement makes it so that the edit profile information only displays if the profile belongs to the 
 current organization loged in. -->
-          <% if organization_signed_in? && current_organization.id == @organization.id %>
-          <p>
-            <%= link_to 'Edit Profile', edit_organization_registration_path(@organization) %>
-          </p>
-          <% end %>
+          
         </div>
 
       </div>

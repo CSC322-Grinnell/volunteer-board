@@ -1,6 +1,9 @@
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
            <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
            <a href="/events" class="btn btn-success profile-button" role="button">View Events</a>
+           <% if (user_signed_in? && @user.id == current_user.id) %>
+             <a href="/users/edit.<%=@user.id%>" class="btn btn-success profile-button" role="button">Edit Profile</a>
+           <% end %>
        <br>
       </div>
  
@@ -72,11 +75,7 @@
         </div>
       <% end %>
     <% end %>
-    <p>
-      <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
-    </p>
   <% end %>
-
 <% else %>
     <p>
       I'm sorry, this is the wrong profile, 

@@ -29,7 +29,7 @@ class EventsController < InheritedResources::Base
 
   def create
     if !organization_signed_in?
-      return
+      redirect_to events_path
     end
 
     # Process the start time and end time
