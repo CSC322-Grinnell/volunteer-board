@@ -28,8 +28,6 @@ the tool at http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/ -->
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="http://greaterpcf.org/">Greater Poweshiek Community Foundation</a>
         </li>
         <% if user_signed_in? %>
           <li>
@@ -40,6 +38,7 @@ the tool at http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/ -->
             <%= link_to 'Log Out', destroy_organization_session_path, :method => :delete %>
           </li>
         <% end %>
+        
       </ul>
     </div>
   </div>
