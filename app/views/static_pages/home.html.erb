@@ -28,7 +28,11 @@
     <% else %>
       <div class="home-page-center">
         
+      <a class="btn btn-success home-page-button" href="/static_pages/signin_options" role="button">Sign In</a>
+      </br></br>
+        
       <!-- Start of Pop-Up (derived from https://www.w3schools.com/bootstrap/bootstrap_modal.asp) -->
+      <!--
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -43,13 +47,16 @@
       
       <div class="home-page-center" >
         <!-- Trigger the pop-up with a button -->
+        <!--
         <button type="btn btn-success home-page-button" class="btn btn-success home-page-button" data-toggle="modal" data-target="#myModal">Sign In</button>
       
         <!-- Pop-Up -->
+        <!--
         <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
           
             <!-- Pop-Up content-->
+            <!--
             <div class="modal-content">
               <div class="center">
                 </br></br>
@@ -58,7 +65,7 @@
                 <h4 class="modal-title">I am...</h4>
               </div>
               <div class="modal-body">
-                <a class="btn btn-success home-page-button" href="/users/sign_in" role="button">A Volunteer</a>
+                <a class="btn btn-success home-page-button" href="/static_pages/signin_options" role="button">A Volunteer</a>
                 <a class="btn btn-success home-page-button" href="/organizations/sign_in" role="button">An Organization</a>
               </div>
               <div class="modal-footer">
@@ -77,6 +84,11 @@
       <!-- End of Pop-Up -->
 
       <br>
+      
+      New to Volunteer Board?
+      <a href="/static_pages/signup_options">Sign Up Here</a>
+      
+      <!-- Old setup for sign-up options
         <p>
           New Volunteer?
           <a href="/users/sign_up">Sign Up Here</a>
@@ -84,15 +96,6 @@
         <p>
           New Organization?
           <a href="/organizations/sign_up">Sign Up Here</a>
-        </p>
-        <!-- Previous Home page (nobody is signed in) buttons setup 10/29/17
-        <p>
-          <a class="btn btn-success home-page-button" href="/users/sign_in" role="button">User Sign In</a>
-          <a class="btn btn-success home-page-button" href="/organizations/sign_in" role="button">Organization Sign In</a>
-        </p>
-        <p>
-          <a class="btn btn-success home-page-button" href="/users/sign_up" role="button">User Sign Up</a> 
-          <a class="btn btn-success home-page-button" href="/organizations/sign_up" role="button">Organization Sign Up</a>
         </p>
         -->
       </div>
