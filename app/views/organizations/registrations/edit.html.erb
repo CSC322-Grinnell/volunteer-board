@@ -1,5 +1,6 @@
+</br>
 <div class="center-form">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h2>Edit Organization Profile</h2>
 </div>
 
 </br>
@@ -8,49 +9,59 @@
   <%= devise_error_messages! %>
  
   <div class="center-form width-med">
+  <div style="text-align: left;">
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :state %><br />
     <%= f.text_field :state %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :zip %><br />
     <%= f.text_field :zip %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :mission %><br />
     <%= f.text_area :mission, rows: 4, cols: 55, class: "width-med" %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :website %><br />
     <%= f.text_field :website %>
   </div>
+  </br>
   
   </div>
   
   <div class="center-form width-lg">
+  <div style="text-align: left;">
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -63,34 +74,34 @@
   </br>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> </br><i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
+  </br>
   
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  </br>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> </br><i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-  
   </br>
   
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
+  </br>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>No longer require an account? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
-</div>
+</div></div></div>
