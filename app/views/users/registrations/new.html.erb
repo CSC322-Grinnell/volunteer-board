@@ -7,7 +7,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
-  <div class="center-form width-sm">  <!-- Center-->
+  <div class="center-form width-med">  <!-- Center-->
   <div style="text-align: left;">     <!-- Left-Align-->
   <div class="field">
     <%= f.label :first_name %><br />
@@ -51,10 +51,7 @@
     <%= f.text_field :phone_number %>
   </div>
   </br>
-  </div>
   
-  <div class="center-form width-lg">  <!-- Center-->
-  <div style="text-align: left;">     <!-- Left-Align-->
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
@@ -93,4 +90,5 @@
 Already have an account?
 <%= render "users/shared/links" %>
 </br></br></br></br></br></br>
+</div>
 </div>
