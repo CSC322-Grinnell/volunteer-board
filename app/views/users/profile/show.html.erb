@@ -11,7 +11,7 @@
   <h1>Profile</h1>
   <div class="panel-group">
     <div class="panel panel-success">
-      <div class="panel-heading"> <%= @user.first_name %> </div>
+      <div class="panel-heading"> <%= @user.first_name %> <%= @user.last_name %> </div>
       <div class="panel-body">
 
 <!-- ensures that either the user who's profile it is or an organization are the ones trying to view the profile -->
@@ -79,7 +79,7 @@
 <% else %>
     <p>
       I'm sorry, this is the wrong profile, 
-      lease click the button below to go to your profile
+      Please click the button below to go to your profile
     </p>
   
   <% if user_signed_in? %>
