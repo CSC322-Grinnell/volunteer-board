@@ -48,7 +48,7 @@ class EventsController < InheritedResources::Base
     else
       # Changing "Num vols" to "Number of Volunteers" is a bit of a hack,
       #   but I couldn't find a better solution yet
-      flash[:error] = @event.errors.full_messages.join("<br/>")
+      flash[:error] ||= @event.errors.full_messages.join("<br/>")
           .gsub("Num vols", "Number of Volunteers")
       redirect_back(fallback_location: root_path)
     end
@@ -75,14 +75,15 @@ class EventsController < InheritedResources::Base
     else
       # Changing "Num vols" to "Number of Volunteers" is a bit of a hack,
       #   but I couldn't find a better solution yet
-      flash[:error] = @event.errors.full_messages.join("<br/>")
+      flash[:error] ||= @event.errors.full_messages.join("<br/>")
           .gsub("Num vols", "Number of Volunteers")
       redirect_back(fallback_location: root_path)
     end
   end
 
   private
-
+    
+    #Returns nil if the time was invalid
     def process_start_time
 #      gimme_a_syntax_error
       if event_params["start_time(2i)"].length == 1
@@ -94,9 +95,15 @@ class EventsController < InheritedResources::Base
       # -0600 represents the default timezone of CST
       start_time = event_params["start_time(1i)"] + start_month + event_params["start_time(3i)"] + "T" + 
         event_params["start_time(4i)"] + ":" + event_params["start_time(5i)"] + "-0600"
-      return DateTime.strptime(start_time, '%Y%m%dT%H:%M%z')
+      begin
+        return DateTime.strptime(start_time, '%Y%m%dT%H:%M%z')
+      rescue ArgumentError
+        flash[:error] ||= "Start date doesn't exist"
+        return nil
+      end
     end
     
+    # Returns nil if the time is invalid
     def process_end_time
       if event_params["end_time(2i)"].length == 1
         end_month = "0" + event_params["end_time(2i)"]
@@ -107,7 +114,12 @@ class EventsController < InheritedResources::Base
       # -0600 represents the default timezone of CST
       end_time = event_params["end_time(1i)"] + end_month + event_params["end_time(3i)"] + "T" +
         event_params["end_time(4i)"] + ":" + event_params["end_time(5i)"] + "-0600"
-      return DateTime.strptime(end_time, '%Y%m%dT%H:%M%z')
+      begin
+        return DateTime.strptime(end_time, '%Y%m%dT%H:%M%z')
+      rescue ArgumentError
+        flash[:error] ||= "End date doesn't exist"
+        return nil
+      end
     end
 
     def event_params

@@ -19,6 +19,9 @@
  
 @import "simple_calendar";
 @import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
 
 /* Site-wide styling for tables */
 table {
