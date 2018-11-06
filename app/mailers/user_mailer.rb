@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
   default from: 'notifications@example.com'
- 
+   #hi
   def welcome_email(user)
     @user = user
     @url  = 'http://example.com/login'
