@@ -1,6 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/CSC322-Grinnell/volunteer-board.png?label=ready&title=Ready)](https://waffle.io/CSC322-Grinnell/volunteer-board)
 # README
-Tapiwa
+Tapiwa 2
 This repository contains the Volunteer Board application, created in partnership with the Greater Poweshiek Community Foundation. The goal of this project is to create a space for organizations to connect with community members for volunteering opportunites.
 
 ## Installation
