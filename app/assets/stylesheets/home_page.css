@@ -1,5 +1,9 @@
 * {box-sizing:border-box}
 
+.content {
+  margin-top: 50px;
+  }
+
 .home-page-center {
   text-align:center;
   margin-top:75px;
