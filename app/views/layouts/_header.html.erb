@@ -18,20 +18,24 @@
         <li>
           <a href="/organizations">Organizations</a>
         </li>
-      </ul>
-      <ul>
+        <li>
+          <a href="/faq">General FAQ</a>
         </li>
         <% if user_signed_in? %>
-          <li>
+          <li style="float:right">
             <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
           </li>
         <% elsif organization_signed_in? %>
-          <li>
+          <li style="float:right">
             <%= link_to 'Log Out', destroy_organization_session_path, :method => :delete %>
           </li>
+          <% else %>
+          <li style="float:right">
+           <a  href="/static_pages/signin_options">Sign In</a>
+          </li>
         <% end %>
-        
       </ul>
+      
       <script>
   [].forEach.call(document.querySelectorAll('a'), function(elem) {
     if (elem.pathname === window.location.pathname)
