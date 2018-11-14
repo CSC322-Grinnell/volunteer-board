@@ -65,50 +65,57 @@ current organization loged in. -->
 
 <div class=margin-sides>
 <h3> Events <%= @organization.name %> Has Created</h3>
-<!--<input type="checkbox" id="toggle-two">-->
 
-<input id="toggle-event" type="checkbox">
-<div id="console-event"></div>
-<script>
-  $(function() {
-    $('#toggle-event').change(function() {
-      $('#console-event').html('Toggle: ' + $(this).prop('checked'))
-    })
-  })
-</script>
-<script>
-  $(function() {
-    $('#toggle-event').bootstrapToggle({
-      on: 'Month',
-      off: 'Week'
-    });
-  })
-</script>
-      
-  <!-- displays all the events that the organization has created in calendar form -->
-
-<% if false %>
-  <%= month_calendar events: @organization.events do |date, events| %>
-    <%= date.strftime("%e") %>
-    <% events.each do |event| %>
-      <div>
-        <a href="/events/<%=event.id%>"><%= event.name %> <br />
-        <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
-      </div>
-    <% end %>
-  <% end %>
-<% else %>
-  <%= week_calendar events: @organization.events do |date, events| %>
-    <%= date.strftime("%e") %>
+  <style>
+  .hidden {
+    display: none
+  }
+  </style>
   
-    <% events.each do |event| %>
-      <div>
-        <a href="/events/<%=event.id%>"><%= event.name %> <br />
-        <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
-      </div>
+  <input id="toggle-event" type="checkbox">
+  <div id="console-event"></div>
+  <script>
+    $(function() {
+      $('#toggle-event').change(function() {
+        $('.js-monthly-calendar').toggleClass('hidden')
+        $('.js-weekly-calendar').toggleClass('hidden')
+      })
+    })
+  </script>
+  <script>
+    $(function() {
+      $('#toggle-event').bootstrapToggle({
+        on: 'Week',
+        off: 'Month'
+      });
+    })
+  </script>
+        
+    <!-- displays all the events that the organization has created in calendar form -->
+  <div class="js-monthly-calendar">
+    <%= month_calendar events: @organization.events do |date, events| %>
+      <%= date.strftime("%e") %>
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+  
+  <div class="js-weekly-calendar hidden">
+    <%= week_calendar events: @organization.events do |date, events| %>
+      <%= date.strftime("%e") %>
+    
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
   <table>
     <tr>
