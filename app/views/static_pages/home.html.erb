@@ -133,7 +133,7 @@ function showSlides() {
     }
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 4000); // Change image every 4 seconds
+    setTimeout(showSlides, 5000); // Change image every 4 seconds
 }
 </script>
 
@@ -165,8 +165,6 @@ function showSlides() {
     <!-- if nobody is logged in displays buttons to the organization sign in and sign up and the user sign in and sign up -->
     <% else %>
       <div class="home-page-center">
-        
-      <a class="btn btn-success home-page-button" href="/static_pages/signin_options" role="button">Sign In</a>
       </br></br>
         
       <!-- Start of Pop-Up (derived from https://www.w3schools.com/bootstrap/bootstrap_modal.asp) -->
