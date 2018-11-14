@@ -4,6 +4,33 @@
 <h1>Events</h1>
 
 
+  <style>
+  .hidden {
+    display: none
+  }
+  </style>
+  
+  <input id="toggle-event" type="checkbox">
+  <div id="console-event"></div>
+  <script>
+    $(function() {
+      $('#toggle-event').change(function() {
+        $('.js-monthly-calendar').toggleClass('hidden')
+        $('.js-weekly-calendar').toggleClass('hidden')
+      })
+    })
+  </script>
+  <script>
+    $(function() {
+      $('#toggle-event').bootstrapToggle({
+        on: 'Week',
+        off: 'Month'
+      });
+    })
+  </script>
+        
+    <!-- displays all the events that the organization has created in calendar form -->
+
 <p><br></p>
 <!-- if an organization is signed in it allows for them to create a new event-->
 <% if organization_signed_in? %>
@@ -11,35 +38,30 @@
 <% end %>
 
 
-<input id="toggle-event" type="checkbox">
-<div id="console-event"></div>
-<script>
-  $(function() {
-    $('#toggle-event').change(function() {
-      $('#console-event').html('Toggle: ' + $(this).prop('checked'))
-    })
-  })
-</script>
-<script>
-  $(function() {
-    $('#toggle-event').bootstrapToggle({
-      on: 'Month',
-      off: 'Week'
-    });
-  })
-</script>
-<!-- lists all the events on a calendar -->
-<%= month_calendar events: @events do |date, events| %>
-  <%= date.strftime("%e") %>
-
-  <% events.each do |event| %>
-    <div>
-      <a href="/events/<%=event.id%>"><%= event.name %> <br />
-      <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
-    </div>
-  <% end %>
-<% end %>
-</tr>
+  <div class="js-monthly-calendar">
+    <%= month_calendar events: @events do |date, events| %>
+      <%= date.strftime("%e") %>
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div class="js-weekly-calendar hidden">
+    <%= week_calendar events: @events do |date, events| %>
+      <%= date.strftime("%e") %>
+    
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 <br>
 
 <!-- lists the upcoming events in chronological order -->
