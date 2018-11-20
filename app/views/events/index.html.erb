@@ -1,9 +1,15 @@
+<head>
+  <script type="text/javascript" src="sessionvars.js"></script>
+</head>
+
 <% provide(:title, "Events | ") %>
 <div class="input">
 <div class=margin-sides>
 <h1>Events</h1>
 
 
+
+<iframe src="https://calendar.google.com/calendar/embed?src=johnm234%40gmail.com&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
   <style>
   .hidden {
     display: none
@@ -38,6 +44,19 @@
 <% end %>
 
 
+  
+  <div class="js-weekly-calendar hidden">
+    <%= week_calendar events: @events do |date, events| %>
+      <%= date.strftime("%e") %>
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="js-monthly-calendar">
     <%= month_calendar events: @events do |date, events| %>
       <%= date.strftime("%e") %>
@@ -49,19 +68,7 @@
       <% end %>
     <% end %>
   </div>
-  
-  <div class="js-weekly-calendar hidden">
-    <%= week_calendar events: @events do |date, events| %>
-      <%= date.strftime("%e") %>
-    
-      <% events.each do |event| %>
-        <div>
-          <a href="/events/<%=event.id%>"><%= event.name %> <br />
-          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+
 <br>
 
 <!-- lists the upcoming events in chronological order -->
