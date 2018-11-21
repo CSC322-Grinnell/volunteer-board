@@ -40,20 +40,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   
-  test "email can be absent" do
-    @user.email = ""
-    assert @user.valid?
-  end
-  
   test "phone_number can be absent" do
     @user.phone_number = ""
     assert @user.valid?
-  end
-  
-  test "phone_number or email should be present" do
-    @user.phone_number = ""
-    @user.email = ""
-    assert_not @user.valid?
   end
   
   test "first_name should not be too long" do
