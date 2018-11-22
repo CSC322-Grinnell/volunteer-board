@@ -6,12 +6,14 @@ class User < ApplicationRecord
     validates :city, presence: true
     validates :state, presence: true
     validates :zip_code, presence: true
-    validates :phone_number, presence: true, length: { maximum: 10, minimum: 10 }
+    validates :phone_number, allow_blank: true, length: {minimum: 10, maximum: 10}
     validates :email, presence: true
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
             :recoverable, :rememberable, :trackable, :validatable
+            
+    
     def first_name=(s)
         super s.titleize
     end
@@ -31,4 +33,5 @@ class User < ApplicationRecord
     def state=(s)
         super s.titleize
     end
+    
 end
