@@ -82,7 +82,7 @@
 
   <tbody>
     <% (@events.sort_by {|event| event.start_time}).each do |event| %>
-    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 14.days %>
+    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 30.days %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
         <td><%= event.description %></td>
