@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-   
-
   resources :welcomes
   get 'events/new'
   #sets up the links for all the organization routes for devise
@@ -10,6 +8,7 @@ Rails.application.routes.draw do
     get 'sign_in', to: 'organizations/sessions#new'
     get 'sign_up', to: 'organizations/registrations#new'
     get 'sign_out', to: 'organizations/sessions#destroy'
+    get 'organizations/:id', to: 'organizations/profile#show', as: 'organization_profile'
   end
 #sets up the links for all the user routes for devise
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
     get 'sign_in', to: 'users/sessions#new'
     get 'sign_up', to: 'users/registrations#new'
     get 'sign_out', to: 'users/sessions#destroy'
+    get 'users/:id', to: 'users/profile#show', as: 'user_profile'
   end
 
   #sets up routes for sign in options
