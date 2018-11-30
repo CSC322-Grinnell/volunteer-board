@@ -88,7 +88,7 @@
 
  <form method="post">
     <select id="dropdown" name="Upcoming Events Range" onchange="changeHiddenInput(this)">
-        <option value="7">One Week</option>
+        <option selected="selected" value="7">One Week</option>
         <option value="14">Two Weeks</option>
         <option value="30">One month</option>
         <option value="90">Three months</option>
@@ -113,6 +113,7 @@ function changeHiddenInput(objDropDown) {
     var objHidden = document.getElementById("hiddenInput");
     objHidden.value = objDropDown.value;
     var a = objHidden.value;
+    result.innerHTML = a || "";
 }
 
 <!--request.getParameter("Upcoming Events Range") -->
@@ -121,7 +122,7 @@ function changeHiddenInput(objDropDown) {
 
   <tbody>
     <% (@events.sort_by {|event| event.start_time}).each do |event| %>
-    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 30.days %>
+    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + request.getParameter("Upcoming Events Range").days %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
         <td><%= event.description %></td>
