@@ -119,8 +119,7 @@ function changeHiddenInput(objDropDown) {
 
   <tbody>
     <% (@events.sort_by {|event| event.start_time}).each do |event| %>
-    <% int chosen_range = request.getParameter("Upcoming Events Range");
-    if DateTime.current <= event.start_time and event.start_time <= DateTime.current + chosen_range.days %>
+    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + request.getParameter("Upcoming Events Range").days %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
         <td><%= event.description %></td>
