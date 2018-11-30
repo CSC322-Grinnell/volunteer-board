@@ -1,4 +1,4 @@
-<% provide(:title, " | Profile") %>
+<% provide(:title, "Profile | ") %>
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
            <% if (user_signed_in? && @user.id == current_user.id) %>
              <a href="/users/edit.<%=@user.id%>" class="btn btn-success profile-button" role="button">Edit Profile</a>
