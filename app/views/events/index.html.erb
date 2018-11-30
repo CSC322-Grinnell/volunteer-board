@@ -113,34 +113,14 @@ function changeHiddenInput(objDropDown) {
     var objHidden = document.getElementById("hiddenInput");
     objHidden.value = objDropDown.value;
     var a = objHidden.value;
-    result.innerHTML = a || "";
 }
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
 </script>
 
   <tbody>
     <% (@events.sort_by {|event| event.start_time}).each do |event| %>
-    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 30.days %>
+    <% int chosen_range = request.getParameter("Upcoming Events Range");
+    if DateTime.current <= event.start_time and event.start_time <= DateTime.current + chosen_range.days; %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
         <td><%= event.description %></td>
