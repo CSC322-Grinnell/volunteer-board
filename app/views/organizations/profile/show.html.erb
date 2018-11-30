@@ -1,4 +1,4 @@
-<% provide(:title, " | " + @organization.name) %>
+<% provide(:title, @organization.name + " | ") %>
   <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
     <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
     <a href="/events" class="btn btn-success profile-button" role="button">View Events</a>
@@ -62,24 +62,62 @@ current organization loged in. -->
     </div>
   </div>
 </div>
-      
+
 <div class=margin-sides>
 <h3> Events <%= @organization.name %> Has Created</h3>
-      
-      <!-- displays all the events that the organization has created in calendar form -->
-      
-<%= month_calendar events: @organization.events do |date, events| %>
-<%= date.strftime("%e") %>
-  
-  <% events.each do |event| %>
-    <div>
-      <a href="/events/<%=event.id%>"><%= event.name %> <br />
-      <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
-    </div>
-  <% end %>
-<% end %>
 
-<table>
+  <style>
+  .hidden {
+    display: none
+  }
+  </style>
+  
+  <input id="toggle-event" type="checkbox">
+  <div id="console-event"></div>
+  <script>
+    $(function() {
+      $('#toggle-event').change(function() {
+        $('.js-monthly-calendar').toggleClass('hidden')
+        $('.js-weekly-calendar').toggleClass('hidden')
+      })
+    })
+  </script>
+  <script>
+    $(function() {
+      $('#toggle-event').bootstrapToggle({
+        on: 'Week',
+        off: 'Month'
+      });
+    })
+  </script>
+        
+    <!-- displays all the events that the organization has created in calendar form -->
+  <div class="js-monthly-calendar">
+    <%= month_calendar events: @organization.events do |date, events| %>
+      <%= date.strftime("%e") %>
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div class="js-weekly-calendar hidden">
+    <%= week_calendar events: @organization.events do |date, events| %>
+      <%= date.strftime("%e") %>
+    
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <table>
     <tr>
       <th>Title</th>
       <th>Description</th>
@@ -92,8 +130,6 @@ current organization loged in. -->
       <th colspan="3"></th>
     </tr>
     
-    <!-- displays all upcoming events the organization has created in chronological order in a table -->
-
   <tbody>
     <% (@organization.events.sort_by {|event| event.start_time}).each do |event| %>
     <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 14.days %>

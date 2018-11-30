@@ -1,7 +1,10 @@
-<% provide(:title, " | Events") %>
+<% provide(:title, "Events | ") %>
 <div class="input">
 <div class=margin-sides>
 <h1>Events</h1>
+
+        
+    <!-- displays all the events that the organization has created in calendar form -->
 
 <p><br></p>
 <!-- if an organization is signed in it allows for them to create a new event-->
@@ -9,18 +12,56 @@
   <a class="btn btn-success home-page-button" href="/events/new" role="button">New Event</a>
 <% end %>
 
-<!-- lists all the events on a calendar -->
-<%= month_calendar events: @events do |date, events| %>
-  <%= date.strftime("%e") %>
+  <style>
+  .hidden {
+    display: none
+  }
+  </style>
+  
+  <input id="toggle-event" type="checkbox">
+  <div id="console-event"></div>
+  <script>
+    $(function() {
+      $('#toggle-event').change(function() {
+        sessvars.view = !sessvars.view
+        $('.js-monthly-calendar').toggleClass('hidden')
+        $('.js-weekly-calendar').toggleClass('hidden')
+      })
+    })
+  </script>
+  <script>
+    $(function() {
+      $('#toggle-event').bootstrapToggle({
+        on: 'Week',
+        off: 'Month'
+      });
+    })
+  </script>
+  
+  <div class="js-weekly-calendar hidden">
+    <%= week_calendar events: @events do |date, events| %>
+      <%= date.strftime("%e") %>
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
-  <% events.each do |event| %>
-    <div>
-      <a href="/events/<%=event.id%>"><%= event.name %> <br />
-      <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
-    </div>
-  <% end %>
-<% end %>
-</tr>
+  <div class="js-monthly-calendar">
+    <%= month_calendar events: @events do |date, events| %>
+      <%= date.strftime("%e") %>
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 <br>
 
 <!-- lists the upcoming events in chronological order -->
@@ -39,9 +80,43 @@
       <th colspan="3"></th>
     </tr>
 
+ <form method="post">
+    <select id="dropdown" name="Upcoming Events Range" onchange="changeHiddenInput(this)">
+        <option selected="selected" value="7">One Week</option>
+        <option value="14">Two Weeks</option>
+        <option value="30">One month</option>
+        <option value="90">Three months</option>
+    </select>
+
+    <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
+
+    <button onclick="changeHiddenInput (objDropDown)">Display</button>
+</form>
+
+<div id="result"> </div>
+ 
+<script>
+ var select;
+window.onload = function () {
+    select = document.getElementById('dropdown');
+    console.log(select);
+}
+
+function changeHiddenInput(objDropDown) {
+    console.log(objDropDown);
+    var objHidden = document.getElementById("hiddenInput");
+    objHidden.value = objDropDown.value;
+    var a = objHidden.value;
+    result.innerHTML = a || "";
+}
+
+<!-- request.getParameter("Upcoming Events Range") -->
+
+</script>
+
   <tbody>
     <% (@events.sort_by {|event| event.start_time}).each do |event| %>
-    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 14.days %>
+    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 30.days %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
         <td><%= event.description %></td>

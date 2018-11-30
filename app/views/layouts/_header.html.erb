@@ -1,15 +1,7 @@
-<!-- The following div classes and associated header.css file was generated using
-the tool at http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/ -->
-<div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="/">Volunteer Board</a>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse navbar-menubuilder">
-      <ul class="nav navbar-nav navbar-left">
+<div>
+      <ul>
         <li>
-          <a href="/">Home</a>
+          <a class="active" href="/">Home</a>
         </li>
         <% if user_signed_in? %>
           <li>
@@ -26,20 +18,30 @@ the tool at http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/ -->
         <li>
           <a href="/organizations">Organizations</a>
         </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/faq">FAQ</a>
         </li>
         <% if user_signed_in? %>
-          <li>
+          <li style="float:right">
             <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
           </li>
         <% elsif organization_signed_in? %>
-          <li>
+          <li style="float:right">
             <%= link_to 'Log Out', destroy_organization_session_path, :method => :delete %>
           </li>
+          <% else %>
+          <li style="float:right">
+           <a  href="/static_pages/signin_options">Sign In</a>
+          </li>
         <% end %>
-        
       </ul>
+      
+      <script>
+  [].forEach.call(document.querySelectorAll('a'), function(elem) {
+    if (elem.pathname === window.location.pathname)
+      elem.classList.add('active')
+    else
+      elem.classList.remove('active')
+  })
+</script>
     </div>
-  </div>
-</div>

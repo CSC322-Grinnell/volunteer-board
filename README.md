@@ -33,10 +33,17 @@ To login as an admin, go to:
 
 The app is currently deployed at:
 ```
-https://murmuring-reef-33062.herokuapp.com/
+https://lit-brook-63057.herokuapp.com/
 ```
 
+## Dummy user credentials
+name: John Test
+password: password
+
 ## Contributors
+
+Fall 2018:
+Tapiwanashe Zvidzwa, Seth Ruiz, Papa Kojo Ampim-Darko, Kamal Nadesan, Willem Junker
 
 Spring 2017:
 Benjamin Wong, Greyson Bourgeois, Zoe Grubbs, Tyler Williams, Devin Dooley
