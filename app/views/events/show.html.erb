@@ -91,7 +91,7 @@
   <tbody>
     <% (@event.users).each do |user| %>
       <tr>
-        <td><%= user.first_name + " " + user.last_name %></td>
+        <td><%= link_to user.first_name + " " + user.last_name, "/users/#{user.id}" %></td>
         <td><%= mail_to user.email %></td>
         <td><%= link_to user.phone_number, "tel:#{user.phone_number}"%></td>
     <% end %>
