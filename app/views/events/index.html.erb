@@ -81,7 +81,7 @@
     </tr>
 
  <form method="post">
-    <select id="dropdown" name="Upcoming Events Range" onchange="changeHiddenInput(this)">
+    <select id="dropdown" name="Upcoming Events Range">
         <option selected="selected" value="7">One Week</option>
         <option value="14">Two Weeks</option>
         <option value="30">One month</option>
@@ -90,7 +90,7 @@
 
     <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
 
-    <button onclick="changeHiddenInput (objDropDown)">Display</button>
+    <button onclick="changeHiddenInput (objDropDown)">Display</button>   
 </form>
 
 <div id="result"> </div>
