@@ -16,7 +16,7 @@ class Organization < ApplicationRecord
   validates :zip, presence: true
   validates :phone, presence: true, length: { maximum: 10, minimum: 10 }
   validates :mission, length: { maximum: 250 }
-  validates :website, format: { with: /https?:\/\/[\S]+/ }
+  #validates :website, format: { with: /https?:\/\/[\S]+/ }
   
   def address=(s)
     super s.titleize
