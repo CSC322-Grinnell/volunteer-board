@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     @user = user
     #change to actual address once deployed
     @url  = 'https://lit-brook-63057.herokuapp.com/users/sign_in'
-    mail(to: ruizseth17@grinnell.edu, subject: 'Welcome to Volunteer Board!')
+    mail(to: @user.email, subject: 'Welcome to Volunteer Board!')
   end
   
 end
