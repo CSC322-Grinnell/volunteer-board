@@ -7,7 +7,7 @@ class Users::ProfileController < ApplicationController
     @events = @user.events
 
     render "show"
-    UserMailer.welcome_email(@user).deliver
+    UserMailer.welcome_email(@user).deliver_now
   end
   
   #gets a list of all users and then renders them in a list through users/profile/list.html.erb
