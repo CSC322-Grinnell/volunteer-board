@@ -22,7 +22,7 @@
           </p>
           <p>
             <strong>Address:</strong>
-              <%= @organization.address %>
+            <%= link_to @organization.address, "https://www.google.com/maps/dir/?api=1&destination=" + @organization.address, target: :_blank %>
           </p>
           <p>
             <strong>City:</strong>
@@ -39,11 +39,11 @@
           <p>
             <strong>Phone:</strong>
             <!-- breaks the phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
-            <td>(<%= @organization.phone[0,3] %>) <%= @organization.phone[3,3] %>-<%= @organization.phone[6,4] %></td>
+            <td><%= link_to "(" + @organization.phone[0,3] + ") " + @organization.phone[3,3] + "-" + @organization.phone[6,4] , "tel:#{@organization.phone}"%></td>
           </p>
           <p>
             <strong>Email:</strong>
-            <%= @organization.email %>
+            <%= mail_to @organization.email %>
           </p>
           <p>
             <strong>Mission:</strong>
@@ -51,7 +51,7 @@
           </p>
           <p>
             <strong>Website:</strong>
-            <%= @organization.website %>
+            <%= link_to @organization.website, @organization.website, target: :_blank %>
           </p>
 <!-- this if statement makes it so that the edit profile information only displays if the profile belongs to the 
 current organization loged in. -->

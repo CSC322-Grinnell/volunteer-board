@@ -51,18 +51,18 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @event.location %>
+  <%= link_to @event.location, "https://www.google.com/maps/dir/?api=1&destination=" + @event.location, target: :_blank %>
 </p>
 
 <p>
   <strong>Contact Phone:</strong>
   <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
-  (<%= @event.contact_phone[0,3] %>) <%= @event.contact_phone[3,3] %>-<%= @event.contact_phone[6,4] %>
+  <%= link_to "(" + @event.contact_phone[0,3] + ") " + @event.contact_phone[3,3] + "-" + @event.contact_phone[6,4] , "tel:#{@event.contact_phone}"%>
 </p>
 
 <p>
   <strong>Contact Email:</strong>
-  <%= @event.contact_email %>
+  <%= mail_to @event.contact_email %>
 </p>
 
 <!-- Determines if the user currently signed in has signed up for the event aready. If they have it gives them the option to deregister and if they havnt it gives them the option to register. -->
