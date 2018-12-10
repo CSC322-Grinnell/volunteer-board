@@ -75,3 +75,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Toggle button for month/week swap
 gem 'bootstrap-toggle-rails'
+
+#Gem for ENV variables
+gem 'figaro'
