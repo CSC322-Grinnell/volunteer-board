@@ -1,13 +1,16 @@
-<head>
-  <script type="text/javascript" src="sessionvars.js"></script>
-</head>
-
 <% provide(:title, "Events | ") %>
 <div class="input">
 <div class=margin-sides>
 <h1>Events</h1>
 
+        
+    <!-- displays all the events that the organization has created in calendar form -->
 
+<p><br></p>
+<!-- if an organization is signed in it allows for them to create a new event-->
+<% if organization_signed_in? %>
+  <a class="btn btn-success home-page-button" href="/events/new" role="button">New Event</a>
+<% end %>
 
   <style>
   .hidden {
@@ -20,6 +23,7 @@
   <script>
     $(function() {
       $('#toggle-event').change(function() {
+        sessvars.view = !sessvars.view
         $('.js-monthly-calendar').toggleClass('hidden')
         $('.js-weekly-calendar').toggleClass('hidden')
       })
@@ -33,16 +37,6 @@
       });
     })
   </script>
-        
-    <!-- displays all the events that the organization has created in calendar form -->
-
-<p><br></p>
-<!-- if an organization is signed in it allows for them to create a new event-->
-<% if organization_signed_in? %>
-  <a class="btn btn-success home-page-button" href="/events/new" role="button">New Event</a>
-<% end %>
-
-
   
   <div class="js-weekly-calendar hidden">
     <%= week_calendar events: @events do |date, events| %>
@@ -85,6 +79,40 @@
       <th>Contact email</th>
       <th colspan="3"></th>
     </tr>
+
+ <form method="post">
+    <select id="dropdown" name="Upcoming Events Range">
+        <option selected="selected" value="7">One Week</option>
+        <option value="14">Two Weeks</option>
+        <option value="30">One month</option>
+        <option value="90">Three months</option>
+    </select>
+
+    <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
+
+    <button onclick="changeHiddenInput (objDropDown)">Display</button>   
+</form>
+
+<div id="result"> </div>
+ 
+<script>
+ var select;
+window.onload = function () {
+    select = document.getElementById('dropdown');
+    console.log(select);
+}
+
+function changeHiddenInput(objDropDown) {
+    console.log(objDropDown);
+    var objHidden = document.getElementById("hiddenInput");
+    objHidden.value = objDropDown.value;
+    var a = objHidden.value;
+    result.innerHTML = a || "";
+}
+
+<!-- request.getParameter("Upcoming Events Range") -->
+
+</script>
 
   <tbody>
     <% (@events.sort_by {|event| event.start_time}).each do |event| %>

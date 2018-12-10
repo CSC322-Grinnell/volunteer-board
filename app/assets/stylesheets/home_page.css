@@ -89,6 +89,10 @@
   background-color: #717171;
 }
 
+.active_arrows {
+  background-color: white;
+}
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
