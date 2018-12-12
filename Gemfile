@@ -47,6 +47,8 @@ gem 'devise'
 # City-state
 gem 'city-state'
 
+gem 'figaro'
+
 # Date Validator
 gem 'date_validator'
 
