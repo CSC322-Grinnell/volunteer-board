@@ -66,6 +66,8 @@
 <!-- lists the upcoming events in chronological order -->
 <h3> Upcoming </h3>
 
+
+
 <a class="myToggle" href="javascript:void(0);" divId="Days-7">One Week</a>
 <a class="myToggle" href="javascript:void(0);" divId="Days-14">Two Weeks</a>
 <a class="myToggle" href="javascript:void(0);" divId="Days-30">One Month</a>
@@ -212,6 +214,7 @@
     </div>
 
  <script>
+  $(".Upco").hide();
 $(".myToggle").bind("click", function() {
     $(".Upco").hide();
     var divId= $(this).attr("divId");
