@@ -1,7 +1,5 @@
 <% provide(:title, @organization.name + " | ") %>
   <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-    <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
-    <a href="/events" class="btn btn-success profile-button" role="button">View Events</a>
     <% if organization_signed_in? && current_organization.id == @organization.id %>
       <a href="/organizations/edit.<%=@organization.id%>" class="btn btn-success profile-button" role="button">Edit Profile</a>
     <% end %>
