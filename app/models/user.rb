@@ -39,12 +39,4 @@ class User < ApplicationRecord
         super s.titleize
     end
     
-    def after_confirmation
-        welcome_email
-    end
-    
-    def welcome_email
-        UserMailer.welcome_email(self).deliver_now
-    end
-    
 end

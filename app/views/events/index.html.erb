@@ -66,6 +66,14 @@
 <!-- lists the upcoming events in chronological order -->
 <h3> Upcoming </h3>
 
+<a class="myToggle" href="javascript:void(0);" divId="Days-7">One Week</a>
+<a class="myToggle" href="javascript:void(0);" divId="Days-14">Two Weeks</a>
+<a class="myToggle" href="javascript:void(0);" divId="Days-30">One Month</a>
+<a class="myToggle" href="javascript:void(0);" divId="Days-90">Three Months</a>
+ 
+
+
+<div class = "Upco" id = "Days-7">
 <table>
     <tr>
       <th>Title</th>
@@ -79,39 +87,74 @@
       <th colspan="3"></th>
     </tr>
 
- <form method="post">
-    <select id="dropdown" name="Upcoming Events Range">
-        <option selected="selected" value="7">One Week</option>
-        <option value="14">Two Weeks</option>
-        <option value="30">One month</option>
-        <option value="90">Three months</option>
-    </select>
+  <tbody>
+    <% (@events.sort_by {|event| event.start_time}).each do |event| %>
+    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 7.days %>
+      <tr>
+        <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
+        <td><%= event.description %></td>
+        <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+        <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+        <td><%= event.num_vols %></td>
+        <td><%= event.location %></td>
+        <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
+        <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
+        <td><%= event.contact_email %></td>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+    </tr>
+    </div>
 
-    <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
+<div class = "Upco" id = "Days-14">
+<table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Number of volunteers needed</th>
+      <th>Location</th>
+      <th>Contact phone</th>
+      <th>Contact email</th>
+      <th colspan="3"></th>
+    </tr>
 
-    <button onclick="changeHiddenInput (objDropDown)">Display</button>   
-</form>
-
-<div id="result"> </div>
- 
-<script>
- var select;
-window.onload = function () {
-    select = document.getElementById('dropdown');
-    console.log(select);
-}
-
-function changeHiddenInput(objDropDown) {
-    console.log(objDropDown);
-    var objHidden = document.getElementById("hiddenInput");
-    objHidden.value = objDropDown.value;
-    var a = objHidden.value;
-    result.innerHTML = a || "";
-}
-
-<!-- request.getParameter("Upcoming Events Range") -->
-
-</script>
+  <tbody>
+    <% (@events.sort_by {|event| event.start_time}).each do |event| %>
+    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 14.days %>
+      <tr>
+        <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
+        <td><%= event.description %></td>
+        <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+        <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+        <td><%= event.num_vols %></td>
+        <td><%= event.location %></td>
+        <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
+        <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
+        <td><%= event.contact_email %></td>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+    </tr>
+    </div>
+    
+    
+    <div class = "Upco" id = "Days-30">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Number of volunteers needed</th>
+      <th>Location</th>
+      <th>Contact phone</th>
+      <th>Contact email</th>
+      <th colspan="3"></th>
+    </tr>
 
   <tbody>
     <% (@events.sort_by {|event| event.start_time}).each do |event| %>
@@ -131,7 +174,50 @@ function changeHiddenInput(objDropDown) {
   </tbody>
 </table>
     </tr>
-<br>
- 
+    </div>
+    
+    
+    <div class = "Upco" id = "Days-90">
+    <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Number of volunteers needed</th>
+      <th>Location</th>
+      <th>Contact phone</th>
+      <th>Contact email</th>
+      <th colspan="3"></th>
+    </tr>
+
+  <tbody>
+    <% (@events.sort_by {|event| event.start_time}).each do |event| %>
+    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 90.days %>
+      <tr>
+        <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
+        <td><%= event.description %></td>
+        <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+        <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+        <td><%= event.num_vols %></td>
+        <td><%= event.location %></td>
+        <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
+        <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
+        <td><%= event.contact_email %></td>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+    </tr>
+    </div>
+
+ <script>
+$(".myToggle").bind("click", function() {
+    $(".Upco").hide();
+    var divId= $(this).attr("divId");
+    $("#" + divId).show();
+});
+</script>
+
 </div>
 </div>
