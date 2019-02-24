@@ -56,7 +56,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # [Apparently Active Record doesn't like the most recent version of sqlite3,
+  #  and needs 1.3.13. It tells you about this by claiming that sqlite3 is not
+  #  specified as a dependency (at all). Thanks, Active Record. -ZF]
+  gem 'sqlite3', '~> 1.3.13'
 end
 
 group :development do
