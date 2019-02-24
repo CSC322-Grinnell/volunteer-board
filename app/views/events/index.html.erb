@@ -17,7 +17,7 @@
     display: none
   }
   </style>
-  <input id="toggle-event" type="checkbox">
+  <input id="toggle-event" type="checkbox" <%= params['view'] == 'week' ? 'checked' : '' %>>
   <div id="console-event"></div>
   <script>
     $(function() {
@@ -37,7 +37,7 @@
     })
   </script>
   
-  <div class="js-weekly-calendar hidden">
+  <div class="js-weekly-calendar <%= params['view'] == 'week' ? '' : 'hidden' %>">
     <%= week_calendar events: @events do |date, events| %>
       <%= date.strftime("%e") %>
       <% events.each do |event| %>
@@ -49,7 +49,7 @@
     <% end %>
   </div>
 
-  <div class="js-monthly-calendar">
+  <div class="js-monthly-calendar <%= params['view'] == 'week' ? 'hidden' : '' %>">
     <%= month_calendar events: @events do |date, events| %>
       <%= date.strftime("%e") %>
       <% events.each do |event| %>
