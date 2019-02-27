@@ -4,14 +4,27 @@
   }
 </style>
 
+<%
+
+require 'uri'
+
+def set_get_param(uristr, param, value)
+  uri = URI.parse(uristr)
+  query = Hash[URI.decode_www_form(String(uri.query))]
+  query[param] = value;
+  uri.query = URI.encode_www_form(query)
+  return uri.to_s
+end
+
+%>
 
 <div class="simple-calendar">
   <div class="calendar-heading" style="font-size: 175%;">
-    <%= link_to t('simple_calendar.previous', default: '&#x21E6;'.html_safe), calendar.url_for_previous_view, class: "active_arrows" %>
+    <%= link_to(t('simple_calendar.previous', default: '&#x21E6;'.html_safe), set_get_param(calendar.url_for_previous_view,'view','month'), class: "active_arrows") %>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-      <%= link_to t('simple_calendar.next', default: '&#x21E8;'.html_safe), calendar.url_for_next_view, class: "active_arrows" %>
+    <%= link_to(t('simple_calendar.next', default: '&#x21E8;'.html_safe), set_get_param(calendar.url_for_next_view,'view','month'), class: "active_arrows") %>
   </div>
-  
+
   <table class="table table-striped">
     <thead>
       <tr>
