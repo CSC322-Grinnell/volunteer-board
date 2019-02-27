@@ -9,6 +9,9 @@ class EventsController < InheritedResources::Base
       #adds the event to the users list of events
       current_user.events << @event
       @event.save
+      #puts "The current user email  :::" + current_user.email --> for testing purpose.
+      #After event is successfully added and stored, call mailer to send confirmation email.
+      UserMailer.signup_email(current_user).deliver_now
     end
     #redirects back to the show page from before
     redirect_to events_path
