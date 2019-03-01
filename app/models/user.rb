@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    #set up to reject weak passwords
+    devise :zxcvbnable
     has_and_belongs_to_many :events
     validates :first_name, presence: true, length: { maximum: 50 }
     validates :last_name, presence: true, length: { maximum: 50 }

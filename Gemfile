@@ -83,3 +83,6 @@ gem 'bootstrap-toggle-rails'
 
 #Gem for ENV variables
 gem 'figaro'
+
+#Gem for password strength
+gem 'devise_zxcvbn'
