@@ -1,4 +1,5 @@
 class Users::PasswordsController < Devise::PasswordsController
+  devise :zxcvbnable
   # GET /resource/password/new
   # def new
   #   super

@@ -5,8 +5,9 @@ class OrganizationTest < ActiveSupport::TestCase
     @org = Organization.new(name: "Org 1", email: "org1@orgsite.com", 
     address: "123 Main St.", city: "Grinnell", state: "IA", zip: "50112",
     phone: "0123456789", mission: "To promote community in Grinnell.", 
-    website: "http://www.example.com", password: "1234567")
+    website: "http://www.example.com", password: "c0mpl1c4tedp@55w0rd")
   end
+  
   
   test "should be valid" do
     assert @org.valid?
