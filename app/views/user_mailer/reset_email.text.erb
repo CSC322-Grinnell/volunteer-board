@@ -1,0 +1,11 @@
+PASSWORD CHANGE ALERT
+===============================================
+
+Dear <%= @user.first_name>, your username is: <%= @user.email %>.
+Someone has requested a link to change your password. You can do this through the link below.
+
+To change your password, just follow this link: <%= link_to 'Change my password', edit_password_url(@resource, reset_password_token: @token) %>.
+If you didn't request this, please ignore this email.
+Your password won't change until you access the link above and create a new one.
+
+Thanks for joining and have a great day!
