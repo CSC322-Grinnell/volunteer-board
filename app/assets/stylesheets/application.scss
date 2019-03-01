@@ -92,15 +92,33 @@ input[type="password"] {
   width: 150px;
 }
 
-.flash, #devise_error_messages{
+.flash {
     text-align: center;
     padding:    .3em .4em;
     margin:     0 auto .5em;
     clear:      both;
     max-width:  46.923em; /* 610/13 */  
     *max-width: 45.750em; /* 610/13.3333 - for IE */
-    background: #f88181;
     font-weight: bold;
+}
+
+#devise_error_messages {
+    text-align: center;
+    padding:    .3em .4em;
+    margin:     0 auto .5em;
+    clear:      both;
+    background: #f88181;
+    max-width:  46.923em; /* 610/13 */  
+    *max-width: 45.750em; /* 610/13.3333 - for IE */
+    font-weight: bold;
+}
+
+.error {
+  background: #f88181;
+}
+
+.notice {
+  background: #81f881;
 }
 
 footer {
