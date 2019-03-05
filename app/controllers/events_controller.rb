@@ -47,6 +47,7 @@ class EventsController < InheritedResources::Base
     @event = current_organization.events.new(event_info)  
 
     if @event.save
+      flash[:notice] = "You successfully created an event!"
       redirect_to events_path
     else
       # Changing "Num vols" to "Number of Volunteers" is a bit of a hack,
