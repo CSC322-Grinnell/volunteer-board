@@ -4,6 +4,7 @@
   <% if event.errors.any? %>
     <div id="error_explanation">
       <p style="text-align:center; color:red; font-weight:bold"><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</p>
+      <%= devise_error_messages! %>
     </div>
   <% end %>
   

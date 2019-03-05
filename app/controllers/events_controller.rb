@@ -52,8 +52,8 @@ class EventsController < InheritedResources::Base
     else
       # Changing "Num vols" to "Number of Volunteers" is a bit of a hack,
       #   but I couldn't find a better solution yet
-      flash[:error] ||= @event.errors.full_messages.join("<br/>")
-          .gsub("Num vols", "Number of Volunteers")
+      # flash[:error] ||= @event.errors.full_messages.join("<br/>")
+      #     .gsub("Num vols", "Number of Volunteers")
       # redirect_back(fallback_location: root_path)
       # rerender the page with all entered fields saved.
       render "events/new"
@@ -77,13 +77,10 @@ class EventsController < InheritedResources::Base
     @event = Event.find(params[:id])
     
     if (@event.update(event_info))
+      flash[:notice] = "You successfully updated your event!"
       redirect_to @event
     else
-      # Changing "Num vols" to "Number of Volunteers" is a bit of a hack,
-      #   but I couldn't find a better solution yet
-      flash[:error] ||= @event.errors.full_messages.join("<br/>")
-          .gsub("Num vols", "Number of Volunteers")
-      redirect_back(fallback_location: root_path)
+      render "events/new"
     end
   end
 
