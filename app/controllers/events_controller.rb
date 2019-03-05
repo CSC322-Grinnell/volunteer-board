@@ -53,7 +53,9 @@ class EventsController < InheritedResources::Base
       #   but I couldn't find a better solution yet
       flash[:error] ||= @event.errors.full_messages.join("<br/>")
           .gsub("Num vols", "Number of Volunteers")
-      redirect_back(fallback_location: root_path)
+      # redirect_back(fallback_location: root_path)
+      # rerender the page with all entered fields saved.
+      render "events/new"
     end
   end
 
