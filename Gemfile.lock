@@ -55,13 +55,13 @@ GEM
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (7.1.4)
-    autoprefixer-rails (9.4.8)
+    autoprefixer-rails (9.4.10)
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
-    bootstrap-sass (3.3.6)
+    bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+      sassc (>= 2.0.0)
     bootstrap-toggle-rails (2.2.1.0)
     bourbon (5.1.0)
       sass (~> 3.4)
@@ -201,6 +201,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.0.1)
+      ffi (~> 1.9)
+      rake
     simple_calendar (2.3.0)
       rails (>= 3.0)
     spring (2.0.2)
@@ -244,7 +247,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (~> 1.0.0.pre2)
-  bootstrap-sass (= 3.3.6)
+  bootstrap-sass (= 3.4.1)
   bootstrap-toggle-rails
   byebug
   city-state
