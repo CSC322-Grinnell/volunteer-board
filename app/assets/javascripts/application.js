@@ -16,4 +16,4 @@
 //= require bootstrap
 //= require bootstrap-toggle
 //= require clipboard
-//= require_tree
+//= require_tree .

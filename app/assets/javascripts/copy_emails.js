@@ -2,6 +2,6 @@
 /* global Clipboard */
 
 $(document).ready(function() {
-    var clipboard = new Clipboard('.copy-btn');
+    var clipboard = new Clipboard('.clipboard-btn');
     console.log(clipboard);
 });
