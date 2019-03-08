@@ -1,0 +1,22 @@
+<div class="container" style="width: 75%;">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h2>Contact Volunteers</h2>
+            <% email_str = "" %>
+            <% event.users.each do |user| %>
+                <% email_str += user.email + ', ' %>
+            <% end %>
+            <% email_str.chomp!(', ') %>
+            <textarea id = "volunteerEmails" rows = "2" cols = "120"><%= email_str %></textarea> <br>
+            <label>Subject: </label>
+            <input type = "text" style = "width: 40%; margin: 5px 10px 20px 0px"
+                   id = "subject"
+                   value = "subject headline" /> <br>
+            <textarea id = "emailContent" rows = "15" cols = "120">Your text here</textarea> <br>
+            <div style="text-align: right;">
+                <a href="#" class="btn btn-success profile-button" role="button">Send</a>
+                <a href="#" class="btn btn-success profile-button" role="button">Copy to Clipboard</a>
+            </div>
+        </div>
+    </div>
+</div>
