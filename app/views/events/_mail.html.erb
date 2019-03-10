@@ -28,7 +28,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!--<button type="button" class="btn btn-success send-mail-btn" send-email="true">Send</button>-->
-        <%= link_to 'Send mail', "/events/email_volunteers/#{@event.id}?id=#{@event.id}", class: "btn btn-success send-mail-btn", remote:true %>
+        <%= link_to 'Send mail', "/events/email_volunteers/#{@event.id}?id=#{@event.id}", class: "btn btn-success send-email-btn", remote:true %>
       </div>
     </div>
   </div>

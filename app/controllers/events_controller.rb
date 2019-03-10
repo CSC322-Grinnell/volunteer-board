@@ -86,7 +86,7 @@ class EventsController < InheritedResources::Base
   
   def email_volunteers #(subject, content)
     id = params[:id]
-    UserMailer.group_mail(Event.find_by_id(id).users).deliver #, subject, content)
+    # UserMailer.group_mail(Event.find_by_id(id).users).deliver #, subject, content)
     print "Hello, this is your event!!!!!!"
   end
 
