@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   #sets up the routes for registering and deregistering for an event as a user
   get 'events/sign_up/:id', to: 'events#sign_up'
   get 'events/deregister/:id', to: 'events#deregister'
+  get 'events/email_volunteers/:id', to: 'events#email_volunteers'
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

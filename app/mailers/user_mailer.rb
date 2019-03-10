@@ -17,4 +17,11 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'You requested to change your password for ' + @user.email)
   end
   
+  def group_mail(users) #, subject, content)
+    users.each do |user|
+      @user = user
+      mail(to: @user.email, subject: "Hello!")
+    end
+  end
+  
 end

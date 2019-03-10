@@ -83,12 +83,18 @@ class EventsController < InheritedResources::Base
       render "events/new"
     end
   end
+  
+  def email_volunteers #(subject, content)
+    id = params[:id]
+    UserMailer.group_mail(Event.find_by_id(id).users).deliver #, subject, content)
+    print "Hello, this is your event!!!!!!"
+  end
 
   private
     
     #Returns nil if the time was invalid
     def process_start_time
-#      gimme_a_syntax_error
+      #gimme_a_syntax_error
       if event_params["start_time(2i)"].length == 1
         start_month = "0" + event_params["start_time(2i)"]
       else
