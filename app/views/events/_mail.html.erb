@@ -19,17 +19,21 @@
                 Copy to Clipboard
             </button> <br>
         </div>
-        <label>Subject: </label>
-        <input type="text" style="width: 40%; margin: 5px 10px 20px 0px"
-               id="subject"
-               value="subject headline" /> <br>
-        <textarea id="emailContent" rows="15" style="width:100%">Your text here</textarea> <br>
+        
+        <form id='email-form' action='/events/email_volunteers/<%=@event.id%>?id=<%=@event.id%>' method='post' data-remote='true'>
+          <label>Subject: </label>
+          <input type="text" style="width: 40%; margin: 5px 10px 20px 0px"
+                 id="subject" name="subject"
+                 value="subject headline" /> <br>
+          <textarea id="emailContent" name="content" rows="15" style="width:100%">Your text here</textarea> <br>
+        </form>
       </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!--<button type="button" class="btn btn-success send-mail-btn" send-email="true">Send</button>-->
-        <%= link_to 'Send mail', "/events/email_volunteers/#{@event.id}?id=#{@event.id}", class: "btn btn-success send-email-btn", remote:true %>
+        <button type="submit" form='email-form' class="btn btn-success send-email-btn">Send email</button>
       </div>
+      
     </div>
   </div>
 </div>

@@ -6,15 +6,12 @@
   </head>
 
   <body>
-    <h1>Welcome to VolunteerBoard.com, <%= @user.first_name %></h1>
+    <h1>Dear <%= @user.first_name %>,</h1>
     <p>
-      This is a bulk email sent by your event organizer!
-      your username is: <%= @user.email %>.<br>
+      <i>[Note: This is a bulk email sent by your event organizer]</i> <br>
+      <%= @content %>
     </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>your username is: <%= @user.email %>.<br>Thanks for your enthusiasm!</p>
   </body>
 </html>
 

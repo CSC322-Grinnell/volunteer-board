@@ -84,10 +84,12 @@ class EventsController < InheritedResources::Base
     end
   end
   
-  def email_volunteers #(subject, content)
+  def email_volunteers
     id = params[:id]
-    # UserMailer.group_mail(Event.find_by_id(id).users).deliver #, subject, content)
-    print "Hello, this is your event!!!!!!"
+    # Comment out line below when testing send_mail button UI
+    UserMailer.group_mail(Event.find_by_id(id).users, params[:subject], params[:content]).deliver #, subject, content)
+    # Need to return json based on email success/failure --> then ajax handling from frontend.
+    render json: { "success" => "true" }
   end
 
   private
