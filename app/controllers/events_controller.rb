@@ -86,8 +86,13 @@ class EventsController < InheritedResources::Base
   
   def email_volunteers
     id = params[:id]
-    # Comment out line below when testing send_mail button UI
-    UserMailer.group_mail(Event.find_by_id(id).users, params[:subject], params[:content]).deliver #, subject, content)
+    @users = Event.find_by_id(id).users
+    # 1. We can send bulk emails to all recipients, who can see every other participant's email.
+    # UserMailer.group_mail(@users, params[:subject], params[:content]).deliver_now
+    # 2. OR we can send customized/individual emails to each parcitipant.
+    @users.each do |user|
+      UserMailer.volunteer_mail(user, params[:subject], params[:content]).deliver_now
+    end
     # Need to return json based on email success/failure --> then ajax handling from frontend.
     render json: { "success" => "true" }
   end

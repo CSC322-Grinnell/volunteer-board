@@ -20,10 +20,15 @@ class UserMailer < ApplicationMailer
   def group_mail(users, subject, content)
     @subject = subject
     @content = content
-    users.each do |user|
-      @user = user
-      mail(to: @user.email, subject: @subject)
-    end
+    @users = users
+    mail(to: @users.map(&:email).uniq, subject: @subject)
+  end
+  
+  def volunteer_mail(user, subject, content)
+    @subject = subject
+    @content = content
+    @user = user
+    mail(to: @user.email, subject: @subject)
   end
   
 end
