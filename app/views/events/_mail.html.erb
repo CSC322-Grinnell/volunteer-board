@@ -23,9 +23,9 @@
         <form id='email-form' action='/events/email_volunteers/<%=@event.id%>?id=<%=@event.id%>' method='post' data-remote='true'>
           <label>Subject: </label>
           <input type="text" style="width: 40%; margin: 5px 10px 20px 0px"
-                 id="subject" name="subject"
-                 value="subject headline" /> <br>
-          <textarea id="emailContent" name="content" rows="15" style="width:100%">Your text here</textarea> <br>
+                 id="emailSubject" name="subject"
+                 placeholder="subject headline" /> <br>
+          <textarea id="emailContent" name="content" rows="15" style="width:100%" placeholder="Place your email content here."></textarea> <br>
         </form>
       </div>
       

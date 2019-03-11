@@ -93,8 +93,11 @@ class EventsController < InheritedResources::Base
     @users.each do |user|
       UserMailer.volunteer_mail(user, params[:subject], params[:content]).deliver_now
     end
+    puts 'This is me sending some swag emails...........'
     # Need to return json based on email success/failure --> then ajax handling from frontend.
-    render json: { "success" => "true" }
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
