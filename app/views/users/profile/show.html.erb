@@ -5,7 +5,7 @@
            <% end %>
        <br>
       </div>
- 
+
 <div class="container">
   <h1>Profile</h1>
   <div class="panel-group">
@@ -28,12 +28,12 @@
       <strong>Address:</strong>
       <%= @user.address %>
     </p>
-  
+
     <p>
       <strong>City:</strong>
       <%= @user.city %>
     </p>
-  
+
     <p>
       <strong>State:</strong>
       <%= @user.state %>
@@ -43,7 +43,7 @@
       <strong>Zip:</strong>
       <%= @user.zip_code %>
     </p>
-  
+
     <p>
       <strong>Phone:</strong>
       (<%= @user.phone_number[0,3] %>) <%= @user.phone_number[3,3] %>-<%= @user.phone_number[6,4] %>
@@ -53,15 +53,15 @@
       <strong>Email:</strong>
       <%= mail_to @user.email %>
     </p>
-  
+
     <p><br></p>
-  
-  
+
+
   <% end %>
-  
+
   <!-- if this is the current user's profile displays a calendar with only event they've signed up for and a link to allow them to edit their profile -->
   <% if (user_signed_in? && @user.id == current_user.id) %>
-  
+
   <h2>  <%= @user.first_name%>'s Upcoming Events</h3>
 
 <table>
@@ -76,9 +76,9 @@
       <th>Contact email</th>
       <th colspan="3"></th>
     </tr>
-    
+
       <tbody>
-    <% (@events.sort_by {|event| event.start_time}).each do |event| %>
+    <% (@user.events.sort_by {|event| event.start_time}).each do |event| %>
     <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 90.days %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
@@ -96,11 +96,11 @@
 </table>
 
     <h2> <%= @user.first_name%>'s Event Calendar</h2>
-    
-    
-    <%= month_calendar events: @events do |date, events| %>
+
+
+    <%= month_calendar events: @user.events do |date, events| %>
       <%= date.strftime("%e") %>
-  
+
       <% events.each do |event| %>
         <div>
           <a href="/events/<%=event.id%>"><%= event.name %> <br />
@@ -111,13 +111,13 @@
   <% end %>
 <% else %>
     <p>
-      I'm sorry, this is the wrong profile, 
+      I'm sorry, this is the wrong profile,
       Please click the button below to go to your profile
     </p>
-  
+
   <% if user_signed_in? %>
     <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
   <% end %>
-    
+
 <% end %>
     </div>
