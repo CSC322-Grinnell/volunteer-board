@@ -5,7 +5,7 @@
   <a href="/events" class="btn btn-success profile-button" role="button">View Other Events</a>
   <% if organization_signed_in? && current_organization.id == @event.organization_id %>
     <a href="/events/<%=@event.id%>/edit" class="btn btn-success profile-button" role="button">Edit Event</a>
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Contact Volunteers</button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#emailModal">Contact Volunteers</button>
   <%end%>
   <br>
 </div>
