@@ -61,7 +61,6 @@ group :development, :test do
   #  and needs 1.3.13. It tells you about this by claiming that sqlite3 is not
   #  specified as a dependency (at all). Thanks, Active Record. -ZF]
   gem 'sqlite3', '~> 1.3.13'
-  gem 'clipboard-rails'
 end
 
 group :development do

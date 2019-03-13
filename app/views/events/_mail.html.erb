@@ -1,3 +1,5 @@
+<script src="/assets/copy_emails.js" type="text/javascript"></script>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -15,7 +17,7 @@
         <% email_str.chomp!(', ') %>
         <textarea id="volunteerEmails" style="width: 100%;"><%= email_str %></textarea> <br>
         <div style="text-align: right;">
-            <button type="button" class="btn btn-success clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#volunteerEmails">
+            <button type="button" class="btn btn-success" id="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#volunteerEmails">
                 Copy to Clipboard
             </button> <br>
         </div>

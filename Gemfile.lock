@@ -55,7 +55,7 @@ GEM
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (7.1.4)
-    autoprefixer-rails (9.4.10.1)
+    autoprefixer-rails (9.4.10.2)
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
@@ -70,7 +70,6 @@ GEM
     byebug (11.0.0)
     city-state (0.0.13)
       rubyzip (~> 1.1)
-    clipboard-rails (1.7.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -78,7 +77,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     crass (1.0.4)
     date_validator (0.9.0)
       activemodel
@@ -252,7 +251,6 @@ DEPENDENCIES
   bootstrap-toggle-rails
   byebug
   city-state
-  clipboard-rails
   coffee-rails (~> 4.2)
   date_validator
   devise
