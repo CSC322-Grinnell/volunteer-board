@@ -10,9 +10,16 @@ class Users::ProfileController < ApplicationController
 
   #gets a list of all users and then renders them in a list through users/profile/list.html.erb
   def list
-    @users = User.all
+    @users = User.where(organization: false)
 
     render "list"
+  end
+
+  #gets a list of all organizations and then renders them in a list through users/profile/list_org.html.erb
+  def list_org
+    @users = User.where(organization: true)
+
+    render "list_org"
   end
 
 end
