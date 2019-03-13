@@ -9,18 +9,40 @@ class Users::RegistrationsController < Devise::RegistrationsController
     UserMailer.welcome_email(@user).deliver_now
   end
 
+  # This is called during the "create" method, before the new user is added to
+  # the database.
+  def build_resource(hash = {})
+    if (hash.present?)
+      hash[:approved] = (hash[:organization] == "false")
+    end
+    super(hash)
+  end
+
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
-  #this code lets devise track the different values during sign up
-  def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, :password, :password_confirmation, :private)
+  # GET /users/sign_up_org
+  def new_org
+    # We need this controller so that we can automatically generate fields in
+    # the signup page. It's not really that automatic, so I'm not sure why it's
+    # worth doing.
+    @user = User.new
   end
-  #this code lets devise track the different values during an account information update
+
+  # This is called during the "create" method. Any POST parameters other than
+  # these will be rejected.
+  def sign_up_params
+    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, \
+                                 :password, :password_confirmation, :private, :name, :mission, :website, :organization)
+  end
+
+  # This is called during the "update" method (a PUT to /users). Any POST
+  # parameters other than these will be rejected.
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, :password, :password_confirmation, :current_password, :private)
+    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, \
+                                 :password, :password_confirmation, :private, :name, :mission, :website, :current_password)
   end
 
   # POST /resource

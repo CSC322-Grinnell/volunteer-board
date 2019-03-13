@@ -31,20 +31,20 @@ class EventsController < InheritedResources::Base
   end
 
   def create
-    if !organization_signed_in?
+    if not (user_signed_in? and current_user.organization)
       return
     end
 
     # Process the start time and end time
     st = process_start_time
     et = process_end_time
-  
+
     # Gather all the parameters and save them into a new event
     event_info = { :start_time => st, :end_time => et, :name => event_params[:name],
       :description => event_params[:description], :num_vols => event_params[:num_vols], :location => event_params[:location],
       :contact_phone => event_params[:contact_phone], :contact_email => event_params[:contact_email]}
-      
-    @event = current_organization.events.new(event_info)  
+
+    @event = current_user.events.new(event_info)
 
     if @event.save
       redirect_to events_path
@@ -58,21 +58,21 @@ class EventsController < InheritedResources::Base
   end
 
   def update
-    if !organization_signed_in?
+    if not (user_signed_in? and current_user.organization)
       return
     end
 
     # Process the start time and end time
     st = process_start_time
     et = process_end_time
-  
+
     # Gather all the parameters and save them into a new event
     event_info = { :start_time => st, :end_time => et, :name => event_params[:name],
       :description => event_params[:description], :num_vols => event_params[:num_vols], :location => event_params[:location],
       :contact_phone => event_params[:contact_phone], :contact_email => event_params[:contact_email]}
-      
+
     @event = Event.find(params[:id])
-    
+
     if (@event.update(event_info))
       redirect_to @event
     else
@@ -85,7 +85,7 @@ class EventsController < InheritedResources::Base
   end
 
   private
-    
+
     #Returns nil if the time was invalid
     def process_start_time
 #      gimme_a_syntax_error
@@ -94,9 +94,9 @@ class EventsController < InheritedResources::Base
       else
         start_month = event_params["start_time(2i)"]
       end
-      
+
       # -0600 represents the default timezone of CST
-      start_time = event_params["start_time(1i)"] + start_month + event_params["start_time(3i)"] + "T" + 
+      start_time = event_params["start_time(1i)"] + start_month + event_params["start_time(3i)"] + "T" +
         event_params["start_time(4i)"] + ":" + event_params["start_time(5i)"] + "-0600"
       begin
         return DateTime.strptime(start_time, '%Y%m%dT%H:%M%z')
@@ -105,7 +105,7 @@ class EventsController < InheritedResources::Base
         return nil
       end
     end
-    
+
     # Returns nil if the time is invalid
     def process_end_time
       if event_params["end_time(2i)"].length == 1
@@ -113,7 +113,7 @@ class EventsController < InheritedResources::Base
       else
         end_month = event_params["end_time(2i)"]
       end
-      
+
       # -0600 represents the default timezone of CST
       end_time = event_params["end_time(1i)"] + end_month + event_params["end_time(3i)"] + "T" +
         event_params["end_time(4i)"] + ":" + event_params["end_time(5i)"] + "-0600"
@@ -127,7 +127,7 @@ class EventsController < InheritedResources::Base
 
     def event_params
       params.require(:event).permit(:name, :description, :num_vols, :location,
-        :contact_phone, :contact_email, :end_time, :start_time, :start_date, 
+        :contact_phone, :contact_email, :end_time, :start_time, :start_date,
         :end_date, :volunteer_count)
     end
 end

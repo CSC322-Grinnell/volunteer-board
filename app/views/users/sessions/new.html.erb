@@ -1,13 +1,13 @@
 <% provide(:title, "Sign Up | ") %>
 </br>
-<div class="center-form"> 
-  <h2>Volunteer Sign in</h2>
+<div class="center-form">
+  <h2>Log in</h2>
 </div>
 </br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="center-form">
-  
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -34,6 +34,5 @@
 <% end %>
 
 </br>
-Don't have an account?
-<%= render "users/shared/links" %>
+Don't have an account? <a href="/static_pages/signup_options">Sign up</a>
 </div>
