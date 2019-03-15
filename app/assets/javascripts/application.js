@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-toggle
-//= require_tree
+//= require clipboard
+//= require_tree .

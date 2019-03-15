@@ -47,13 +47,16 @@ class EventsController < InheritedResources::Base
     @event = current_organization.events.new(event_info)  
 
     if @event.save
+      flash[:notice] = "You successfully created an event!"
       redirect_to events_path
     else
       # Changing "Num vols" to "Number of Volunteers" is a bit of a hack,
       #   but I couldn't find a better solution yet
-      flash[:error] ||= @event.errors.full_messages.join("<br/>")
-          .gsub("Num vols", "Number of Volunteers")
-      redirect_back(fallback_location: root_path)
+      # flash[:error] ||= @event.errors.full_messages.join("<br/>")
+      #     .gsub("Num vols", "Number of Volunteers")
+      # redirect_back(fallback_location: root_path)
+      # rerender the page with all entered fields saved.
+      render "events/new"
     end
   end
 
@@ -74,13 +77,26 @@ class EventsController < InheritedResources::Base
     @event = Event.find(params[:id])
     
     if (@event.update(event_info))
+      flash[:notice] = "You successfully updated your event!"
       redirect_to @event
     else
-      # Changing "Num vols" to "Number of Volunteers" is a bit of a hack,
-      #   but I couldn't find a better solution yet
-      flash[:error] ||= @event.errors.full_messages.join("<br/>")
-          .gsub("Num vols", "Number of Volunteers")
-      redirect_back(fallback_location: root_path)
+      render "events/new"
+    end
+  end
+  
+  def email_volunteers
+    id = params[:id]
+    @users = Event.find_by_id(id).users
+    # 1. We can send bulk emails to all recipients, who can see every other participant's email.
+    # UserMailer.group_mail(@users, params[:subject], params[:content]).deliver_now
+    # 2. OR we can send customized/individual emails to each parcitipant.
+    @users.each do |user|
+      UserMailer.volunteer_mail(user, params[:subject], params[:content]).deliver_now
+    end
+    puts 'This is me sending some swag emails...........'
+    # Need to return json based on email success/failure --> then ajax handling from frontend.
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -88,7 +104,7 @@ class EventsController < InheritedResources::Base
     
     #Returns nil if the time was invalid
     def process_start_time
-#      gimme_a_syntax_error
+      #gimme_a_syntax_error
       if event_params["start_time(2i)"].length == 1
         start_month = "0" + event_params["start_time(2i)"]
       else
