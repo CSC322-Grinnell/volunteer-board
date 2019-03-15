@@ -61,12 +61,12 @@ img {vertical-align: middle;}
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
@@ -76,10 +76,10 @@ img {vertical-align: middle;}
 }
 </style>
   </head>
-  <body style="background-color: #1c842b;"> 
-    
+  <body style="background-color: #1c842b;">
+
 <img src="/merge_from_ofoct.jpg" alt="Smiling Volunteers" style = "width: 100%">
-    
+
     <!--
 <div class="content">
 <div class="slideshow-container">
@@ -112,9 +112,9 @@ img {vertical-align: middle;}
 <br>
 
   <div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
   <span class="dot"></span>
 </div>
 
@@ -127,14 +127,14 @@ function showSlides() {
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
     for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
+       slides[i].style.display = "none";
     }
     slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
+    if (slideIndex > slides.length) {slideIndex = 1}
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex-1].style.display = "block";  
+    slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
     setTimeout(showSlides, 5000); // Change image every 4 seconds
 }
@@ -145,24 +145,24 @@ function showSlides() {
       <div class="width-lg" style="margin: auto;">
         </br>
         <h1>Volunteer Board</h1>
-        <p>Welcome to the Greater Poweshiek Community Foundation (GPCF) Volunteer Board! 
+        <p>Welcome to the Greater Poweshiek Community Foundation (GPCF) Volunteer Board!
         We are an organization devoted to serving the Poweshiek county providing financial
-        management support to our partner nonprofit agencies and assisting individuals with their 
-        personal giving objectives. This website helps us connect the volunteers and non-profit 
+        management support to our partner nonprofit agencies and assisting individuals with their
+        personal giving objectives. This website helps us connect the volunteers and non-profit
         organizations in our community for volunteering events. <!--/app/views/static_pages/home.html.erb--> </p>
       </div>
       <!-- if a user is signed in displays buttons that link to the events and user profile -->
-      <% if user_signed_in? %>
+      <% if user_signed_in? and not current_user.organization %>
         <div class="home-page-center">
-        
+
         </div>
       <!-- if an organization is signed in displays buttons that link to the events and organization profile -->
-      <% elsif organization_signed_in? %>
+      <% elsif user_signed_in? %>
         <div class="home-page-center">
           <p>
             <a class="btn btn-success home-page-button" href="/events/new" role="button">Create New Event</a>
           </p>
-          <p> 
+          <p>
             <a class="btn btn-success home-page-button" href="/users" role="button">View Users</a>
           </p>
         </div>
@@ -170,7 +170,7 @@ function showSlides() {
       <% else %>
         <div class="home-page-center">
         </br></br>
-        
+
       <!-- Start of Pop-Up (derived from https://www.w3schools.com/bootstrap/bootstrap_modal.asp) -->
       <!--
       <!DOCTYPE html>
@@ -184,17 +184,17 @@ function showSlides() {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       </head>
       <body>
-      
+
       <div class="home-page-center" >
         <!-- Trigger the pop-up with a button -->
         <!--
         <button type="btn btn-success home-page-button" class="btn btn-success home-page-button" data-toggle="modal" data-target="#myModal">Sign In</button>
-      
+
         <!-- Pop-Up -->
         <!--
         <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
-          
+
             <!-- Pop-Up content-->
             <!--
             <div class="modal-content">
@@ -212,22 +212,22 @@ function showSlides() {
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
-            
+
           </div>
         </div>
-        
+
       </div>
-      
+
       </body>
       </html>
-      
+
       <!-- End of Pop-Up -->
 
         <br>
-      
+
         New to Volunteer Board?
         <a href="/static_pages/signup_options">Sign Up Here</a>
-      
+
       <!-- Old setup for sign-up options
         <p>
           New Volunteer?
@@ -241,7 +241,7 @@ function showSlides() {
         </div>
       </main>
     <% end %>
-    
+
 
   </body>
 </html>

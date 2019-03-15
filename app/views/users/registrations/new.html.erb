@@ -1,65 +1,65 @@
 <% provide(:title, "Sign Up | ") %>
 </br>
-<div class="center-form"> 
+<div class="center-form">
   <h2>Volunteer Sign up</h2>
 </div>
 </br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  
+
   <div class="center-form width-med">  <!-- Center-->
   <div style="text-align: left;">     <!-- Left-Align-->
-  <div class="field"> <font color="red">*</font> 
+  <div class="field"> <font color="red">*</font>
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
   </div>
   </br>
-  
-  <div class="field"> <font color="red">*</font> 
+
+  <div class="field"> <font color="red">*</font>
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
   </br>
-  
-  <div class="field"> 
+
+  <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
   </br>
-  
-  <div class="field">  
+
+  <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city %>
   </div>
   </br>
-  
-  <div class="field"> 
+
+  <div class="field">
     <%= f.label :state %><br />
     <%= f.select :state, [ "Alabama", "Arkansas", "Arizona", "Alaska", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"  ], :selected => "Iowa"%>
 </select>
   </div>
   </br>
 
-  <div class="field"> 
+  <div class="field">
     <%= f.label :zip_code %><br />
     <%= f.text_field :zip_code %>
   </div>
   </br>
-  
-  <div class="field"> <font color="red">*</font> 
+
+  <div class="field"> <font color="red">*</font>
     <%= f.label :phone_number %><br />
     <%= f.text_field :phone_number %>
   </div>
   </br>
-  
-  <div class="field"> <font color="red">*</font> 
+
+  <div class="field"> <font color="red">*</font>
     <%= f.label :email %><br />
     <%= f.email_field :email %>
   </div>
   </br>
 
-  <div class="field"> <font color="red">*</font> 
+  <div class="field"> <font color="red">*</font>
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -68,12 +68,12 @@
   </div>
   </br>
 
-  <div class="field"> <font color="red">*</font> 
+  <div class="field"> <font color="red">*</font>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
   </br>
-  
+
   (If you choose to have a private account, only your name
   </br>
   and email will be available to organizations)
@@ -82,7 +82,9 @@
     <%= f.label :private %>
   </div>
   </br>
-  
+
+  <%= f.hidden_field :organization, value: false %>
+
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>

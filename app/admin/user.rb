@@ -31,14 +31,17 @@ ActiveAdmin.register User do
 
    f.actions
   end
-  
+
   member_action :reset_password do
     flash[:error] = "Please contact the administrator to change your password."
   end
-  
+
   show :title =>  proc {|user|user.firstname + " " + user.lastname } do
     page_title user.firstname + " " + user.lastname
     attributes_table :email, :firstname, :lastname, :previous_experience, :interests, :availability, :address, :city, :state, :zipcode, :phonenumber, :additional_comments
   end
-  
+
+  action_item :approve_org, only: :show, if: proc{ !(Users.find(params[:id]).approved) } do
+    link_to 'Approve Organization', controller: "/static_pages", action: "approve_org", id: params[:id]
+  end
 end
