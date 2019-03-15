@@ -1,7 +1,7 @@
 <div class=margin-sides>
-  
+
   <!-- lists all of the users in order of last name with a link to their profile if the viewer is an organization -->
-    
+
 <table>
   <thead>
     <tr>
@@ -10,7 +10,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-<% if organization_signed_in? %>
+<% if user_signed_in? and current_user.organization %>
   <tbody>
     <% (@users.order(:last_name)).each do |user| %>
       <tr>
@@ -19,7 +19,7 @@
       </tr>
     <% end %>
   </tbody>
-  
+
 <% else %>
   <tbody>
     You do not have access to this page, please log in as an organization to view the users

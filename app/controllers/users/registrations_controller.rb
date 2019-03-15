@@ -2,41 +2,47 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  # This is called during the "create" method (a POST to /users), after the
+  # new user is added to the database.
+  def sign_up(resource_name, resource)
+    super(resource_name, resource)
+    UserMailer.welcome_email(@user).deliver_now
+  end
+
+  # This is called during the "create" method, before the new user is added to
+  # the database.
+  def build_resource(hash = {})
+    if (hash.present?)
+      hash[:approved] = (hash[:organization] == "false")
+    end
+    super(hash)
+  end
+
   # GET /resource/sign_up
   # def new
   #   super
   # end
-  
-  def create
-    build_resource(sign_up_params)
 
-    resource.save
-    yield resource if block_given?
-    if resource.persisted?
-      if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
-        sign_up(resource_name, resource)
-        UserMailer.welcome_email(@user).deliver_now
-        respond_with resource, location: after_sign_up_path_for(resource)
-      else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
-      end
-    else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource
-    end
+  # GET /users/sign_up_org
+  def new_org
+    # We need this controller so that we can automatically generate fields in
+    # the signup page. It's not really that automatic, so I'm not sure why it's
+    # worth doing.
+    @user = User.new
   end
-  
-  #this code lets devise track the different values during sign up
+
+  # This is called during the "create" method. Any POST parameters other than
+  # these will be rejected.
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, :password, :password_confirmation, :private)
+    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, \
+                                 :password, :password_confirmation, :private, :name, :mission, :website, :organization)
   end
-  #this code lets devise track the different values during an account information update
+
+  # This is called during the "update" method (a PUT to /users). Any POST
+  # parameters other than these will be rejected.
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, :password, :password_confirmation, :current_password, :private)
+    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, \
+                                 :password, :password_confirmation, :private, :name, :mission, :website, :current_password)
   end
 
   # POST /resource

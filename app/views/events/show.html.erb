@@ -3,7 +3,7 @@
 <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
   <a href="/" class="btn btn-success profile-button" role="button">Go Home</a>
   <a href="/events" class="btn btn-success profile-button" role="button">View Other Events</a>
-  <% if organization_signed_in? && current_organization.id == @event.organization_id %>
+  <% if user_signed_in? && current_user.id == @event.organization_id %>
     <a href="/events/<%=@event.id%>/edit" class="btn btn-success profile-button" role="button">Edit Event</a>
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#emailModal">Contact Volunteers</button>
   <%end%>
@@ -13,16 +13,16 @@
 <%= render 'mail', event:@event %>
 
 <div class="container">
-  
+
   <h2><%= @event.name %></h2>
   <div class="panel-group">
     <div class="panel panel-success">
       <div class="panel-heading"><%= @event.name %> needs <%= @event.num_vols - (@event.users.size) %> volunteers </div>
       <div class="panel-body">
-           
-        
+
+
 <!-- Displays the information for the event -->
-<p> 
+<p>
   <strong>Name:</strong>
   <%= @event.name %>
 </p>
@@ -77,12 +77,12 @@
   <% else %>
     <div class="btn btn-success">
     <%= link_to "Register for Event", "/events/sign_up/#{@event.id}", style: 'color:#FFFFFF;' %>
-    </div>  
+    </div>
   <% end %>
 <% end %>
 </div>
-   
-<% if organization_signed_in? && current_organization.id == @event.organization_id %>   
+
+<% if user_signed_in? && current_user.id == @event.organization_id %>
 <table>
     <tr>
       <th>Name</th>
