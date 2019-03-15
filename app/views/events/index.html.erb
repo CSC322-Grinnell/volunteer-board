@@ -3,12 +3,12 @@
 <div class=margin-sides>
 <h1>Events</h1>
 
-
+        
     <!-- displays all the events that the organization has created in calendar form -->
 
 <p><br></p>
 <!-- if an organization is signed in it allows for them to create a new event-->
-<% if user_signed_in? and current_user.organization %>
+<% if organization_signed_in? %>
   <a class="btn btn-success home-page-button" href="/events/new" role="button">New Event</a>
 <% end %>
 
@@ -36,7 +36,7 @@
       });
     })
   </script>
-
+  
   <div class="js-weekly-calendar <%= params['view'] == 'week' ? '' : 'hidden' %>">
     <%= week_calendar events: @events do |date, events| %>
       <%= date.strftime("%e") %>
@@ -72,7 +72,7 @@
 <a class="myToggle" href="javascript:void(0);" divId="Days-14">Two Weeks</a>
 <a class="myToggle" href="javascript:void(0);" divId="Days-30">One Month</a>
 <a class="myToggle" href="javascript:void(0);" divId="Days-90">Three Months</a>
-
+ 
 
 
 <div class = "Upco" id = "Days-7">
@@ -142,8 +142,8 @@
 </table>
     </tr>
     </div>
-
-
+    
+    
     <div class = "Upco" id = "Days-30">
   <table>
     <tr>
@@ -177,8 +177,8 @@
 </table>
     </tr>
     </div>
-
-
+    
+    
     <div class = "Upco" id = "Days-90">
     <table>
     <tr>
