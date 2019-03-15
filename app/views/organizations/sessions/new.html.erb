@@ -1,12 +1,12 @@
-<% provide(:title, "Sign Up | ") %>
+<div class=center-form>
 </br>
-<div class="center-form"> 
-  <h2>Volunteer Sign in</h2>
-</div>
+
+<h2>Organization Sign in</h2>
+
+
 </br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="center-form">
   
   <div class="field">
     <%= f.label :email %><br />
@@ -26,8 +26,8 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
-
   </br>
+
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
@@ -35,5 +35,5 @@
 
 </br>
 Don't have an account?
-<%= render "users/shared/links" %>
+<%= render "organizations/shared/links" %>
 </div>

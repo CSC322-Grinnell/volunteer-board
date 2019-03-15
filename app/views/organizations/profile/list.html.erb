@@ -1,0 +1,34 @@
+<% provide(:title, "Organizations | ") %>
+
+<body>
+  
+  <!-- Lists all the organizations in alphabetical order in a table including their name, address, city, phone number, and email -->
+<div class=margin-sides>
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+
+  <tbody>
+    <% (@organizations.order(:name)).each do |organization| %>
+      <tr>
+        <td><a href=<%="organizations/#{organization.id}"%>><%= organization.name %></a></td>
+        <td><%= organization.address %></td>
+        <td>
+            <%= organization.city %>,
+            <%= organization.state %>
+        </td>
+        <!-- breaks the phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
+        <td>(<%= organization.phone[0,3] %>) <%= organization.phone[3,3] %>-<%= organization.phone[6,4] %></td>
+        <td><%= organization.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</html>

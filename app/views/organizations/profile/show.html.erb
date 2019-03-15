@@ -1,0 +1,153 @@
+<% provide(:title, @organization.name + " | ") %>
+  <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+    <% if organization_signed_in? && current_organization.id == @organization.id %>
+      <a href="/organizations/edit.<%=@organization.id%>" class="btn btn-success profile-button" role="button">Edit Profile</a>
+    <% end %>
+    <br>
+  </div>
+     
+<body>
+ <!-- displays all the information for the organization whos profile is being shown -->
+<div class="container">
+  <h2>Profile</h2>
+  <div class="panel-group">
+    <div class="panel panel-success">
+      <div class="panel-heading"> <%= @organization.name %> </div>
+        <div class="panel-body">
+          <p>    
+            <strong>Name:</strong>
+            <%= @organization.name %>
+          </p>
+          <p>
+            <strong>Address:</strong>
+            <%= link_to @organization.address, "https://www.google.com/maps/dir/?api=1&destination=" + @organization.address, target: :_blank %>
+          </p>
+          <p>
+            <strong>City:</strong>
+            <%= @organization.city %>
+          </p>
+          <p>
+            <strong>State:</strong>
+            <%= @organization.state %>
+          </p>
+          <p>
+            <strong>Zip:</strong>
+            <%= @organization.zip %>
+          </p>
+          <p>
+            <strong>Phone:</strong>
+            <!-- breaks the phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
+            <td><%= link_to "(" + @organization.phone[0,3] + ") " + @organization.phone[3,3] + "-" + @organization.phone[6,4] , "tel:#{@organization.phone}"%></td>
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <%= mail_to @organization.email %>
+          </p>
+          <p>
+            <strong>Mission:</strong>
+            <%= @organization.mission %>
+          </p>
+          <p>
+            <strong>Website:</strong>
+            <%= link_to @organization.website, @organization.website, target: :_blank %>
+          </p>
+<!-- this if statement makes it so that the edit profile information only displays if the profile belongs to the 
+current organization loged in. -->
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=margin-sides>
+<h3> Events <%= @organization.name %> Has Created</h3>
+
+  <style>
+  .hidden {
+    display: none
+  }
+  </style>
+  
+  <input id="toggle-event" type="checkbox">
+  <div id="console-event"></div>
+  <script>
+    $(function() {
+      $('#toggle-event').change(function() {
+        $('.js-monthly-calendar').toggleClass('hidden')
+        $('.js-weekly-calendar').toggleClass('hidden')
+      })
+    })
+  </script>
+  <script>
+    $(function() {
+      $('#toggle-event').bootstrapToggle({
+        on: 'Week',
+        off: 'Month'
+      });
+    })
+  </script>
+        
+    <!-- displays all the events that the organization has created in calendar form -->
+  <div class="js-monthly-calendar">
+    <%= month_calendar events: @organization.events do |date, events| %>
+      <%= date.strftime("%e") %>
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div class="js-weekly-calendar hidden">
+    <%= week_calendar events: @organization.events do |date, events| %>
+      <%= date.strftime("%e") %>
+    
+      <% events.each do |event| %>
+        <div>
+          <a href="/events/<%=event.id%>"><%= event.name %> <br />
+          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Number of volunteers needed</th>
+      <th>Location</th>
+      <th>Contact phone</th>
+      <th>Contact email</th>
+      <th colspan="3"></th>
+    </tr>
+    
+  <tbody>
+    <% (@organization.events.sort_by {|event| event.start_time}).each do |event| %>
+    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 14.days %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.description %></td>
+        <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+        <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+        <td><%= event.num_vols %></td>
+        <td><%= event.location %></td>
+        <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
+        <td><%= event.contact_email %></td>
+        <td><%= link_to 'View', event %></td>
+        <% if organization_signed_in? %>
+          <td><%= link_to 'Edit', edit_event_path(event) %></td>
+          <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
