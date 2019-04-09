@@ -58,6 +58,9 @@
     <%= f.email_field :email %>
   </div>
   </br>
+  
+  <%= render 'skill' %>
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#skillModal">Add Skills</button> </br></br>
 
   <div class="field"> <font color="red">*</font>
     <%= f.label :password %>
