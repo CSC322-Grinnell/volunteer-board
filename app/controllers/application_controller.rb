@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
     case resource
     when User
       user_profile_path(resource)
-    when Organization
-      organization_profile_path(resource)
     else
       root_path
     end
