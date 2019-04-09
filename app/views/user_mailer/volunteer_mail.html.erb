@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h3>Dear <%= @user.first_name %>,</h3>
+    <p>
+      <i>[Note: This is a bulk email sent by your event organizer]</i> <br>
+      <%= @content %>
+    </p>
+    <p>your username is: <%= @user.email %>.<br>Thanks for your enthusiasm!</p>
+  </body>
+</html>

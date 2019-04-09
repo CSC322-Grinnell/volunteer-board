@@ -17,4 +17,18 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'You requested to change your password for ' + @user.email)
   end
   
+  def group_mail(users, subject, content)
+    @subject = subject
+    @content = content
+    @users = users
+    mail(to: @users.map(&:email).uniq, subject: @subject)
+  end
+  
+  def volunteer_mail(user, subject, content)
+    @subject = subject
+    @content = content
+    @user = user
+    mail(to: @user.email, subject: @subject)
+  end
+  
 end
