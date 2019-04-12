@@ -58,7 +58,7 @@ en:
         not_approved: 'Your account has not been approved by your administrator yet.'
   errors:
     messages:
-      weak_password: "not strong enough. Consider adding a number, symbols or more letters to make it stronger."
+      weak_password: "not strong enough. Consider adding numbers, capital letters, symbols or more letters to make it stronger."
       already_confirmed: "was already confirmed, please try signing in"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
