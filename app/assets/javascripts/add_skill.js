@@ -3,6 +3,8 @@
 $(document).ready(function() {
     console.log("Add Skill script is loaded.");
     
+    //when enter key is pressed, add skill item into list of tags 
+    //(same as button click below)
     $('#volunteerSkill').keypress(function(e){
         if(e.keyCode==13) {
             e.preventDefault();
@@ -10,17 +12,25 @@ $(document).ready(function() {
         }
     });
     
+    //when clicked, add skill item into the list of tags
     $('#add-skill-btn').on('click', function () {
         var text = $("#volunteerSkill").val();
         createTag(text);
         document.getElementById("volunteerSkill").value = "";
     });
     
+    //when clicking on the close button, remove the tag from the list
     $('#addedSkills').on('click', 'button', function () {
-        console.log("Hey");
         $(this).parent().remove();
     });
     
+    //add popular skills into the list of tags
+    $('#popularSkills').on('click', 'button', function () {
+        var text = $(this).parent().contents().get(0).nodeValue;
+        createTag(text);
+    });
+    
+    //helper function to create a tag with given text in the AddSkills section
     function createTag(text) {
         var close_btn = document.createElement("button");
         close_btn.type = "button";
