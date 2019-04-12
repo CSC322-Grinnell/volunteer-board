@@ -32,6 +32,7 @@ $(document).ready(function() {
     
     //helper function to create a tag with given text in the AddSkills section
     function createTag(text) {
+        if (text === "") return;
         var close_btn = document.createElement("button");
         close_btn.type = "button";
         close_btn.className = "btn close-btn";
