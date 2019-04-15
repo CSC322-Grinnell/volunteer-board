@@ -30,6 +30,16 @@ $(document).ready(function() {
         createTag(text);
     });
     
+    //save button writes the skill tags onto the registration page
+    $("#save-skill-btn").on('click', function() {
+        var skill_arr = [];
+        $("#addedSkills").children().each(function() {
+            skill_arr.push($(this).contents().get(0).nodeValue.trim());
+        });
+        document.getElementById("skill-text").textContent = skill_arr.join(", ");
+        $("#skillModal").modal("hide");
+    });
+    
     //helper function to create a tag with given text in the AddSkills section
     function createTag(text) {
         if (text === "") return;
