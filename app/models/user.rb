@@ -2,6 +2,7 @@ class User < ApplicationRecord
     #set up to reject weak passwords
     devise :zxcvbnable
     has_and_belongs_to_many :events
+    has_and_belongs_to_many :skills
     validates :first_name, presence: true, length: { maximum: 50 }, if: :not_organization?
     validates :last_name, presence: true, length: { maximum: 50 }, if: :not_organization?
     validates :name, presence: true, length: { maximum: 50 }, if: :organization?
