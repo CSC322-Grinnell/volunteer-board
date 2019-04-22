@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190312172034) do
+ActiveRecord::Schema.define(version: 20190419195455) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -54,15 +54,34 @@ ActiveRecord::Schema.define(version: 20190312172034) do
     t.string   "contact_email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "volunteer_count"
     t.integer  "organization_id"
     t.index ["organization_id"], name: "index_events_on_organization_id"
+  end
+
+  create_table "events_skills", id: false, force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "skill_id", null: false
+    t.index ["event_id", "skill_id"], name: "index_Events_Skills_on_event_id_and_skill_id"
+    t.index ["skill_id", "event_id"], name: "index_Events_Skills_on_skill_id_and_event_id"
   end
 
   create_table "events_users", id: false, force: :cascade do |t|
     t.integer "user_id",  null: false
     t.integer "event_id", null: false
-    t.index ["event_id"], name: "index_events_users_on_event_id"
-    t.index ["user_id"], name: "index_events_users_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills_users", id: false, force: :cascade do |t|
+    t.integer "skill_id", null: false
+    t.integer "user_id",  null: false
+    t.index ["skill_id", "user_id"], name: "index_Skills_Users_on_skill_id_and_user_id"
+    t.index ["user_id", "skill_id"], name: "index_Skills_Users_on_user_id_and_skill_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,6 +112,13 @@ ActiveRecord::Schema.define(version: 20190312172034) do
     t.boolean  "approved"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "welcomes", force: :cascade do |t|
+    t.string   "email"
+    t.string   "login"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

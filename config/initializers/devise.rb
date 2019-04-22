@@ -273,5 +273,5 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   
   #Set minimum password score 
-  config.min_password_score = 4
+  config.min_password_score = 2
 end
