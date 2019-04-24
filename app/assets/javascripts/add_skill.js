@@ -1,6 +1,6 @@
 /* global $ */
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
     console.log("Add Skill script is loaded.");
     
     //when enter key is pressed, add skill item into list of tags 

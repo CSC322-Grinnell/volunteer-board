@@ -1,0 +1,46 @@
+<!--<script src="/assets/add_skill.js" type="text/javascript"></script>-->
+
+<div class="modal" id="skillModal" tabindex="-1" role="dialog" aria-labelledby="skillModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="skillModalLabel">Tell us about your skills!</h2>
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+        <!--  <span aria-hidden="true">&times;</span>-->
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-9">
+            <div class="row">
+                <textarea id="volunteerSkill" style="width: 100%; display: inline-block;" rows="1"></textarea>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <button type="button" class="btn btn-success" id="add-skill-btn">
+                Add skill
+            </button> <br>
+        </div>
+        
+        <form id='skill-form' action='/events/email_volunteers/' method='post' data-remote='true'>
+          <label>Added Skills: </label>
+          <div id="addedSkills">
+              <span class="badge" style="background-color: #337ab7;">Jumping <button type="button" class="btn close-btn">x</button></span>
+          </div> <br>
+          <label>Popular Skills (Recommendations): </label>
+          <div id="popularSkills">
+              <span class="badge" style="background-color: #337ab7;">Cooking <button type="button" class="btn add-btn">+</button></span>
+              <span class="badge" style="background-color: #337ab7;">Heavy Lifting <button type="button" class="btn add-btn">+</button></span>
+              <span class="badge" style="background-color: #337ab7;">Leadership <button type="button" class="btn add-btn">+</button></span>
+          </div> <br>
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <!--<button type="submit" form='skill-form' class="btn btn-success send-email-btn">Save Skills</button>-->
+        <button type="button" id="save-skill-btn" class="btn btn-success send-email-btn">Save Skills</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

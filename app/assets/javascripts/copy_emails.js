@@ -2,7 +2,7 @@
 /* global action */
 /* global Clipboard */
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
     console.log("Hello the script is loaded.");
     
     $('#clipboard-btn').on('click', function () {
