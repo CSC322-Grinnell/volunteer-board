@@ -36,7 +36,7 @@ $(document).ready(function() {
         $("#addedSkills").children().each(function() {
             skill_arr.push($(this).contents().get(0).nodeValue.trim());
         });
-        document.getElementById("skill-text").textContent = skill_arr.join(", ");
+        document.getElementById("user_skills").value = skill_arr.join(", ");
         $("#skillModal").modal("hide");
     });
     
