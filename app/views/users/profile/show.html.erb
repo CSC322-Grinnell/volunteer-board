@@ -52,6 +52,13 @@
       <strong>Email:</strong>
       <%= mail_to @user.email %>
     </p>
+    
+    <p>
+      <strong>Skills:</strong>
+      <% @user.skills.each do |x| %>
+        <li><%= x.name %></li><br>
+      <% end %>
+    </p>
 
 <% if @user.organization %>
 
