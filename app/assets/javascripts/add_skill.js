@@ -36,7 +36,12 @@ $(document).on('turbolinks:load', function() {
         $("#addedSkills").children().each(function() {
             skill_arr.push($(this).contents().get(0).nodeValue.trim());
         });
-        document.getElementById("user_skills").value = skill_arr.join(", ");
+        // depending on whether to save skill for user or event:
+        if (document.getElementById("user_skills") != null) {
+            document.getElementById("user_skills").value = skill_arr.join(", ");
+        } else {
+            document.getElementById("event_skills").value = skill_arr.join(", ");
+        }
         $("#skillModal").modal("hide");
     });
     

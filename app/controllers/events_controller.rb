@@ -47,6 +47,7 @@ class EventsController < InheritedResources::Base
     @event = current_user.events.new(event_info)
     
     # Build skills array from params
+    puts event_params[:skills]
     skill_arr = event_params[:skills].split(', ')
     skill_arr.each do |skill_name|
       skill = Skill.create(:name => skill_name)
@@ -150,7 +151,7 @@ class EventsController < InheritedResources::Base
 
     def event_params
       params.require(:event).permit(:name, :description, :num_vols, :location,
-        :contact_phone, :contact_email, :end_time, :start_time, :start_date,
+        :contact_phone, :contact_email, :skills, :end_time, :start_time, :start_date,
         :end_date, :volunteer_count)
     end
 end
