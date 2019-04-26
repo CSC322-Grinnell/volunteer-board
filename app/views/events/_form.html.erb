@@ -51,6 +51,14 @@
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
+  
+  <%= render :partial => 'layouts/skill' %>
+  <div class="field"> <font color="red">*</font>
+    <%= f.label :skills %><br />
+    <%= f.text_field :skills, :value => "" %>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#skillModal">Add Skills</button> </br></br>
+  </div>
+  </br>
 
   <div class="field">
     <%= f.label :contact_phone %> (no dashes or parentheses)

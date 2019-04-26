@@ -45,6 +45,13 @@ class EventsController < InheritedResources::Base
       :contact_phone => event_params[:contact_phone], :contact_email => event_params[:contact_email]}
 
     @event = current_user.events.new(event_info)
+    
+    # Build skills array from params
+    skill_arr = event_params[:skills].split(', ')
+    skill_arr.each do |skill_name|
+      skill = Skill.create(:name => skill_name)
+      @event.skills << skill
+    end
 
     if @event.save
       flash[:notice] = "You successfully created an event!"
