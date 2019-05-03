@@ -44,7 +44,16 @@ class EventsController < InheritedResources::Base
       :description => event_params[:description], :num_vols => event_params[:num_vols], :location => event_params[:location],
       :contact_phone => event_params[:contact_phone], :contact_email => event_params[:contact_email]}
 
-    @event = current_user.events.new(event_info)
+    @event = Event.new(event_info)
+    
+    # Build skills array from params
+    skill_arr = event_params[:skills].split(', ')
+    skill_arr.each do |skill_name|
+      skill = Skill.create(:name => skill_name)
+      @event.skills << skill
+    end
+    
+    current_user.events << @event
 
     if @event.save
       flash[:notice] = "You successfully created an event!"
@@ -143,7 +152,7 @@ class EventsController < InheritedResources::Base
 
     def event_params
       params.require(:event).permit(:name, :description, :num_vols, :location,
-        :contact_phone, :contact_email, :end_time, :start_time, :start_date,
+        :contact_phone, :contact_email, :skills, :end_time, :start_time, :start_date,
         :end_date, :volunteer_count)
     end
 end

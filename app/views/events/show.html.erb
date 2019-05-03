@@ -43,6 +43,13 @@
 </p>
 
 <p>
+  <strong>Skills recommended:</strong>
+  <% @event.skills.each do |x| %>
+    <li><%= x.name %></li><br>
+  <% end %>
+</p>
+
+<p>
   <strong>Number of Volunteers Needed:</strong>
   <%= @event.num_vols - @event.users.size %>
 </p>
