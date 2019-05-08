@@ -9,7 +9,6 @@ class EventsController < InheritedResources::Base
       #adds the event to the users list of events
       current_user.events << @event
       @event.save
-      #puts "The current user email  :::" + current_user.email --> for testing purpose.
       #After event is successfully added and stored, call mailer to send confirmation email.
       UserMailer.signup_email(current_user).deliver_now
     end
@@ -102,7 +101,6 @@ class EventsController < InheritedResources::Base
     @users.each do |user|
       UserMailer.volunteer_mail(user, params[:subject], params[:content]).deliver_now
     end
-    puts 'This is me sending some swag emails...........'
     # Need to return json based on email success/failure --> then ajax handling from frontend.
     respond_to do |format|
       format.js

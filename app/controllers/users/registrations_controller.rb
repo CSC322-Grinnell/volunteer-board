@@ -12,7 +12,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
         skill = Skill.create(:name => skill_name)
         @user.skills << skill
       end
-      puts "User #{@user} is associated with #{@user.skills} with a name of #{params[:skills]}"
     end
     UserMailer.welcome_email(@user).deliver_now
   end
