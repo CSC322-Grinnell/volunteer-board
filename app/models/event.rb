@@ -2,6 +2,7 @@ class Event < ApplicationRecord
     attr_accessor :start_date, :end_date, :start_hour, :start_minute, :start_ampm, :end_hour, :end_minute, :end_ampm
 
     has_and_belongs_to_many :users
+    has_and_belongs_to_many :skills
     validates :name, presence: true, length: { maximum: 50 }
     validates :description, presence: true
     validates :start_time, presence: true, date: { after_or_equal_to: Time.current }

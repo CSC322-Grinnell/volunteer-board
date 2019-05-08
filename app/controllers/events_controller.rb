@@ -9,7 +9,6 @@ class EventsController < InheritedResources::Base
       #adds the event to the users list of events
       current_user.events << @event
       @event.save
-      #puts "The current user email  :::" + current_user.email --> for testing purpose.
       #After event is successfully added and stored, call mailer to send confirmation email.
       UserMailer.signup_email(current_user).deliver_now
     end
@@ -44,7 +43,16 @@ class EventsController < InheritedResources::Base
       :description => event_params[:description], :num_vols => event_params[:num_vols], :location => event_params[:location],
       :contact_phone => event_params[:contact_phone], :contact_email => event_params[:contact_email]}
 
-    @event = current_user.events.new(event_info)
+    @event = Event.new(event_info)
+    
+    # Build skills array from params
+    skill_arr = event_params[:skills].split(', ')
+    skill_arr.each do |skill_name|
+      skill = Skill.create(:name => skill_name)
+      @event.skills << skill
+    end
+    
+    current_user.events << @event
 
     if @event.save
       flash[:notice] = "You successfully created an event!"
@@ -93,7 +101,6 @@ class EventsController < InheritedResources::Base
     @users.each do |user|
       UserMailer.volunteer_mail(user, params[:subject], params[:content]).deliver_now
     end
-    puts 'This is me sending some swag emails...........'
     # Need to return json based on email success/failure --> then ajax handling from frontend.
     respond_to do |format|
       format.js
@@ -143,7 +150,7 @@ class EventsController < InheritedResources::Base
 
     def event_params
       params.require(:event).permit(:name, :description, :num_vols, :location,
-        :contact_phone, :contact_email, :end_time, :start_time, :start_date,
+        :contact_phone, :contact_email, :skills, :end_time, :start_time, :start_date,
         :end_date, :volunteer_count)
     end
 end
