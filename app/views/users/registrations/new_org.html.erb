@@ -1,10 +1,8 @@
 <% provide(:title, "Sign Up | ") %>
-</br>
-<div class="center-form">
+
+<div class="center-form width-med">
   <h2>Organization Sign up</h2>
 </div>
-
-</br>
 
 <%= form_for(@user, url: {action: "create"}) do |f| %>
   <%= devise_error_messages! %>
@@ -50,7 +48,7 @@
 
   <div class="field">
     <%= f.label :mission %><br />
-    <%= f.text_area :mission, rows: 4, cols: 55, class: "width-med"%>
+    <%= f.text_area :mission, rows: 4, class: "field"%>
   </div>
   </br>
 

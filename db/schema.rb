@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20190312172034) do
     t.string   "address"
     t.string   "city"
     t.string   "state"
-    t.string   "zip_code"
+    t.string   "zip_code",               default: ""
     t.string   "phone_number"
     t.boolean  "private"
     t.string   "name"

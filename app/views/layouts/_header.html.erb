@@ -1,39 +1,66 @@
-<div>
-      <ul>
-        <li>
-          <a class="active" href="/">Home</a>
-        </li>
-        <% if user_signed_in? %>
-          <li>
-            <a href="/users/<%=current_user.id%>">Profile</a>
-          </li>
-        <% end %>
-        <li>
-          <a href="/events">Events</a>
-        </li>
-        <li>
-          <a href="/organizations">Organizations</a>
-        </li>
-        <li>
-          <a href="/faq">Help</a>
-        </li>
-        <% if user_signed_in? %>
-          <li style="float:right">
-            <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
-          </li>
-        <% else %>
-          <li style="float:right">
-           <a  href="/users/sign_in">Log In</a>
-          </li>
-        <% end %>
-      </ul>
+<!-- This file contains HTML for the nav bar -->
+<!-- Developed with help from Rachel Nastelin -->
 
-      <script>
-  [].forEach.call(document.querySelectorAll('a'), function(elem) {
-    if (elem.pathname === window.location.pathname)
-      elem.classList.add('active')
-    else
-      elem.classList.remove('active')
-  })
-</script>
-    </div>
+<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm navbar-fixed-top">
+  <div class="mobile" >
+    <!-- Logo: mobile version --> 
+    <!-- depend_on_asset "gpcf_logo.png" -->
+    <a class="navbar-brand" href="http://greaterpcf.org/" type="image/png"> 
+      <%= image_tag("gpcf_logo.png", id: 'logo-navbar', height: '25', width: '40') %>
+    </a>
+    <!-- User icon: mobile version --> 
+    <ul class="nav navbar-nav navbar-right" id="mobile-user-icons">
+      <% if user_signed_in? %>
+        <li style="float:right">
+          <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
+        </li>
+      <% else %>
+        <li><a href="/static_pages/signup_options"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a  href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+        <% end %>
+    </ul>
+    <!-- Navbar menu opener: mobile version --> 
+    
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" id="menu-expand-button">
+      <span class="navbar-toggler-icon">Menu</span>
+      
+    </button>
+    
+  </div> <!-- end div mobile -->
+  <!-- End of mobile code -->
+    
+  <!-- collapsible nav bar -->  
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault" style="height: 40px">
+    <ul class="nav navbar-nav">
+      <!-- Logo: PC version --> 
+      <a class="navbar-brand" href="http://greaterpcf.org/" type="image/png"> 
+        <%= image_tag("gpcf_logo.png", id: 'logo-navbar', height: '25', width: '40') %>
+      </a>
+      
+      <!-- Links: both versions --> 
+      <li><a href="/">Home</a></li>
+      <% if user_signed_in? %>
+        <li>
+          <a href="/users/<%=current_user.id%>">Profile</a>
+        </li>
+      <% end %>
+      <li><a href="/events">Events</a></li>
+      <li><a href="/organizations">Organizations</a></li>
+      <li><a href="/faq">Help</a></li>
+    </ul> <!-- end list of links -->
+          
+
+    <!-- User icons: PC version --> 
+    <ul class="nav navbar-nav navbar-right" id="pc-user-icons">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
+        </li>
+      <% else %>
+        <li><a href="/static_pages/signup_options"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a  href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+      <% end %>
+    </ul>
+  </div> <!-- end collapsible nav bar -->
+
+</nav>
