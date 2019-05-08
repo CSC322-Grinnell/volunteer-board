@@ -1,7 +1,11 @@
+<style> 
+
+</style>
+
 <% provide(:title, "Events | ") %>
-<div class="input">
-<div class=margin-sides>
-<h1>Events</h1>
+<% provide(:pageheader, "Events") %>
+<div class="calendar textbox">
+
 
 
     <!-- displays all the events that the organization has created in calendar form -->
@@ -12,11 +16,11 @@
   <a class="btn btn-success home-page-button" href="/events/new" role="button">New Event</a>
 <% end %>
 
-  <style>
+ <style>
   .hidden {
     display: none
   }
-  </style>
+  </style> 
   <input id="toggle-event" type="checkbox" <%= params['view'] == 'week' ? 'checked' : '' %>>
   <div id="console-event"></div>
   <script>
@@ -68,9 +72,9 @@
 
 
 
-<a class="myToggle" href="javascript:void(0);" divId="Days-7">One Week</a>
-<a class="myToggle" href="javascript:void(0);" divId="Days-14">Two Weeks</a>
-<a class="myToggle" href="javascript:void(0);" divId="Days-30">One Month</a>
+<a class="myToggle" href="javascript:void(0);" divId="Days-7">One Week</a> &nbsp
+<a class="myToggle" href="javascript:void(0);" divId="Days-14">Two Weeks</a> &nbsp
+<a class="myToggle" href="javascript:void(0);" divId="Days-30">One Month</a> &nbsp
 <a class="myToggle" href="javascript:void(0);" divId="Days-90">Three Months</a>
 
 
@@ -79,13 +83,13 @@
 <table>
     <tr>
       <th>Title</th>
-      <th>Description</th>
+      <th class="pc-only">Description</th>
       <th>Start time</th>
       <th>End time</th>
-      <th>Number of volunteers needed</th>
+      <th class="pc-only">Number of volunteers needed</th>
       <th>Location</th>
-      <th>Contact phone</th>
-      <th>Contact email</th>
+      <th class="pc-only">Contact phone</th>
+      <th class="pc-only">Contact email</th>
       <th colspan="3"></th>
     </tr>
 
@@ -94,14 +98,14 @@
     <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 7.days %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
-        <td><%= event.description %></td>
+        <td class="pc-only"><%= event.description %></td>
         <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
         <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
-        <td><%= event.num_vols %></td>
+        <td class="pc-only"><%= event.num_vols %></td>
         <td><%= event.location %></td>
         <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
-        <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
-        <td><%= event.contact_email %></td>
+        <td class="pc-only">(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
+        <td class="pc-only"><%= event.contact_email %></td>
     <% end %>
     <% end %>
   </tbody>
@@ -113,13 +117,13 @@
 <table>
     <tr>
       <th>Title</th>
-      <th>Description</th>
+      <th class="pc-only">Description</th>
       <th>Start time</th>
       <th>End time</th>
-      <th>Number of volunteers needed</th>
+      <th class="pc-only">Number of volunteers needed</th>
       <th>Location</th>
-      <th>Contact phone</th>
-      <th>Contact email</th>
+      <th class="pc-only">Contact phone</th>
+      <th class="pc-only">Contact email</th>
       <th colspan="3"></th>
     </tr>
 
@@ -128,14 +132,14 @@
     <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 14.days %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
-        <td><%= event.description %></td>
+        <td class="pc-only"><%= event.description %></td>
         <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
         <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
-        <td><%= event.num_vols %></td>
+        <td class="pc-only"><%= event.num_vols %></td>
         <td><%= event.location %></td>
         <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
-        <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
-        <td><%= event.contact_email %></td>
+        <td class="pc-only">(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
+        <td class="pc-only"><%= event.contact_email %></td>
     <% end %>
     <% end %>
   </tbody>
@@ -148,13 +152,13 @@
   <table>
     <tr>
       <th>Title</th>
-      <th>Description</th>
+      <th class="pc-only">Description</th>
       <th>Start time</th>
       <th>End time</th>
-      <th>Number of volunteers needed</th>
+      <th class="pc-only">Number of volunteers needed</th>
       <th>Location</th>
-      <th>Contact phone</th>
-      <th>Contact email</th>
+      <th class="pc-only">Contact phone</th>
+      <th class="pc-only">Contact email</th>
       <th colspan="3"></th>
     </tr>
 
@@ -163,14 +167,14 @@
     <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 30.days %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
-        <td><%= event.description %></td>
+        <td class="pc-only"><%= event.description %></td>
         <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
         <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
-        <td><%= event.num_vols %></td>
+        <td class="pc-only"><%= event.num_vols %></td>
         <td><%= event.location %></td>
         <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
-        <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
-        <td><%= event.contact_email %></td>
+        <td class="pc-only">(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
+        <td class="pc-only"><%= event.contact_email %></td>
     <% end %>
     <% end %>
   </tbody>
@@ -183,13 +187,13 @@
     <table>
     <tr>
       <th>Title</th>
-      <th>Description</th>
+      <th class="pc-only">Description</th>
       <th>Start time</th>
       <th>End time</th>
-      <th>Number of volunteers needed</th>
+      <th class="pc-only">Number of volunteers needed</th>
       <th>Location</th>
-      <th>Contact phone</th>
-      <th>Contact email</th>
+      <th class="pc-only">Contact phone</th>
+      <th class="pc-only">Contact email</th>
       <th colspan="3"></th>
     </tr>
 
@@ -198,14 +202,14 @@
     <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 90.days %>
       <tr>
         <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
-        <td><%= event.description %></td>
+        <td class="pc-only"><%= event.description %></td>
         <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
         <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
-        <td><%= event.num_vols %></td>
+        <td class="pc-only"><%= event.num_vols %></td>
         <td><%= event.location %></td>
         <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
-        <td>(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
-        <td><%= event.contact_email %></td>
+        <td class="pc-only">(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
+        <td class="pc-only"><%= event.contact_email %></td>
     <% end %>
     <% end %>
   </tbody>
@@ -222,5 +226,4 @@ $(".myToggle").bind("click", function() {
 });
 </script>
 
-</div>
 </div>

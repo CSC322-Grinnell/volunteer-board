@@ -20,11 +20,53 @@
  
 @import "simple_calendar";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Hind');
 
-/* Site-wide styling for tables */
+
+/* The following CSS sets values for site-wide styling */
+// COLORS
+$darkblue: #2b7a78;
+$lightblue: #3aafa9;
+$offwhite: #feffff;
+$darkgrey: #17252a;
+
+// the background of the whole page
+html, body {
+    margin:0;
+  padding:0;
+  height: 100%;
+  background-color: $darkblue;
+}
+
+// the big white div in the middle of the page wrapping all content
+main {
+  background-color: $offwhite;
+  margin-top: -50px;
+  padding-top: 3%;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom:5%;
+  padding-bottom: 5%;
+  margin-bottom:160px;
+  height: 100%;
+  position:static;
+}
+
+footer {
+  background-color: $darkgrey;
+  padding:2%;
+  color:$offwhite;
+  border-top: 1px solid;
+  height:100px;
+  margin-top: -100px;
+  width:100%;
+}
+
+/* -------------------- Site-wide styling for tables ------------------------ */
 table {
   border-collapse: collapse;
   width: 100%;
+  font-size:12px;
 }
 
 td {
@@ -34,35 +76,23 @@ td {
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-  background-color: #4CAF50;
-  color: white;
+  background-color: $darkblue;
+  color: $offwhite;
 }
+/* --------------------- end table styling ---------------------------------- */
 
-/* Margins and centering */
-.margin-sides {
-  margin-right: 50px;
-  margin-left: 50px;
-}
 
+
+/* ------------------ Margins and centering --------------------------------- */
 .hidden {
     display: none; 
     margin-right: 50px;
     margin-left: 50px;
 }
 
-.margin-left {
-  margin-left: 50px;
-}
-
 .center-form {
   text-align: center;
   margin: auto;
-}
-
-.center-form-faq {
-  text-align: center;
-  margin-left: 100px;
-  margin-right: 100px;
 }
 
 /* Width options used for text input */
@@ -76,6 +106,38 @@ th {
 
 .width-sm {
   width: 200px;
+}
+/* end width options */
+
+.textbox, .textbox-center {
+  height: 100%;
+  position:relative;
+  margin-right: 10%;
+  margin-left: 10%;
+  color:$darkgrey;
+  font-size:20px;
+  text-align:left;
+}
+
+.textbox {
+  padding-top: 3%;
+}
+
+.textbox-center {
+  top:40%;
+}
+/* ------------------------ End margins and centering ----------------------- */
+
+// light blue banner offset behind main div
+.top-banner {
+  background-color:$lightblue; 
+  width:100%;
+  padding-bottom:80px; // to ensure overlap with main happens correctly even with line wrapping
+  padding-top:100px!important; // to ensure this banner doesn't overlap with the header
+  color:$offwhite;
+  text-align:center;
+  font-size:40px;
+  position: static;
 }
 
 /* Explicitly set text fields to 100% of their container */
@@ -92,22 +154,12 @@ input[type="password"] {
   width: 150px;
 }
 
+// flash messages 
 .flash {
     text-align: center;
     padding:    .3em .4em;
     margin:     0 auto .5em;
     clear:      both;
-    max-width:  46.923em; /* 610/13 */  
-    *max-width: 45.750em; /* 610/13.3333 - for IE */
-    font-weight: bold;
-}
-
-#devise_error_messages {
-    text-align: center;
-    padding:    .3em .4em;
-    margin:     0 auto .5em;
-    clear:      both;
-    background: #f88181;
     max-width:  46.923em; /* 610/13 */  
     *max-width: 45.750em; /* 610/13.3333 - for IE */
     font-weight: bold;
@@ -121,11 +173,55 @@ input[type="password"] {
   background: #81f881;
 }
 
-footer {
-  border-top: 1px solid;
+// button styling
+.btn {
+  background-color: $darkblue;
 }
+
+// div to hold content in show pages
+.container {
+  width:100%;
+}
+
+// allow some elements to be hidden if viewed on mobile
+@media only screen and (max-width: 1000px) {
+  .pc-only {
+    display:none;
+  }
+}
+
+
+#devise_error_messages {
+    text-align: center;
+    padding:    .3em .4em;
+    margin:     0 auto .5em;
+    clear:      both;
+    background: #f88181;
+    max-width:  46.923em; /* 610/13 */  
+    *max-width: 45.750em; /* 610/13.3333 - for IE */
+    font-weight: bold;
+}
+
+// wrapper for entire page
+#content {
+  width:100%;
+  font-family: 'Hind', sans-serif;
+  min-height: 100%;
+  position:relative ;
+}
+
+// form for user input
+.center-form {
+  width: 70%;
+}
+
+#footerbox {
+  color:$offwhite; 
+  padding-top:10px;
+  font-size:20px;
 
 .close-btn, .add-btn {
   padding: 2px 2px 5px;
   background-color: #337ab7;
+  }
 }

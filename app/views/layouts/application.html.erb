@@ -6,13 +6,28 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <script>
+  $(document).ready(function () {
+    $('#content').css('marginTop', $('#header').outerHeight(true) );
+});
+</script>
 </head>
 <body>
-  <%= render 'layouts/header' %>
+  <div id="header">
+    <%= render 'layouts/header' %>
+  </div>
     <% flash.each do |key, value| %>
       <div class="flash <%= key %>"><%= value.html_safe %></div>
     <% end %>
-  <%= yield %>
-  <%= render 'layouts/footer' %>
+    <div id="content">
+      <div class="top-banner">
+        <%= yield(:pageheader) %>
+      </div>
+      <main>
+        <%= yield %>
+      </main>
+      </div>
+      <%= render 'layouts/footer' %>
+   
   </body>
 </html>
