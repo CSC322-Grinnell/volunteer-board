@@ -6,6 +6,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # new user is added to the database.
   def sign_up(resource_name, resource)
     super(resource_name, resource)
+    if params[resource_name][:skills]
+      skill_arr = params[resource_name][:skills].split(', ')
+      skill_arr.each do |skill_name|
+        skill = Skill.create(:name => skill_name)
+        @user.skills << skill
+      end
+    end
     UserMailer.welcome_email(@user).deliver_now
   end
 
@@ -34,14 +41,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # This is called during the "create" method. Any POST parameters other than
   # these will be rejected.
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, \
+    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email,
                                  :password, :password_confirmation, :private, :name, :mission, :website, :organization)
   end
 
   # This is called during the "update" method (a PUT to /users). Any POST
   # parameters other than these will be rejected.
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email, \
+    params.require(:user).permit(:first_name, :last_name, :address, :city, :state, :zip_code, :phone_number, :email,
                                  :password, :password_confirmation, :private, :name, :mission, :website, :current_password)
   end
 

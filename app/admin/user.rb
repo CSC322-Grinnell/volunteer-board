@@ -8,17 +8,11 @@ ActiveAdmin.register User do
     column :firstname
     column :lastname
     column :email
-    column :previous_experience
-    column :interests
-    column :availability
-
     actions
   end
 
   filter :firstname
   filter :lastname
-  filter :availability
-  filter :interests
 
   form do |f|
     f.inputs 'Admin Details' do
@@ -36,12 +30,11 @@ ActiveAdmin.register User do
     flash[:error] = "Please contact the administrator to change your password."
   end
 
-  show :title =>  proc {|user|user.firstname + " " + user.lastname } do
-    page_title user.firstname + " " + user.lastname
-    attributes_table :email, :firstname, :lastname, :previous_experience, :interests, :availability, :address, :city, :state, :zipcode, :phonenumber, :additional_comments
+  show :title =>  proc {|user| (user.organization ? user.name : user.firstname + " " + user.lastname) } do
+    attributes_table :email, :firstname, :lastname, :name, :address, :city, :state, :zip_code, :phone_number
   end
 
-  action_item :approve_org, only: :show, if: proc{ !(Users.find(params[:id]).approved) } do
+  action_item :approve_org, only: :show, if: proc{ !(User.find(params[:id]).approved) } do
     link_to 'Approve Organization', controller: "/static_pages", action: "approve_org", id: params[:id]
   end
 end

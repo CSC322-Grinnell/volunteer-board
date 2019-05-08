@@ -1,142 +1,135 @@
 <% provide(:title, "Profile | ") %>
-      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-           <% if (user_signed_in? && @user.id == current_user.id) %>
-             <a href="/users/edit.<%=@user.id%>" class="btn btn-success profile-button" role="button">Edit Profile</a>
-           <% end %>
-       <br>
-      </div>
+<% if user_signed_in? && (@user.id == current_user.id || (current_user.organization && !@user.private)) %>
+  <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+    <% if @user.id == current_user.id %>
+      <a href="/users/edit.<%=@user.id%>" class="btn btn-success profile-button" role="button">Edit Profile</a>
 
-<div class="container">
-  <h1>Profile</h1>
-  <div class="panel-group">
-    <div class="panel panel-success">
-      <div class="panel-heading"> <%= @user.organization ? @user.name : (@user.first_name + " " + @user.last_name) %> </div>
-      <div class="panel-body">
-
-<!-- ensures that either the user who's profile it is or an organization are the ones trying to view the profile -->
-<% if user_signed_in? && (@user.id == current_user.id || current_user.organization) %>
-  <p>
-    <strong>Name:</strong>
-    <%= @user.organization ? @user.name : (@user.first_name + " " + @user.last_name) %>
-  </p>
-
-  <!-- hides the information that is private from organizations if the user has marked private -->
-  <% if !@user.private || (user_signed_in? && @user.id == current_user.id)%>
-
-    <p>
-      <strong>Address:</strong>
-      <%= @user.address %>
-    </p>
-
-    <p>
-      <strong>City:</strong>
-      <%= @user.city %>
-    </p>
-
-    <p>
-      <strong>State:</strong>
-      <%= @user.state %>
-    </p>
-
-    <p>
-      <strong>Zip:</strong>
-      <%= @user.zip_code %>
-    </p>
-
-    <p>
-      <strong>Phone:</strong>
-      (<%= @user.phone_number[0,3] %>) <%= @user.phone_number[3,3] %>-<%= @user.phone_number[6,4] %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= mail_to @user.email %>
-    </p>
-
-<% if @user.organization %>
-
-    <p>
-      <strong>Mission:</strong>
-      <%= @user.mission %>
-    </p>
-
-    <p>
-      <strong>Website:</strong>
-      <%= link_to @user.website, @user.website, target: :_blank %>
-    </p>
-
-<% end %>
-
-    <p><br></p>
-
-
-  <% end %>
-
-  <!-- if this is the current user's profile displays a calendar with only event they've signed up for and a link to allow them to edit their profile -->
-  <% if (user_signed_in? && @user.id == current_user.id) || @user.organization %>
-
-  <h3><%= @user.organization ? "Events " + @user.name + " Has Created" : @user.first_name + "'s Upcoming Events" %></h3>
-
-<table>
-    <tr>
-      <th>Title</th>
-      <th class="pc-only">Description</th>
-      <th>Start time</th>
-      <th>End time</th>
-      <th class="pc-only">Number of volunteers needed</th>
-      <th>Location</th>
-      <th class="pc-only">Contact phone</th>
-      <th class="pc-only">Contact email</th>
-      <th colspan="3"></th>
-    </tr>
-
-      <tbody>
-    <% (@user.events.sort_by {|event| event.start_time}).each do |event| %>
-    <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 90.days %>
-      <tr>
-        <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
-        <td class="pc-only"><%= event.description %></td>
-        <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
-        <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
-        <td class="pc-only"><%= event.num_vols %></td>
-        <td><%= event.location %></td>
-        <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
-        <td class="pc-only">(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
-        <td class="pc-only"><%= event.contact_email %></td>
-        <td><%= link_to 'View', event %></td>
-        <!-- FIXME: Yes, this is broken, but for granularity's sake I'm not fixing it in this patch. -->
-        <% if user_signed_in? && @user.organization %>
-          <td><%= link_to 'Edit', edit_event_path(event) %></td>
-          <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
     <% end %>
-    <% end %>
-  </tbody>
-</table>
+    <br />
+  </div>
 
-    <h2>Event Calendar</h2>
-
-
-    <%= month_calendar events: @user.events do |date, events| %>
-      <%= date.strftime("%e") %>
-
-      <% events.each do |event| %>
-        <div>
-          <a href="/events/<%=event.id%>"><%= event.name %> <br />
-          <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+  <div class="container">
+    <h1>Profile</h1>
+    <div class="panel-group">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <%= @user.organization ? @user.name : (@user.first_name + " " + @user.last_name) %>
         </div>
-      <% end %>
-    <% end %>
-  <% end %>
-<% else %>
-    <p>
-      I'm sorry, this is the wrong profile,
-      Please click the button below to go to your profile
-    </p>
+        <div class="panel-body">
 
-  <% if user_signed_in? %>
-    <a class="btn btn-success home-page-button" href="/users/<%=current_user.id%>" role="button">View Profile</a>
-  <% end %>
+          <p>
+            <strong>Name:</strong>
+            <%= @user.organization ? @user.name : (@user.first_name + " " + @user.last_name) %>
+          </p>
+          
+          <p>
+            <strong>Skills:</strong>
+            <% @user.skills.each do |x| %>
+            <li><%= x.name %></li><br>
+            <% end %>
+          </p>
 
-<% end %>
+          <p>
+            <strong>Address:</strong>
+            <%= @user.address %>
+          </p>
+
+          <p>
+            <strong>City:</strong>
+            <%= @user.city %>
+          </p>
+
+          <p>
+            <strong>State:</strong>
+            <%= @user.state %>
+          </p>
+
+          <p>
+            <strong>Zip:</strong>
+            <%= @user.zip_code %>
+          </p>
+
+          <p>
+            <strong>Phone:</strong>
+            (<%= @user.phone_number[0,3] %>) <%= @user.phone_number[3,3] %>-<%= @user.phone_number[6,4] %>
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            <%= mail_to @user.email %>
+          </p>
+
+          <% if @user.organization %>
+
+            <p>
+              <strong>Mission:</strong>
+              <%= @user.mission %>
+            </p>
+
+            <p>
+              <strong>Website:</strong>
+              <%= link_to @user.website, @user.website, target: :_blank %>
+            </p>
+
+          <% end %>
+
+          <p><br></p>
+
+          <h3>Upcoming Events</h3>
+
+          <table>
+            <tr>
+              <th>Title</th>
+              <th class="pc-only">Description</th>
+              <th>Start time</th>
+              <th>End time</th>
+              <th class="pc-only">Number of volunteers needed</th>
+              <th>Location</th>
+              <th class="pc-only">Contact phone</th>
+              <th class="pc-only">Contact email</th>
+              <th colspan="3"></th>
+            </tr>
+
+            <tbody>
+              <% (@user.events.sort_by {|event| event.start_time}).each do |event| %>
+                <% if DateTime.current <= event.start_time and event.start_time <= DateTime.current + 90.days %>
+                  <tr>
+                    <td><a href="/events/<%=event.id%>"><%= event.name %></a></td>
+                    <td class="pc-only"><%= event.description %></td>
+                    <td><%= event.start_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+                    <td><%= event.end_time.strftime("%A, %B, %e, %Y, %l:%M %p") %>
+                    <td class="pc-only"><%= event.num_vols %></td>
+                    <td><%= event.location %></td>
+                    <!-- breaks the contact_phone into three pieces so that "1234567890" is displayed as (123)456-7890 -->
+                    <td class="pc-only">(<%= event.contact_phone[0,3] %>) <%= event.contact_phone[3,3] %>-<%= event.contact_phone[6,4] %></td>
+                    <td class="pc-only"><%= event.contact_email %></td>
+                    <td><%= link_to 'View', event %></td>
+                    <!-- FIXME: Yes, this is broken, but for granularity's sake I'm not fixing it in this patch. -->
+                    <% if @user.organization %>
+                      <td><%= link_to 'Edit', edit_event_path(event) %></td>
+                      <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+
+          <h2>Event Calendar</h2>
+
+          <%= month_calendar events: @user.events do |date, events| %>
+            <%= date.strftime("%e") %>
+            <% events.each do |event| %>
+              <div>
+                <a href="/events/<%=event.id%>"><%= event.name %> <br />
+                <%=event.start_time.strftime("%l:%M%p")%>-<%=event.end_time.strftime("%l:%M%p")%></a>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
+  </div>
+<% else %>
+  <p>You do not have permission to view this profile.</p>
+<% end %>

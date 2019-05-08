@@ -36,6 +36,12 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'static_pages/home'
 
+  # FIXME: This is probably not the correct way to do this. Knowing Devise,
+  # there probably isn't a correct way.
+  devise_scope :user do
+    get '/admin/users(/:id)' => 'users#show', as: 'adminorg'
+  end
+
   get '/admin/organizations/admin/organizations/:id/approve' => 'static_pages#approve_org', as: 'approve_org'
 
   root 'static_pages#home'

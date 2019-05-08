@@ -54,7 +54,6 @@ main {
 
 footer {
   background-color: $darkgrey;
-  // padding-bottom: 2%;
   padding:2%;
   color:$offwhite;
   border-top: 1px solid;
@@ -220,4 +219,9 @@ input[type="password"] {
   color:$offwhite; 
   padding-top:10px;
   font-size:20px;
+
+.close-btn, .add-btn {
+  padding: 2px 2px 5px;
+  background-color: #337ab7;
+  }
 }
