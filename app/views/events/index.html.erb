@@ -12,9 +12,12 @@
 
 <p><br></p>
 <!-- if an organization is signed in it allows for them to create a new event-->
+<div style="float: right;">
 <% if user_signed_in? and current_user.organization %>
   <a class="btn btn-success home-page-button" href="/events/new" role="button">New Event</a>
 <% end %>
+</div>
+
 
  <style>
   .hidden {
