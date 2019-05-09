@@ -82,13 +82,17 @@
 
 <% end %>
 
-  </div>
-
-  <div class="center-form width-med">
-  <div style="text-align: left;">
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
+  </div>
+  </br>
+  
+  <%= render :partial => 'layouts/skill' %>
+  <div class="field"> <font color="red">*</font>
+    <%= f.label :skills %><br />
+    <%= f.text_field :skills, :value => "" %>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#skillModal">Add Skills</button> </br></br>
   </div>
   </br>
 
